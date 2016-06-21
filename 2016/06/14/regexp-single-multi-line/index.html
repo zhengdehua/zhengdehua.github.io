@@ -1,0 +1,308 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>正则表达式的单行与多行模式 | nightwatch</title>
+  <meta name="author" content="zhengdehua">
+  
+  <meta name="description" content="引用 大头爸爸的博客
+
+在Expresso中，测试“多行模式”测试一
+    注意：这里样例文本中3eeeee后面没有回车，光标就在e的后面。匹配的结果是3eeeee，如上图的Search Results区中所示。为什么这里不能匹配1abcde和2abc？
+开启多行模式^　可以匹配字符串开头（字符串">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="正则表达式的单行与多行模式"/>
+  <meta property="og:site_name" content="nightwatch"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">nightwatch</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有的存档">
+			  <i class="fa fa-archive"></i>存档
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories"" title="所有的分类">
+			  <i class="fa fa-folder"></i>分类
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="全部标签">
+			  <i class="fa fa-tags"></i>标签
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="个人信息">
+			  <i class="fa fa-user"></i>关于我
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/focussites" title="收集有价值站点">
+			  <i class="fa fa-external-link-square"></i>关注站点
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 正则表达式的单行与多行模式</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <blockquote>
+<p>引用 <a href="http://blog.csdn.net/zm2714/article/details/7925264" target="_blank" rel="external">大头爸爸的博客</a></p>
+</blockquote>
+<h4 id="在Expresso中，测试“多行模式”"><a href="#在Expresso中，测试“多行模式”" class="headerlink" title="在Expresso中，测试“多行模式”"></a>在Expresso中，测试“多行模式”</h4><h4 id="测试一"><a href="#测试一" class="headerlink" title="测试一"></a>测试一</h4><p><img src="/resources/image/png/1346309684_9606.png" alt=""></p>
+<p><span class="text-danger"><br>    注意：这里样例文本中3eeeee后面没有回车，光标就在e的后面。匹配的结果是3eeeee，如上图的Search Results区中所示。<br>为什么这里不能匹配1abcde和2abc？<br></span></p>
+<p><strong>开启多行模式</strong><br>^　可以匹配字符串开头（字符串的开始位置），也可以匹配行的开头（即换行符\n之后的位置）<br>$　可以匹配字符串结尾（字符串的结束位置）, 也可以匹配行的结尾（即换行符\n之前的位置）<br><strong>关闭多行模式</strong><br>^　只能匹配字符串开头<br>$　只能匹配字符串结尾</p>
+<p><span class="text-primary"><br>    知识点：\r为回车符，\n 为换行符。在windows中，我们平常说的换行，实质上是先回车，后换行；下面有更详细解说<br></span></p>
+<p><img src="/resources/image/png/1346309759_9281.png" alt=""></p>
+<p>如上图所示：\r 匹配 [CR]、\n 匹配[LF]   &lt;——  CR为回车  LF为换行<br>字符串多个段落，比如<br>ab<br>cd<br>e<br>在windows操作系统中其实是：ab[CR][LF]cd[CR][LF]e<br>在windows中，文本中的回车换行储存为： 0D 0A。也就是说，先储存的是“回车\r” <code>&lt;CR&gt;</code>，再储存的是“换行\n” <code>&lt;LF&gt;</code><br>CR用符号’\r’表示, ASCII代码是13, 十六进制为0x0D;<br>LF用符号’\n’表示, ASCII代码是10, 十六进制为0x0A;<br>正则表达式：(?m)^(\d\w+)(\s*)$</p>
+<p>样例文本<br><img src="/resources/image/jpg/1346309867_1092.jpg" alt=""></p>
+<p>匹配结果<br><img src="/resources/image/jpg/1346309891_5562.jpg" alt=""></p>
+<p><span class="text-info"><br>    在Expresso、PHP中，启用多行模式，”$” 匹配字符串结束位置或者 “\n” 之前的位置。<br></span></p>
+<blockquote>
+<p>单行模式<br>开启单行模式：　.　可以匹配任意字符(包括换行符)<br>关闭单行模式：　.　只有匹配 非换行 的其它任意字符（.可匹配\r，即除了不匹配\n外的所有字符。）<br>多行模式 影响 ^ 和 $ 的匹配<br>单行模式 影响 . 的匹配<br>多行模式中必定包含 ^ 或 $ 或同时包含，否则即使加了 m，也没有任何意义<br>单行模式和多行模式是八杆子打不着的两个概念，只是因为正则发展的历史原因，造就了这样两个MS互斥的概念<br>单行模式影响的是小数点“.”的匹配范围<br>多行模式影响的是“^”和“$”的匹配范围<br>至于后面几个概念，全局匹配，多行模式和贪婪模式之间也没有什么必然联系<br>全局匹配关闭，只匹配首次成功匹配项，全局匹配开启，匹配所有成功匹配项<br>全局模式是一些脚本语言中才有的概念<br>在进行匹配时，关闭全局模式，类似于.NET中的Match方法，开启全局模式，类似于.NET中的Matches方法<br>在进行替换时，关闭全局模式，类似于Java中的replaceFirst，开启全局模式，类似于Java中的replaceAll<br>（在进行匹配时，关闭全局模式，类似于PHP中的preg<em> match函数；开启全局模式，类似于PHP中的preg</em> match_ all函数）</p>
+</blockquote>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2016/06/14/mysql-common/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2016/06/14/hibernate-pk-increment/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2016/06/14/regexp-single-multi-line/" data-title="正则表达式的单行与多行模式" data-url="http://zhengdehua.github.io/2016/06/14/regexp-single-multi-line/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2016-06-14 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Technology/">Technology<span>20</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/cite/">cite<span>13</span></a></li> <li><a href="/tags/regexp/">regexp<span>4</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'zhengdehua' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 zhengdehua
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

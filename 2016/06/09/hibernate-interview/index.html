@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>14个常见的hibernate面试问答 | nightwatch</title>
+  <meta name="author" content="zhengdehua">
+  
+  <meta name="description" content="hibernate 是 Java技术栈中最受欢迎的对象关系影射（ORM）解决方案。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="14个常见的hibernate面试问答"/>
+  <meta property="og:site_name" content="nightwatch"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">nightwatch</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有的存档">
+			  <i class="fa fa-archive"></i>存档
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories"" title="所有的分类">
+			  <i class="fa fa-folder"></i>分类
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="全部标签">
+			  <i class="fa fa-tags"></i>标签
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="个人信息">
+			  <i class="fa fa-user"></i>关于我
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/focussites" title="收集有价值站点">
+			  <i class="fa fa-external-link-square"></i>关注站点
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 14个常见的hibernate面试问答</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>hibernate 是 Java技术栈中最受欢迎的对象关系影射（ORM）解决方案。</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h2 id="问题列表"><a href="#问题列表" class="headerlink" title="问题列表"></a>问题列表</h2><p><a href="#answer-1">1. Hibernate中get和load有什么不同之处?</a><br><a href="#answer-2">2. Hibernate中save、persist和saveOrUpdate这三个方法的不同之处？</a><br><a href="#answer-3">3. Hibernate中的命名SQL查询指的是什么?</a><br><a href="#answer-4">4. Hibernate中的SessionFactory有什么作用? SessionFactory是线程安全的吗？</a><br><a href="#answer-5">5. Hibernate中的Session指的是什么? 可否将单个的Session在多个线程间进行共享？</a><br><a href="#answer-6">6. hibernate中sorted collection和ordered collection有什么不同?</a><br><a href="#answer-7">7. Hibernate中transient、persistent、detached对象三者之间有什么区别？</a><br><a href="#answer-8">8. Hibernate中Session的lock()方法有什么作用?</a><br><a href="#answer-9">9. Hibernate中二级缓存指的是什么？</a><br><a href="#answer-10">10. Hibernate中的查询缓存指的是什么？</a><br><a href="#answer-11">11. 为什么在Hibernate的实体类中要提供一个无参数的构造器这一点非常重要？</a><br><a href="#answer-12">12. 可不可以将Hibernate的实体类定义为final类?</a><br><a href="#answer-13">13. Hibernate pessimistic locking</a><br><a href="#answer-14">14. 6 条提高 JDBC 性能的建议</a></p>
+<p></p><h3 id="answer-1"></h3><p></p>
+<h3 id="1-Hibernate中get和load有什么不同之处"><a href="#1-Hibernate中get和load有什么不同之处" class="headerlink" title="1. Hibernate中get和load有什么不同之处?"></a>1. Hibernate中get和load有什么不同之处?</h3><blockquote>
+<p>参考 <a href="http://www.cnblogs.com/binjoo/articles/1621254.html" target="_blank" rel="external">http://www.cnblogs.com/binjoo/articles/1621254.html</a></p>
+</blockquote>
+<p>get和load方式是根据id取得一个记录<br>下边详细说一下get和load的不同，因为有些时候为了对比也会把find加进来。</p>
+<p>1.从返回结果上对比：<br>load方式检索不到的话会抛出org.hibernate.ObjectNotFoundException异常<br>get方法检索不到的话会返回null</p>
+<p>2.从检索执行机制上对比： get方法和find方法都是直接从数据库中检索 而load方法的执行则比较复杂首先查找session的persistent Context中是否有缓存，如果有则直接返回 如果没有则判断是否是lazy，如果不是直接访问数据库检索，查到记录返回，查不到抛出异常 如果是lazy则需要建立代理对象，对象的initialized属性为false，target属性为null 在访问获得的代理对象的属性时,检索数据库，如果找到记录则把该记录的对象复制到代理对象的target上，并将initialized=true，如果找不到就抛出异常。</p>
+<p>3.根本区别说明<br>如果你使用load方法，hibernate认为该id对应的对象（数据库记录）在数据库中是一定存在的，所以它可以放心的使用，它可以放心的使用代理来 延迟加载该对象。在用到对象中的其他属性数据时才查询数据库，但是万一数据库中不存在该记录，那没办法，只能抛异常。所说的load方法抛异常是指在使用 该对象的数据时，数据库中不存在该数据时抛异常，而不是在创建这个对象时(注意：这就是由于“延迟加载”在作怪)。</p>
+<p>由于session中的缓存对于hibernate来说是个相当廉价的资源，所以在load时会先查一下session缓存看看该id对应的对象是否存在，不存在则创建代理。所以如果你知道该id在数据库中一定有对应记录存在就可以使用load方法来实现延迟加载。</p>
+<p>对于get方法，hibernate会确认一下该id对应的数据是否存在，首先在session缓存中查找，然后在二级缓存中查找，还没有就查数据库，数据库中没有就返回null。</p>
+<p>对于load和get方法返回类型：虽然好多书中都这么说：“get()永远只返回实体类”，但实际上这是不正确的，get方法如果在 session缓存中找到了该id对应的对象，如果刚好该对象前面是被代理过的，如被load方法使用过，或者被其他关联对象延迟加载过，那么返回的还是 原先的代理对象，而不是实体类对象，如果该代理对象还没有加载实体数据（就是id以外的其他属性数据），那么它会查询二级缓存或者数据库来加载数据，但是 返回的还是代理对象，只不过已经加载了实体数据。</p>
+<p>get方法首先查询session缓存，没有的话查询二级缓存，最后查询数据库；反而load方法创建时首先查询session缓存，没有就创建代理，实际使用数据时才查询二级缓存和数据库。</p>
+<p>4.简单总结</p>
+<p>总之对于get和load的根本区别，一句话，hibernate对于load方法认为该数据在数据库中一定存在，可以放心的使用代理来延迟加载，如果在使用过程中发现了问题，只能抛异常；而对于get方法，hibernate一定要获取到真实的数据，否则返回null。</p>
+<p></p><h3 id="answer-2"></h3><p></p>
+<h3 id="2-Hibernate中save、persist和saveOrUpdate这三个方法的不同之处？"><a href="#2-Hibernate中save、persist和saveOrUpdate这三个方法的不同之处？" class="headerlink" title="2. Hibernate中save、persist和saveOrUpdate这三个方法的不同之处？"></a>2. Hibernate中save、persist和saveOrUpdate这三个方法的不同之处？</h3><ol>
+<li><p>Hibernate 中 save 和 saveOrUpdate 的区别<br>两者的主要区别是 save 会生成新的对象标识并往数据库插入一条记录，而 saveOrUpdate 根据对象是否存在于数据库中选择插入或者更新。很明显用的时候 saveOrUpdate 更加灵活，它基于 INSERT 和 UPDATE SQL 语句来执行。 save 通过 INSERT SQL 来执行，生成新的标识并返回 Serializable identifier.</p>
+</li>
+<li><p>Hibernate 中 save 和 persist 的区别</p>
+</li>
+</ol>
+<ul>
+<li>save 的返回类型是 Serializable object, 而 persist 返回类型是 void.</li>
+<li>save 和 persist 都会使一个 transient 实例持久化，但是，persist 不保证会立即给持久化的实例分配 identifier value, 这样的赋值可能发生在 flush 的时候。</li>
+<li>如果在 transaction boundaries 之外，persist 不会执行 INSERT 语句，但是 save 会立即执行，无论是否在 transaction 中。</li>
+<li>因为对 transaction 关系的不同，persist 会通过一个 extended Session context 保留长期的会话，save 则不会。</li>
+</ul>
+<p></p><h3 id="answer-3"></h3><p></p>
+<h3 id="3-Hibernate中的命名SQL查询指的是什么"><a href="#3-Hibernate中的命名SQL查询指的是什么" class="headerlink" title="3. Hibernate中的命名SQL查询指的是什么?"></a>3. Hibernate中的命名SQL查询指的是什么?</h3><blockquote>
+<p>参考 <a href="http://www.journaldev.com/3451/hibernate-named-query-example-tutorial-namedquery-annotation-join-hql-native-sql" target="_blank" rel="external">http://www.journaldev.com/3451/hibernate-named-query-example-tutorial-namedquery-annotation-join-hql-native-sql</a></p>
+</blockquote>
+<ol>
+<li><p>使用场景<br>在 Hibernate 项目中，如果我们要使用 HQL 或者 SQL 这样的 QUERY, 很多时候是在代码中写的，这样如果有很多 query 的话，会看起来很乱。 Hibernate 允许我们使用 Named Query 来定义这些 QUERY, 并且可以在任何地方使用它们。</p>
+</li>
+<li><p>使用方式<br>Hibernate Named Queries 可以在 Hibernate mapping files 中定义，也可以用 JPA 注解 <code>@NamedQuery</code> 和 <code>@NamedNativeQuery</code>.</p>
+</li>
+</ol>
+<p>下面我们建立一个简单的工程，使用注解的方式作为 hibernate mapping，然后在 mapping files 和 entity bean 类中分别创建 named queries.<br>最终的项目结构如下图。</p>
+<p><img src="/resources/image/png/Hibernate-Named-Query-Example.png" alt="" title="Hibernate-Named-Query-Example"></p>
+<p><strong>Hibernate Configuration XML</strong></p>
+<p>hibernate.cfg.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">  &lt;!DOCTYPE hibernate-configuration SYSTEM &quot;http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd&quot;&gt;</span><br><span class="line">&lt;hibernate-configuration&gt;</span><br><span class="line">    &lt;session-factory&gt;</span><br><span class="line">        &lt;property name=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;hibernate.connection.password&quot;&gt;pankaj123&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql://localhost/TestDB&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;hibernate.connection.username&quot;&gt;pankaj&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;</span><br><span class="line"> </span><br><span class="line">        &lt;property name=&quot;hibernate.current_session_context_class&quot;&gt;thread&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;hibernate.show_sql&quot;&gt;true&lt;/property&gt;</span><br><span class="line"> </span><br><span class="line">        &lt;mapping class=&quot;com.journaldev.hibernate.model.Employee&quot; /&gt;</span><br><span class="line">        &lt;mapping class=&quot;com.journaldev.hibernate.model.Address&quot; /&gt;</span><br><span class="line">        &lt;mapping resource=&quot;named-queries.hbm.xml&quot; /&gt;</span><br><span class="line">    &lt;/session-factory&gt;</span><br><span class="line">&lt;/hibernate-configuration&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Hibernate Named Query XML</strong></p>
+<p>有一个 mapping file，包括了 HQL named queries 和 Native SQL named queries.</p>
+<p>named-queries.hbm.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;</span><br><span class="line">    &quot;http://hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;</span><br><span class="line">     </span><br><span class="line">&lt;hibernate-mapping&gt;</span><br><span class="line">    &lt;query name=&quot;HQL_GET_ALL_EMPLOYEE&quot;&gt;from Employee&lt;/query&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;query name=&quot;HQL_GET_EMPLOYEE_BY_ID&quot;&gt;</span><br><span class="line">        &lt;![CDATA[from Employee where emp_id = :id]]&gt;</span><br><span class="line">    &lt;/query&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;query name=&quot;HQL_GET_EMPLOYEE_BY_SALARY&quot;&gt;</span><br><span class="line">        &lt;![CDATA[from Employee where emp_salary &gt; :salary]]&gt;</span><br><span class="line">    &lt;/query&gt;</span><br><span class="line">     </span><br><span class="line">    &lt;sql-query name=&quot;SQL_GET_ALL_EMPLOYEE&quot;&gt;</span><br><span class="line">        &lt;![CDATA[select emp_id, emp_name, emp_salary from Employee]]&gt;</span><br><span class="line">    &lt;/sql-query&gt;</span><br><span class="line">     </span><br><span class="line">    &lt;sql-query name=&quot;SQL_GET_ALL_EMP_ADDRESS&quot;&gt;</span><br><span class="line">        &lt;![CDATA[select &#123;e.*&#125;, &#123;a.*&#125; from Employee e join Address a ON e.emp_id=a.emp_id]]&gt;</span><br><span class="line">        &lt;return alias=&quot;e&quot; class=&quot;com.journaldev.hibernate.model.Employee&quot; /&gt;</span><br><span class="line">        &lt;return-join alias=&quot;a&quot; property=&quot;e.address&quot;&gt;&lt;/return-join&gt;</span><br><span class="line">    &lt;/sql-query&gt;</span><br><span class="line">&lt;/hibernate-mapping&gt;</span><br></pre></td></tr></table></figure></p>
+<p><code>query</code> 元素用于 HQL named queries，<code>sql-query</code> 元素用于 native sql named queries. <code>return</code> 元素用于声明实体的结果集匹配。<br><code>return-join</code> 在多表查询的情况下匹配结果集。 <code>CDATA</code> 是为了让我们的 queries 作为 data 处理，忽略对 <code>&lt;and&gt;、&amp;</code> 这些字符的处理。</p>
+<p><strong>Hibernate Named Query Annotation</strong></p>
+<p>我们有两个 model 类, <code>Employee</code> 和 <code>Address</code>. 我们在 <code>Address</code> 中定义 named queries 如下.</p>
+<p>Address.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">package com.journaldev.hibernate.model;</span><br><span class="line"> </span><br><span class="line">import javax.persistence.Column;</span><br><span class="line">import javax.persistence.Entity;</span><br><span class="line">import javax.persistence.GeneratedValue;</span><br><span class="line">import javax.persistence.Id;</span><br><span class="line">import javax.persistence.NamedNativeQueries;</span><br><span class="line">import javax.persistence.NamedNativeQuery;</span><br><span class="line">import javax.persistence.NamedQueries;</span><br><span class="line">import javax.persistence.NamedQuery;</span><br><span class="line">import javax.persistence.OneToOne;</span><br><span class="line">import javax.persistence.PrimaryKeyJoinColumn;</span><br><span class="line">import javax.persistence.Table;</span><br><span class="line"> </span><br><span class="line">import org.hibernate.annotations.GenericGenerator;</span><br><span class="line">import org.hibernate.annotations.Parameter;</span><br><span class="line"> </span><br><span class="line">@Entity</span><br><span class="line">@Table(name = &quot;ADDRESS&quot;)</span><br><span class="line">@NamedQueries(&#123; @NamedQuery(name = &quot;@HQL_GET_ALL_ADDRESS&quot;, </span><br><span class="line">            query = &quot;from Address&quot;) &#125;)</span><br><span class="line">@NamedNativeQueries(&#123; @NamedNativeQuery(name = &quot;@SQL_GET_ALL_ADDRESS&quot;, </span><br><span class="line">            query = &quot;select emp_id, address_line1, city, zipcode from Address&quot;) &#125;)</span><br><span class="line">public class Address &#123;</span><br><span class="line"> </span><br><span class="line">    @Id</span><br><span class="line">    @Column(name = &quot;emp_id&quot;, unique = true, nullable = false)</span><br><span class="line">    @GeneratedValue(generator = &quot;gen&quot;)</span><br><span class="line">    @GenericGenerator(name = &quot;gen&quot;, strategy = &quot;foreign&quot;, parameters = &#123; @Parameter(name = &quot;property&quot;, value = &quot;employee&quot;) &#125;)</span><br><span class="line">    private long id;</span><br><span class="line"> </span><br><span class="line">    @Column(name = &quot;address_line1&quot;)</span><br><span class="line">    private String addressLine1;</span><br><span class="line"> </span><br><span class="line">    @Column(name = &quot;zipcode&quot;)</span><br><span class="line">    private String zipcode;</span><br><span class="line"> </span><br><span class="line">    @Column(name = &quot;city&quot;)</span><br><span class="line">    private String city;</span><br><span class="line"> </span><br><span class="line">    @OneToOne</span><br><span class="line">    @PrimaryKeyJoinColumn</span><br><span class="line">    private Employee employee;</span><br><span class="line"> </span><br><span class="line">    public long getId() &#123;</span><br><span class="line">        return id;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setId(long id) &#123;</span><br><span class="line">        this.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public String getAddressLine1() &#123;</span><br><span class="line">        return addressLine1;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setAddressLine1(String addressLine1) &#123;</span><br><span class="line">        this.addressLine1 = addressLine1;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public String getZipcode() &#123;</span><br><span class="line">        return zipcode;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setZipcode(String zipcode) &#123;</span><br><span class="line">        this.zipcode = zipcode;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public String getCity() &#123;</span><br><span class="line">        return city;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setCity(String city) &#123;</span><br><span class="line">        this.city = city;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public Employee getEmployee() &#123;</span><br><span class="line">        return employee;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setEmployee(Employee employee) &#123;</span><br><span class="line">        this.employee = employee;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;AddressLine1= &quot; + addressLine1 + &quot;, City=&quot; + city</span><br><span class="line">                + &quot;, Zipcode=&quot; + zipcode;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>测试程序</strong></p>
+<p>HibernateNamedQueryExample.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">package com.journaldev.hibernate.main;</span><br><span class="line"> </span><br><span class="line">import java.util.List;</span><br><span class="line"> </span><br><span class="line">import org.hibernate.Query;</span><br><span class="line">import org.hibernate.Session;</span><br><span class="line">import org.hibernate.SessionFactory;</span><br><span class="line">import org.hibernate.Transaction;</span><br><span class="line"> </span><br><span class="line">import com.journaldev.hibernate.model.Address;</span><br><span class="line">import com.journaldev.hibernate.model.Employee;</span><br><span class="line">import com.journaldev.hibernate.util.HibernateUtil;</span><br><span class="line"> </span><br><span class="line">public class HibernateNamedQueryExample &#123;</span><br><span class="line"> </span><br><span class="line">    @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line"> </span><br><span class="line">        // Prep work</span><br><span class="line">        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();</span><br><span class="line">        Session session = sessionFactory.getCurrentSession();</span><br><span class="line">        Transaction tx = session.beginTransaction();</span><br><span class="line"> </span><br><span class="line">        //HQL Named Query Example</span><br><span class="line">        Query query = session.getNamedQuery(&quot;HQL_GET_ALL_EMPLOYEE&quot;);</span><br><span class="line">        List&lt;Employee&gt; empList = query.list();</span><br><span class="line">        for (Employee emp : empList) &#123;</span><br><span class="line">            System.out.println(&quot;List of Employees::&quot; + emp.getId() + &quot;,&quot;</span><br><span class="line">                    + emp.getAddress().getCity());</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        query = session.getNamedQuery(&quot;HQL_GET_EMPLOYEE_BY_ID&quot;);</span><br><span class="line">        query.setInteger(&quot;id&quot;, 2);</span><br><span class="line">        Employee emp = (Employee) query.uniqueResult();</span><br><span class="line">        System.out.println(&quot;Employee Name=&quot; + emp.getName() + &quot;, City=&quot;</span><br><span class="line">                + emp.getAddress().getCity());</span><br><span class="line"> </span><br><span class="line">        query = session.getNamedQuery(&quot;HQL_GET_EMPLOYEE_BY_SALARY&quot;);</span><br><span class="line">        query.setInteger(&quot;salary&quot;, 200);</span><br><span class="line">        empList = query.list();</span><br><span class="line">        for (Employee emp1 : empList) &#123;</span><br><span class="line">            System.out.println(&quot;List of Employees::&quot; + emp1.getId() + &quot;,&quot;</span><br><span class="line">                    + emp1.getSalary());</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        query = session.getNamedQuery(&quot;@HQL_GET_ALL_ADDRESS&quot;);</span><br><span class="line">        List&lt;Address&gt; addressList = query.list();</span><br><span class="line">        for (Address addr : addressList) &#123;</span><br><span class="line">            System.out.println(&quot;List of Address::&quot; + addr.getId() + &quot;::&quot;</span><br><span class="line">                    + addr.getZipcode() + &quot;::&quot; + addr.getEmployee().getName());</span><br><span class="line">        &#125;</span><br><span class="line">         </span><br><span class="line">        //Native SQL Named Query Example</span><br><span class="line">        query = session.getNamedQuery(&quot;@SQL_GET_ALL_ADDRESS&quot;);</span><br><span class="line">        List&lt;Object[]&gt; addressObjArray = query.list();</span><br><span class="line">        for(Object[] row : addressObjArray)&#123;</span><br><span class="line">            for(Object obj : row)&#123;</span><br><span class="line">                System.out.print(obj + &quot;::&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(&quot;\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">         </span><br><span class="line">        query = session.getNamedQuery(&quot;SQL_GET_ALL_EMP_ADDRESS&quot;);</span><br><span class="line">        addressObjArray = query.list();</span><br><span class="line">        for(Object[] row : addressObjArray)&#123;</span><br><span class="line">            Employee e = (Employee) row[0];</span><br><span class="line">            System.out.println(&quot;Employee Info::&quot;+e);</span><br><span class="line">            Address a = (Address) row[1];</span><br><span class="line">            System.out.println(&quot;Address Info::&quot;+a);</span><br><span class="line">        &#125;</span><br><span class="line">        // rolling back to save the test data</span><br><span class="line">        tx.commit();</span><br><span class="line"> </span><br><span class="line">        // closing hibernate resources</span><br><span class="line">        sessionFactory.close();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Hibernate Named Query 的4点总结</strong></p>
+<ul>
+<li>帮助我们将 queries 与代码分隔开。</li>
+<li>当 hibernate session factory 创建时，会对 named query 做语法检查，因此，有语法错误，应用会启动失败。</li>
+<li>named query 是全局的，可以在应用的任何地方使用。</li>
+<li>缺点是很难调试，因为需要知道它定义的地方。</li>
+</ul>
+<blockquote>
+<p>上述程序的 sample，<a href="/downloads/code/HibernateNamedQueryExamples.zip">HibernateNamedQueryExamples.zip</a></p>
+</blockquote>
+<p></p><h3 id="answer-4"></h3><p></p>
+<h3 id="4-Hibernate中的SessionFactory有什么作用-SessionFactory是线程安全的吗？"><a href="#4-Hibernate中的SessionFactory有什么作用-SessionFactory是线程安全的吗？" class="headerlink" title="4. Hibernate中的SessionFactory有什么作用? SessionFactory是线程安全的吗？"></a>4. Hibernate中的SessionFactory有什么作用? SessionFactory是线程安全的吗？</h3><p>这也是Hibernate框架的常见面试问题。顾名思义，SessionFactory就是一个用于创建Hibernate的Session对象的工厂。SessionFactory通常是在应用启动时创建好的，应用程序中的代码用它来获得Session对象。作为一个单个的数据存储，它也是 线程安全的，所以多个线程可同时使用同一个SessionFactory。Java JEE应用一般只有一个SessionFactory，服务于客户请求的各线程都通过这个工厂来获得Hibernate的Session实例，这也是为什么SessionFactory接口的实现必须是线程安全的原因。还有，SessionFactory的内部状态包含着同对象关系影射有关的所有元数据，它是 不可变的，一旦创建好后就不能对其进行修改了。</p>
+<p></p><h3 id="answer-5"></h3><p></p>
+<h3 id="5-Hibernate中的Session指的是什么-可否将单个的Session在多个线程间进行共享？"><a href="#5-Hibernate中的Session指的是什么-可否将单个的Session在多个线程间进行共享？" class="headerlink" title="5. Hibernate中的Session指的是什么? 可否将单个的Session在多个线程间进行共享？"></a>5. Hibernate中的Session指的是什么? 可否将单个的Session在多个线程间进行共享？</h3><p>前面的问题问完之后，通常就会接着再问这两个问题。问完SessionFactory的问题后就该轮到Session了。Session代表着Hibernate所做的一小部分工作，它负责维护者同数据库的链接而且 不是线程安全的，也就是说，Hibernage中的Session不能在多个线程间进行共享。虽然Session会以主动滞后的方式获得数据库连接，但是Session最好还是在用完之后立即将其关闭。</p>
+<p></p><h3 id="answer-6"></h3><p></p>
+<h3 id="6-hibernate中sorted-collection和ordered-collection有什么不同"><a href="#6-hibernate中sorted-collection和ordered-collection有什么不同" class="headerlink" title="6. hibernate中sorted collection和ordered collection有什么不同?"></a>6. hibernate中sorted collection和ordered collection有什么不同?</h3><p>这个是你会碰到的所有Hibernate面试问题中比较容易的问题。sorted collection是通过使用 Java的Comparator在内存中进行排序的，ordered collection中的排序用的是数据库的order by子句。对于比较大的数据集，为了避免在内存中对它们进行排序而出现 Java中的OutOfMemoryError，最好使用ordered collection。</p>
+<p></p><h3 id="answer-7"></h3><p></p>
+<h3 id="7-Hibernate中transient、persistent、detached对象三者之间有什么区别？"><a href="#7-Hibernate中transient、persistent、detached对象三者之间有什么区别？" class="headerlink" title="7. Hibernate中transient、persistent、detached对象三者之间有什么区别？"></a>7. Hibernate中transient、persistent、detached对象三者之间有什么区别？</h3><p>在Hibernate中，对象具有三种状态：transient、persistent和detached。同Hibernate的session有关联的对象是persistent对象。对这种对象进行的所有修改都会按照事先设定的刷新策略，反映到数据库之中，也即，可以在对象的任何一个属性发生改变时自动刷新，也可以通过调用Session.flush()方法显式地进行刷新。如果一个对象原来同Session有关联关系，但当下却没有关联关系了，这样的对象就是detached的对象。你可以通过调用任意一个session的update()或者saveOrUpdate()方法，重新将该detached对象同相应的seesion建立关联关系。Transient对象指的是新建的持久化类的实例，它还从未同Hibernate的任何Session有过关联关系。同样的，你可以调用persist()或者save()方法，将transient对象变成persistent对象。可要记住，这里所说的transient指的可不是 Java中的transient关键字，二者风马牛不相及。</p>
+<p></p><h3 id="answer-8"></h3><p></p>
+<h3 id="8-Hibernate中Session的lock-方法有什么作用"><a href="#8-Hibernate中Session的lock-方法有什么作用" class="headerlink" title="8. Hibernate中Session的lock()方法有什么作用?"></a>8. Hibernate中Session的lock()方法有什么作用?</h3><blockquote>
+<p>参考 <a href="http://www.intertech.com/Blog/hibernate-lock-to-reattach-detached-objects/" target="_blank" rel="external">http://www.intertech.com/Blog/hibernate-lock-to-reattach-detached-objects/</a></p>
+<p>Hibernate 提供 <a href="#answer-13">pessimistic locking</a> 选项来做并发控制。 Hibernate 的 pessimistic lock 实际上是底层数据库的功能。Hibernate 不会真的锁内存中的对象。<br>Hibernate 通过以下的操作请求数据库的锁:</p>
+<ul>
+<li>session.get(classType, objectId, lockOptions)</li>
+<li>session.load(classType, objectId, lockOptions)</li>
+<li>session.refresh(objectReference, lockOptions)</li>
+<li>session.buildLockRequest(lockOptions).lock(objectRef)<ul>
+<li>这是替代了现在已经禁用的 session.lock(objectRef, lockMode) 操作</li>
+</ul>
+</li>
+<li>调用用适当的 setLockOptions(lockOptions) 来执行 query</li>
+<li>调用用适当的 setLockOptions(lockOptions) 来执行 criteria </li>
+</ul>
+</blockquote>
+<p><strong>用 lock() 将游离态对象变成持久态对象</strong><br>lock() 方法在考虑 pessimistic 操作时很重要，但它还有另外一个鲜为人知的用途。 lock() 方法和 LockOptions.NONE 能将一个 detached 对象关联到一个 session 上，并且把它加进 persistence context. 重要的是，它不用像 update() 或 saveOrUpdate() 一样需要执行数据库的 update 操作。 用 LockOptions.NONE, 它不必获取数据库锁，甚至也不用进行一次对数据库的 version check. 重要的是，在调用 lock() with LockOptions.NONE 之前，detached 对象已经改变了，可是不会同步到数据库。所以，你得知道在 persistence context 之外对 detached 对象仅仅调用 lock() 方法是不会有变化的。</p>
+<p></p><h3 id="answer-9"></h3><p></p>
+<h3 id="9-Hibernate中二级缓存指的是什么？"><a href="#9-Hibernate中二级缓存指的是什么？" class="headerlink" title="9. Hibernate中二级缓存指的是什么？"></a>9. Hibernate中二级缓存指的是什么？</h3><p>这是同Hibernate的缓存机制相关的第一个面试问题，不出意外后面还会有更多这方面的问题。二级缓存是在SessionFactory这个级别维护的缓存，它能够通过节省几番数据库调用往返来提高性能。还有一点值得注意，二级缓存是针对整个应用而不是某个特定的session的。</p>
+<p></p><h3 id="answer-10"></h3><p></p>
+<h3 id="10-Hibernate中的查询缓存指的是什么？"><a href="#10-Hibernate中的查询缓存指的是什么？" class="headerlink" title="10. Hibernate中的查询缓存指的是什么？"></a>10. Hibernate中的查询缓存指的是什么？</h3><p>查询缓存实际上保存的是sql查询的结果，这样再进行相同的sql查询就可以之间从缓存中拿到结果了。为了改善性能，查询缓存可以同二级缓存一起来使用。Hibernate支持用多种不同的开源缓存方案，比如EhCache，来实现查询缓存。</p>
+<p></p><h3 id="answer-11"></h3><p></p>
+<h3 id="11-为什么在Hibernate的实体类中要提供一个无参数的构造器这一点非常重要？"><a href="#11-为什么在Hibernate的实体类中要提供一个无参数的构造器这一点非常重要？" class="headerlink" title="11. 为什么在Hibernate的实体类中要提供一个无参数的构造器这一点非常重要？"></a>11. 为什么在Hibernate的实体类中要提供一个无参数的构造器这一点非常重要？</h3><p>每个Hibernate实体类必须包含一个 无参数的构造器, 这是因为Hibernate框架要使用Reflection API，通过调用Class.newInstance()来创建这些实体类的实例。如果在实体类中找不到无参数的构造器，这个方法就会抛出一个InstantiationException异常。</p>
+<p></p><h3 id="answer-12"></h3><p></p>
+<h3 id="12-可不可以将Hibernate的实体类定义为final类"><a href="#12-可不可以将Hibernate的实体类定义为final类" class="headerlink" title="12. 可不可以将Hibernate的实体类定义为final类?"></a>12. 可不可以将Hibernate的实体类定义为final类?</h3><p>是的，你可以将Hibernate的实体类定义为final类，但这种做法并不好。因为Hibernate会使用代理模式在延迟关联的情况下提高性能，如果你把实体类定义成final类之后，因为 Java不允许对final类进行扩展，所以Hibernate就无法再使用代理了，如此一来就限制了使用可以提升性能的手段。不过，如果你的持久化类实现了一个接口而且在该接口中声明了所有定义于实体类中的所有public的方法轮到话，你就能够避免出现前面所说的不利后果。</p>
+<p></p><h3 id="answer-13"></h3><p></p>
+<h3 id="13-Hibernate-pessimistic-locking"><a href="#13-Hibernate-pessimistic-locking" class="headerlink" title="13. Hibernate pessimistic locking"></a>13. Hibernate pessimistic locking</h3><p>一般不用太担心锁的策略问题，通常在指定了 JDBC 连接的 isolation level 后就可以放手去工作了。但是，部分高级人员希望在开始一个新 transaction 前拿到 exlclusive pessimistic locks 或者 重新获取锁。</p>
+<p>Hibernate 使用数据库的锁机制，但是不会在内存中 lock objects.</p>
+<p>Hibernate 的 LockMode 类定义了不同的 lock level, 如下：</p>
+<ul>
+<li>LockMode.WRITE 在 Hibernate update 或 insert 时自动获取。</li>
+<li>LockMode.UPGRADE 可以在 explicit user request 使用 SELECT …… FOR UPDATE (数据库支持该语法情况下) 时获取。</li>
+<li>LockMode.UPGRADE_NOWAIT 可以在 explicit user request 使用 SELECT …… FOR UPDATE NOWAIT (oracle 数据库支持) 时获取。</li>
+<li>LockMode.READ 在 Hibernate 读取数据 (要求 Repeatable Read 或者 Serializable 的隔离级别) 时自动获取，也可以被 explicit user request 重复获取。</li>
+<li>LockMode.NONE 表示空锁，在一个 transaction 结束后所有对象会回到这个锁，对象通过调用 update() 或者 saveOrUpdate() 关联 session 也是从这个锁开始的。</li>
+</ul>
+<p>上文中的 “explicit user request” 是指下面这些情形的一种:</p>
+<ul>
+<li>A call to Session.load(), specifying a LockMode.</li>
+<li>A call to Session.lock().</li>
+<li>A call to Query.setLockMode().</li>
+</ul>
+<p>如果 Session.load() 在 UPGRADE 或者 UPGRADE_NOWAIT 锁下被调用，并且请求的对象还没有被 session 加载，那这个对象是用 SELECT …… FOR UPDATE 加载的。如果 load() 多次加载一个已经在 less restrictive lock 下加载的对象，hibernate 会对该对象调用 lock().</p>
+<p>如果指定的 lock mode 是 READ, UPGRADE or UPGRADE_NOWAIT, Session.lock() 会进行一个 version number check. 在 UPGRADE 或 UPGRADE_NOWAIT 情况下，会用 SELECT …… FOR UPDATE.</p>
+<p>如果数据库不支持请求的锁，Hibernate 会用一个适当的 mode 代替，而不是抛出异常，这是为了确保应用的可移植性。</p>
+<p></p><h3 id="answer-14"></h3><p></p>
+<h3 id="14-6-条提高-JDBC-性能的建议"><a href="#14-6-条提高-JDBC-性能的建议" class="headerlink" title="14. 6 条提高 JDBC 性能的建议"></a>14. 6 条提高 JDBC 性能的建议</h3><ol>
+<li><p>使用缓存，频繁建立数据库连接的代价是很大的，因为这需要重复的 connection prepared 和 network round trip. 如果可以使用缓存中的值，会大大提高应用的性能，这在高访问量的场景下表现显著。</p>
+</li>
+<li><p>使用数据库索引，这个在建立表时就需要考虑到日后的需要，对于常用的字段建立索引，是起码的认识。</p>
+</li>
+<li><p>使用 PreparedStatement 和 Stored Procedure 进行查询会比一般的 statement 效率高，因为数据库可以 pre-compile 它们，还可以缓存查询计划。看以下这个例子：</p>
+<p> <i class="fa fa-check"> parametric form of Prepared Statement:</i></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;select * from table where id = ?&quot;</span><br></pre></td></tr></table></figure>
+<p> <i class="fa fa-close"> Prepared Statement but not parametrized.</i></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;select * from table where id = &apos;&quot; + id + &quot;&apos;&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用数据库连接池，是把一定数量的连接缓存在池中，也是利用缓存的作用。</p>
+</li>
+<li><p>使用 JDBC Batch Update.</p>
+</li>
+<li><p>禁用 auto commit.</p>
+</li>
+</ol>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2016/06/09/spring-interview/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2016/06/09/hibernate-interview/" data-title="14个常见的hibernate面试问答" data-url="http://zhengdehua.github.io/2016/06/09/hibernate-interview/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2016-06-09 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Technology/">Technology<span>20</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/cite/">cite<span>13</span></a></li> <li><a href="/tags/interview/">interview<span>4</span></a></li> <li><a href="/tags/hibernate/">hibernate<span>2</span></a></li> <li><a href="/tags/java/">java<span>4</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'zhengdehua' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 zhengdehua
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

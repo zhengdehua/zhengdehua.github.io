@@ -1,0 +1,397 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>常用正则表达式 | nightwatch</title>
+  <meta name="author" content="zhengdehua">
+  
+  <meta name="description" content="常用正则表达式
+^\d+$非负整数
+
+
+
+^\d+(\.\d+)?$非负浮点数
+
+
+
+^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$正浮点数
+
+
+
+^((-\d+(\.\d+)?)|(0+">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="常用正则表达式"/>
+  <meta property="og:site_name" content="nightwatch"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">nightwatch</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有的存档">
+			  <i class="fa fa-archive"></i>存档
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories"" title="所有的分类">
+			  <i class="fa fa-folder"></i>分类
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="全部标签">
+			  <i class="fa fa-tags"></i>标签
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="个人信息">
+			  <i class="fa fa-user"></i>关于我
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/focussites" title="收集有价值站点">
+			  <i class="fa fa-external-link-square"></i>关注站点
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 常用正则表达式</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h4 id="常用正则表达式"><a href="#常用正则表达式" class="headerlink" title="常用正则表达式"></a>常用正则表达式</h4><blockquote>
+<p><code>^\d+$</code><br>非负整数</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^\d+(\.\d+)?$</code><br>非负浮点数</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$</code><br>正浮点数</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^((-\d+(\.\d+)?)|(0+(\.0+)?))$</code><br>非正浮点数</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$</code><br>负浮点数</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(-?\d+)(\.\d+)?$</code><br>浮点数</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(-?\d+)(\.\d{0,2})?$</code><br>浮点数(两位小数)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^\w+$</code><br>由数字、26个英文字母或者下划线组成的字符串</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^[\u4E00-\u9FFF]+$</code><br>匹配中文</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^[\x80-\xff]+$</code><br>中文字符(双字节)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$</code><br>email 地址</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(-?\d+)(\.\d{0,2})?$</code><br>金额</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^([a-zA-z]+://)?([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?$</code><br>网址</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$</code><br>IP 地址</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>&lt;.+?&gt;</code><br>HTML 标记</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>[1-9]\d{5}(?!\d)</code><br>中国邮政编码</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^\d{14}\d{3}?\w$</code><br>身份证</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(19|20)\d\d+(0[1-9]|1[012])+(0[1-9]|[12][0-9]|3[01])</code><br>日期 YYYYMMDD</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^((((19|20)(([02468][048])|([13579][26]))-02-29))|((20[0-9][0-9])|(19[0-9][0-9]))-((((0[1-9])|(1[0-2]))-((0[1-9])|(1\d)|(2[0-8])))|((((0[13578])|(1[02]))-31)|(((01,3-9])|(1[0-2]))-(29|30)))))$</code><br>日期(严格匹配合法日期 YYYY-MM-DD)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^([0-1]?[0-9]|2[0-3])(:([0-5][0-9])){0,2}$</code><br>时间(不含日期)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(19|20)\d{2}[/\s\-\.]*(0[1-9]|1[0-2]|[1-9])[/\s\-\.]*(0[1-9]|3[01]|[12][0-9]|[1-9])[\s] *(2[0-3]|[01]?\d)(:[0-5]\d){0,2}$</code><br>时间(含日期)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^1[0-2]\d|\d{1,2}$</code><br>年龄</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>(\d{3}-|\d{4}-)?(\d{8}|\d{7})?</code><br>国内电话号码</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^[0-9]{11}$</code><br>手机号码</p>
+</blockquote>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2016/06/16/web-xml-configuration/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2016/06/15/regexp-essential/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2016/06/15/regexp-common/" data-title="常用正则表达式" data-url="http://zhengdehua.github.io/2016/06/15/regexp-common/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2016-06-15 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Technology/">Technology<span>20</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/regexp/">regexp<span>4</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'zhengdehua' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 zhengdehua
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

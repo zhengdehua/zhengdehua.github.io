@@ -1,0 +1,534 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>25个经典的spring面试问答 | nightwatch</title>
+  <meta name="author" content="zhengdehua">
+  
+  <meta name="description" content="引用自 codeceo 网站
+
+问题清单
+什么是Spring框架？Spring框架有哪些主要模块？
+使用Spring框架有什么好处？
+什么是控制反转（IOC）？什么是依赖注入？
+请解释下Spring中的IOC？
+BeanFactory和ApplicationContext有什么区别？
+将Spring">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="25个经典的spring面试问答"/>
+  <meta property="og:site_name" content="nightwatch"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">nightwatch</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有的存档">
+			  <i class="fa fa-archive"></i>存档
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories"" title="所有的分类">
+			  <i class="fa fa-folder"></i>分类
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="全部标签">
+			  <i class="fa fa-tags"></i>标签
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="个人信息">
+			  <i class="fa fa-user"></i>关于我
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/focussites" title="收集有价值站点">
+			  <i class="fa fa-external-link-square"></i>关注站点
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 25个经典的spring面试问答</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <blockquote>
+<p>引用自 <a href="http://www.codeceo.com/article/spring-top-25-interview.html" target="_blank" rel="external">codeceo 网站</a></p>
+</blockquote>
+<h3 id="问题清单"><a href="#问题清单" class="headerlink" title="问题清单"></a>问题清单</h3><ol>
+<li><a href="#answer-1">什么是Spring框架？Spring框架有哪些主要模块？</a></li>
+<li><a href="#answer-2">使用Spring框架有什么好处？</a></li>
+<li><a href="#answer-3">什么是控制反转（IOC）？什么是依赖注入？</a></li>
+<li><a href="#answer-4">请解释下Spring中的IOC？</a></li>
+<li><a href="#answer-5">BeanFactory和ApplicationContext有什么区别？</a></li>
+<li><a href="#answer-6">将Spring配置到你的应用中共有几种方法？</a></li>
+<li><a href="#answer-7">什么基于XML的配置？</a></li>
+<li><a href="#answer-8">什么基于Java的配置？</a></li>
+<li><a href="#answer-9">怎样用注解的方式配置Spring？</a></li>
+<li><a href="#answer-10">描述Spring Bean的生命周期？</a></li>
+<li><a href="#answer-11">描述Spring中各种Bean的范围？</a></li>
+<li><a href="#answer-12">什么是Spring的嵌入beans？</a></li>
+<li><a href="#answer-13">Spring框架中的单例bean是否是线程安全的？</a></li>
+<li><a href="#answer-14">请举例说明如何用Spring注入一个Java的集合类？</a></li>
+<li><a href="#answer-15">请举例说明如何在Spring的Bean中注入一个java.util.Properties？</a></li>
+<li><a href="#answer-16">请解释Spring的Bean的自动生成原理？</a></li>
+<li><a href="#answer-17">请辨析自动生成Bean之间模块的区别？</a></li>
+<li><a href="#answer-18">如何开启基于基于注解的自动写入？</a></li>
+<li><a href="#answer-19">请举例说明@Required注解？</a></li>
+<li><a href="#answer-20">请举例说明@Autowired注解？</a></li>
+<li><a href="#answer-21">请举例说明@Qualifier注解？</a></li>
+<li><a href="#answer-22">请说明构造器注入和setter方法注入之间的区别？</a></li>
+<li><a href="#answer-23">Spring框架中不同类型event有什么区别？</a></li>
+<li><a href="#answer-24">FileSystemResource和ClassPathResource有何区别？</a></li>
+<li><a href="#answer-25">请列举Spring框架中用了哪些设计模式？</a></li>
+</ol>
+<p></p><h3 id="answer-1"></h3><p></p>
+<h3 id="1、什么是Spring框架？Spring框架有哪些主要模块？"><a href="#1、什么是Spring框架？Spring框架有哪些主要模块？" class="headerlink" title="1、什么是Spring框架？Spring框架有哪些主要模块？"></a>1、什么是Spring框架？Spring框架有哪些主要模块？</h3><p>Spring框架是一个为Java应用程序的开发提供了综合、广泛的基础性支持的Java平台。Spring帮助开发者解决了开发中基础性的问题，使得开发人员可以专注于应用程序的开发。Spring框架本身亦是按照设计模式精心打造，这使得我们可以在开发环境中安心的集成Spring框架，不必担心Spring是如何在后台进行工作的。</p>
+<p>Spring框架至今已集成了20多个模块。这些模块主要被分如下图所示的核心容器、数据访问/集成,、Web、AOP（面向切面编程）、工具、消息和测试模块。</p>
+<p><img src="/resources/image/png/spring-modules.png" alt="spring-modules"></p>
+<p></p><h3 id="answer-2"></h3><p></p>
+<h3 id="2、使用Spring框架能带来哪些好处？"><a href="#2、使用Spring框架能带来哪些好处？" class="headerlink" title="2、使用Spring框架能带来哪些好处？"></a>2、使用Spring框架能带来哪些好处？</h3><ol>
+<li>Dependency Injection(DI) 方法使得构造器和JavaBean properties文件中的依赖关系一目了然。</li>
+<li>与EJB容器相比较，IoC容器更加趋向于轻量级。这样一来IoC容器在有限的内存和CPU资源的情况下进行应用程序的开发和发布就变得十分有利。</li>
+<li>Spring并没有闭门造车，Spring利用了已有的技术比如ORM框架、logging框架、J2EE、Quartz和JDK Timer，以及其他视图技术。</li>
+<li>Spring框架是按照模块的形式来组织的。由包和类的编号就可以看出其所属的模块，开发者仅仅需要选用他们需要的模块即可。</li>
+<li>要测试一项用Spring开发的应用程序十分简单，因为测试相关的环境代码都已经囊括在框架中了。更加简单的是，利用JavaBean形式的POJO类，可以很方便的利用依赖注入来写入测试数据。</li>
+<li>Spring的Web框架亦是一个精心设计的Web MVC框架，为开发者们在web框架的选择上提供了一个除了主流框架比如Struts、过度设计的、不流行web框架的以外的有力选项。</li>
+<li>Spring提供了一个便捷的事务管理接口，适用于小型的本地事物处理（比如在单DB的环境下）和复杂的共同事物处理（比如利用JTA的复杂DB环境）。</li>
+</ol>
+<p></p><h3 id="answer-3"></h3><p></p>
+<h3 id="3、什么是控制反转-IOC-？什么是依赖注入？"><a href="#3、什么是控制反转-IOC-？什么是依赖注入？" class="headerlink" title="3、什么是控制反转(IOC)？什么是依赖注入？"></a>3、什么是控制反转(IOC)？什么是依赖注入？</h3><p>控制反转是应用于软件工程领域中的，在运行时被装配器对象来绑定耦合对象的一种编程技巧，对象之间耦合关系在编译时通常是未知的。在传统的编程方式中，业务逻辑的流程是由应用程序中的早已被设定好关联关系的对象来决定的。在使用控制反转的情况下，业务逻辑的流程是由对象关系图来决定的，该对象关系图由装配器负责实例化，这种实现方式还可以将对象之间的关联关系的定义抽象化。而绑定的过程是通过“依赖注入”实现的。</p>
+<p>控制反转是一种以给予应用程序中目标组件更多控制为目的设计范式，并在我们的实际工作中起到了有效的作用。</p>
+<p>依赖注入是在编译阶段尚未知所需的功能是来自哪个的类的情况下，将其他对象所依赖的功能对象实例化的模式。这就需要一种机制用来激活相应的组件以提供特定的功能，所以依赖注入是控制反转的基础。否则如果在组件不受框架控制的情况下，框架又怎么知道要创建哪个组件？</p>
+<p>在Java中依然注入有以下三种实现方式：</p>
+<ul>
+<li>构造器注入</li>
+<li>Setter方法注入</li>
+<li>接口注入</li>
+</ul>
+<p></p><h3 id="answer-4"></h3><p></p>
+<h3 id="4、请解释下Spring框架中的IoC？"><a href="#4、请解释下Spring框架中的IoC？" class="headerlink" title="4、请解释下Spring框架中的IoC？"></a>4、请解释下Spring框架中的IoC？</h3><p>Spring中的 <code>org.springframework.beans</code> 包和 <code>org.springframework.context</code> 包构成了Spring框架IoC容器的基础。</p>
+<p><code>BeanFactory</code> 接口提供了一个先进的配置机制，使得任何类型的对象的配置成为可能。<code>ApplicationContex</code> 接口对 <code>BeanFactory</code>（是一个子接口）进行了扩展，在 <code>BeanFactory</code> 的基础上添加了其他功能，比如与Spring的AOP更容易集成，也提供了处理 <code>message resource</code> 的机制（用于国际化）、事件传播以及应用层的特别配置，比如针对Web应用的 <code>WebApplicationContext</code>。</p>
+<p><code>org.springframework.beans.factory.BeanFactory</code> 是Spring IoC容器的具体实现，用来包装和管理前面提到的各种bean。 <code>BeanFactory</code> 接口是Spring IoC 容器的核心接口。</p>
+<p></p><h3 id="answer-5"></h3><p></p>
+<h3 id="5、BeanFactory和ApplicationContext有什么区别？"><a href="#5、BeanFactory和ApplicationContext有什么区别？" class="headerlink" title="5、BeanFactory和ApplicationContext有什么区别？"></a>5、BeanFactory和ApplicationContext有什么区别？</h3><p>BeanFactory 可以理解为含有bean集合的工厂类。BeanFactory 包含了种bean的定义，以便在接收到客户端请求时将对应的bean实例化。</p>
+<p>BeanFactory还能在实例化对象的时生成协作类之间的关系。此举将bean自身与bean客户端的配置中解放出来。BeanFactory还包含了bean生命周期的控制，调用客户端的初始化方法（initialization methods）和销毁方法（destruction methods）。</p>
+<p>从表面上看，application context如同bean factory一样具有bean定义、bean关联关系的设置，根据请求分发bean的功能。但application context在此基础上还提供了其他的功能。</p>
+<ul>
+<li>提供了支持国际化的文本消息</li>
+<li>统一的资源文件读取方式</li>
+<li>已在监听器中注册的bean的事件</li>
+</ul>
+<p>以下是三种较常见的 ApplicationContext 实现方式：</p>
+<p>1、ClassPathXmlApplicationContext：从classpath的XML配置文件中读取上下文，并生成上下文定义。应用程序上下文从程序环境变量中取得。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(“bean.xml”);</span><br></pre></td></tr></table></figure></p>
+<p>2、FileSystemXmlApplicationContext ：由文件系统中的XML配置文件读取上下文。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContext context = <span class="keyword">new</span> FileSystemXmlApplicationContext(“bean.xml”);</span><br></pre></td></tr></table></figure></p>
+<p>3、XmlWebApplicationContext：由Web应用的XML文件读取上下文。</p>
+<p></p><h3 id="answer-6"></h3><p></p>
+<h3 id="6、Spring有几种配置方式？"><a href="#6、Spring有几种配置方式？" class="headerlink" title="6、Spring有几种配置方式？"></a>6、Spring有几种配置方式？</h3><p>将Spring配置到应用开发中有以下三种方式：</p>
+<ol>
+<li>基于XML的配置</li>
+<li>基于注解的配置</li>
+<li>基于Java的配置</li>
+</ol>
+<p></p><h3 id="answer-7"></h3><p></p>
+<h3 id="7、如何用基于XML配置的方式配置Spring？"><a href="#7、如何用基于XML配置的方式配置Spring？" class="headerlink" title="7、如何用基于XML配置的方式配置Spring？"></a>7、如何用基于XML配置的方式配置Spring？</h3><p>在Spring框架中，依赖和服务需要在专门的配置文件来实现，我常用的XML格式的配置文件。这些配置文件的格式通常用 <code>&lt;beans&gt;</code> 开头，然后一系列的bean定义和专门的应用配置选项组成。</p>
+<p>SpringXML配置的主要目的时候是使所有的Spring组件都可以用xml文件的形式来进行配置。这意味着不会出现其他的Spring配置类型（比如声明的方式或基于Java Class的配置方式）</p>
+<p>Spring的XML配置方式是使用被Spring命名空间的所支持的一系列的XML标签来实现的。Spring有以下主要的命名空间：context、beans、jdbc、tx、aop、mvc和aso。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;beans&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- JSON Support --&gt;</span><br><span class="line">    &lt;bean name=&quot;viewResolver&quot; class=&quot;org.springframework.web.servlet.view.BeanNameViewResolver&quot;/&gt;</span><br><span class="line">    &lt;bean name=&quot;jsonTemplate&quot; class=&quot;org.springframework.web.servlet.view.json.MappingJackson2JsonView&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;bean id=&quot;restTemplate&quot; class=&quot;org.springframework.web.client.RestTemplate&quot;/&gt;</span><br><span class="line"></span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+<p>下面这个web.xml仅仅配置了DispatcherServlet，这件最简单的配置便能满足应用程序配置运行时组件的需求。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;web-app&gt;</span><br><span class="line">  &lt;display-name&gt;Archetype Created Web Application&lt;/display-name&gt;</span><br><span class="line"></span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;spring&lt;/servlet-name&gt;</span><br><span class="line">            &lt;servlet-class&gt;</span><br><span class="line">                org.springframework.web.servlet.DispatcherServlet</span><br><span class="line">            &lt;/servlet-class&gt;</span><br><span class="line">        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line"></span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;spring&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure>
+<p></p><h3 id="answer-7"></h3><p></p>
+<h3 id="8、如何用基于Java配置的方式配置Spring？"><a href="#8、如何用基于Java配置的方式配置Spring？" class="headerlink" title="8、如何用基于Java配置的方式配置Spring？"></a>8、如何用基于Java配置的方式配置Spring？</h3><p>Spring对Java配置的支持是由@Configuration注解和@Bean注解来实现的。由@Bean注解的方法将会实例化、配置和初始化一个新对象，这个对象将由Spring的IoC容器来管理。@Bean声明所起到的作用与<bean> 元素类似。被@Configuration所注解的类则表示这个类的主要目的是作为bean定义的资源。被@Configuration声明的类可以通过在同一个类的内部调用@bean方法来设置嵌入bean的依赖关系。</bean></p>
+<p>最简单的@Configuration 声明类请参考下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class AppConfig</span><br><span class="line">&#123;</span><br><span class="line">    @Bean</span><br><span class="line">    public MyService myService() &#123;</span><br><span class="line">        return new MyServiceImpl();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于上面的@Beans配置文件相同的XML配置文件如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;beans&gt;</span><br><span class="line">    &lt;bean id=&quot;myService&quot; class=&quot;com.howtodoinjava.services.MyServiceImpl&quot;/&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+<p>上述配置方式的实例化方式如下：<code>利用AnnotationConfigApplicationContext</code> 类进行实例化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);</span><br><span class="line">    MyService myService = ctx.getBean(MyService.class);</span><br><span class="line">    myService.doStuff();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>要使用组件组建扫描，仅需用@Configuration进行注解即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ComponentScan(basePackages = &quot;com.howtodoinjava&quot;)</span><br><span class="line">public class AppConfig  &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在上面的例子中，com.acme包首先会被扫到，然后再容器内查找被@Component 声明的类，找到后将这些类按照Sring bean定义进行注册。</p>
+<p>如果你要在你的web应用开发中选用上述的配置的方式的话，需要用 <code>AnnotationConfigWebApplicationContext</code> 类来读取配置文件，可以用来配置Spring的Servlet监听器 <code>ContrextLoaderListener</code> 或者Spring MVC的 <code>DispatcherServlet</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;web-app&gt;</span><br><span class="line">    &lt;!-- Configure ContextLoaderListener to use AnnotationConfigWebApplicationContext</span><br><span class="line">        instead of the default XmlWebApplicationContext --&gt;</span><br><span class="line">    &lt;context-param&gt;</span><br><span class="line">        &lt;param-name&gt;contextClass&lt;/param-name&gt;</span><br><span class="line">        &lt;param-value&gt;</span><br><span class="line">            org.springframework.web.context.support.AnnotationConfigWebApplicationContext</span><br><span class="line">        &lt;/param-value&gt;</span><br><span class="line">    &lt;/context-param&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Configuration locations must consist of one or more comma- or space-delimited</span><br><span class="line">        fully-qualified @Configuration classes. Fully-qualified packages may also be</span><br><span class="line">        specified for component-scanning --&gt;</span><br><span class="line">    &lt;context-param&gt;</span><br><span class="line">        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">        &lt;param-value&gt;com.howtodoinjava.AppConfig&lt;/param-value&gt;</span><br><span class="line">    &lt;/context-param&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Bootstrap the root application context as usual using ContextLoaderListener --&gt;</span><br><span class="line">    &lt;listener&gt;</span><br><span class="line">        &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;</span><br><span class="line">    &lt;/listener&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Declare a Spring MVC DispatcherServlet as usual --&gt;</span><br><span class="line">    &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</span><br><span class="line">        &lt;!-- Configure DispatcherServlet to use AnnotationConfigWebApplicationContext</span><br><span class="line">            instead of the default XmlWebApplicationContext --&gt;</span><br><span class="line">        &lt;init-param&gt;</span><br><span class="line">            &lt;param-name&gt;contextClass&lt;/param-name&gt;</span><br><span class="line">            &lt;param-value&gt;</span><br><span class="line">                org.springframework.web.context.support.AnnotationConfigWebApplicationContext</span><br><span class="line">            &lt;/param-value&gt;</span><br><span class="line">        &lt;/init-param&gt;</span><br><span class="line">        &lt;!-- Again, config locations must consist of one or more comma- or space-delimited</span><br><span class="line">            and fully-qualified @Configuration classes --&gt;</span><br><span class="line">        &lt;init-param&gt;</span><br><span class="line">            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">            &lt;param-value&gt;com.howtodoinjava.web.MvcConfig&lt;/param-value&gt;</span><br><span class="line">        &lt;/init-param&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- map all requests for /app/* to the dispatcher servlet --&gt;</span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/app/*&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure>
+<p></p><h3 id="answer-9"></h3><p></p>
+<h3 id="9、怎样用注解的方式配置Spring？"><a href="#9、怎样用注解的方式配置Spring？" class="headerlink" title="9、怎样用注解的方式配置Spring？"></a>9、怎样用注解的方式配置Spring？</h3><p>Spring在2.5版本以后开始支持用注解的方式来配置依赖注入。可以用注解的方式来替代XML方式的bean描述，可以将bean描述转移到组件类的内部，只需要在相关类上、方法上或者字段声明上使用注解即可。注解注入将会被容器在XML注入之前被处理，所以后者会覆盖掉前者对于同一个属性的处理结果。</p>
+<p>注解装配在Spring中是默认关闭的。所以需要在Spring文件中配置一下才能使用基于注解的装配模式。如果你想要在你的应用程序中使用关于注解的方法的话，请参考如下的配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;beans&gt;</span><br><span class="line"></span><br><span class="line">   &lt;context:annotation-config/&gt;</span><br><span class="line">   &lt;!-- bean definitions go here --&gt;</span><br><span class="line"></span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在 <code>&lt;context:annotation-config/&gt;</code> 标签配置完成以后，就可以用注解的方式在Spring中向属性、方法和构造方法中自动装配变量。</p>
+<p>下面是几种比较重要的注解类型：</p>
+<ol>
+<li>@Required：该注解应用于设值方法。</li>
+<li>@Autowired：该注解应用于有值设值方法、非设值方法、构造方法和变量。</li>
+<li>@Qualifier：该注解和@Autowired注解搭配使用，用于消除特定bean自动装配的歧义。</li>
+<li>JSR-250 Annotations：Spring支持基于JSR-250 注解的以下注解，@Resource、@PostConstruct 和 @PreDestroy。</li>
+</ol>
+<p></p><h3 id="answer-10"></h3><p></p>
+<h3 id="10、请解释Spring-Bean的生命周期？"><a href="#10、请解释Spring-Bean的生命周期？" class="headerlink" title="10、请解释Spring Bean的生命周期？"></a>10、请解释Spring Bean的生命周期？</h3><p>Spring Bean的生命周期简单易懂。在一个bean实例被初始化时，需要执行一系列的初始化操作以达到可用的状态。同样的，当一个bean不在被调用时需要进行相关的析构操作，并从bean容器中移除。</p>
+<p>Spring bean factory 负责管理在spring容器中被创建的bean的生命周期。Bean的生命周期由两组回调（call back）方法组成。</p>
+<ol>
+<li>初始化之后调用的回调方法。</li>
+<li>销毁之前调用的回调方法。</li>
+</ol>
+<p>Spring框架提供了以下四种方式来管理bean的生命周期事件：</p>
+<ul>
+<li>InitializingBean和DisposableBean回调接口</li>
+<li>针对特殊行为的其他Aware接口</li>
+<li>Bean配置文件中的Custom init()方法和destroy()方法</li>
+<li>@PostConstruct和@PreDestroy注解方式</li>
+</ul>
+<p>使用customInit()和 customDestroy()方法管理bean生命周期的代码样例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;beans&gt;</span><br><span class="line">    &lt;bean id=&quot;demoBean&quot; class=&quot;com.howtodoinjava.task.DemoBean&quot;</span><br><span class="line">            init-method=&quot;customInit&quot; destroy-method=&quot;customDestroy&quot;&gt;&lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p>
+<p>更多内容请参考：Spring生命周期Spring Bean Life Cycle。</p>
+<p></p><h3 id="answer-11"></h3><p></p>
+<h3 id="11、Spring-Bean的作用域之间有什么区别？"><a href="#11、Spring-Bean的作用域之间有什么区别？" class="headerlink" title="11、Spring Bean的作用域之间有什么区别？"></a>11、Spring Bean的作用域之间有什么区别？</h3><p>Spring容器中的bean可以分为5个范围。所有范围的名称都是自说明的，但是为了避免混淆，还是让我们来解释一下：</p>
+<ol>
+<li>singleton：这种bean范围是默认的，这种范围确保不管接受到多少个请求，每个容器中只有一个bean的实例，单例的模式由bean factory自身来维护。</li>
+<li>prototype：原形范围与单例范围相反，为每一个bean请求提供一个实例。</li>
+<li>request：在请求bean范围内会每一个来自客户端的网络请求创建一个实例，在请求完成以后，bean会失效并被垃圾回收器回收。</li>
+<li>Session：与请求范围类似，确保每个session中有一个bean的实例，在session过期后，bean会随之失效。</li>
+<li>global-session：global-session和Portlet应用相关。当你的应用部署在Portlet容器中工作时，它包含很多portlet。如果你想要声明让所有的portlet共用全局的存储变量的话，那么这全局变量需要存储在global-session中。</li>
+</ol>
+<p>全局作用域与Servlet中的session作用域效果相同。</p>
+<p></p><h3 id="answer-12"></h3><p></p>
+<h3 id="12、什么是Spring-inner-beans？"><a href="#12、什么是Spring-inner-beans？" class="headerlink" title="12、什么是Spring inner beans？"></a>12、什么是Spring inner beans？</h3><p>在Spring框架中，无论何时bean被使用时，当仅被调用了一个属性。一个明智的做法是将这个bean声明为内部bean。内部bean可以用setter注入“属性”和构造方法注入“构造参数”的方式来实现。</p>
+<p>比如，在我们的应用程序中，一个Customer类引用了一个Person类，我们的要做的是创建一个Person的实例，然后在Customer内部使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Customer</span><br><span class="line">&#123;</span><br><span class="line">    private Person person;</span><br><span class="line"></span><br><span class="line">    //Setters and Getters</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Person</span><br><span class="line">&#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private String address;</span><br><span class="line">    private int age;</span><br><span class="line"></span><br><span class="line">    //Setters and Getters</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>内部bean的声明方式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;CustomerBean&quot; class=&quot;com.howtodoinjava.common.Customer&quot;&gt;</span><br><span class="line">    &lt;property name=&quot;person&quot;&gt;</span><br><span class="line">        &lt;!-- This is inner bean --&gt;</span><br><span class="line">        &lt;bean class=&quot;com.howtodoinjava.common.Person&quot;&gt;</span><br><span class="line">            &lt;property name=&quot;name&quot; value=&quot;lokesh&quot; /&gt;</span><br><span class="line">            &lt;property name=&quot;address&quot; value=&quot;India&quot; /&gt;</span><br><span class="line">            &lt;property name=&quot;age&quot; value=&quot;34&quot; /&gt;</span><br><span class="line">        &lt;/bean&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p></p><h3 id="answer-13"></h3><p></p>
+<h3 id="13、Spring框架中的单例Beans是线程安全的么？"><a href="#13、Spring框架中的单例Beans是线程安全的么？" class="headerlink" title="13、Spring框架中的单例Beans是线程安全的么？"></a>13、Spring框架中的单例Beans是线程安全的么？</h3><p>Spring框架并没有对单例bean进行任何多线程的封装处理。关于单例bean的线程安全和并发问题需要开发者自行去搞定。但实际上，大部分的Spring bean并没有可变的状态(比如Serview类和DAO类)，所以在某种程度上说Spring的单例bean是线程安全的。如果你的bean有多种状态的话（比如 View Model 对象），就需要自行保证线程安全。</p>
+<p>最浅显的解决办法就是将多态bean的作用域由“singleton”变更为“prototype”。</p>
+<p></p><h3 id="answer-14"></h3><p></p>
+<h3 id="14、请举例说明如何在Spring中注入一个Java-Collection？"><a href="#14、请举例说明如何在Spring中注入一个Java-Collection？" class="headerlink" title="14、请举例说明如何在Spring中注入一个Java Collection？"></a>14、请举例说明如何在Spring中注入一个Java Collection？</h3><p>Spring提供了以下四种集合类的配置元素：</p>
+<ul>
+<li><code>&lt;list&gt;</code>:  该标签用来装配可重复的list值。</li>
+<li><code>&lt;set&gt;</code>:   该标签用来装配没有重复的set值。</li>
+<li><code>&lt;map&gt;</code>:   该标签可用来注入键和值可以为任何类型的键值对。</li>
+<li><code>&lt;props&gt;</code>: 该标签支持注入键和值都是字符串类型的键值对。</li>
+</ul>
+<p>下面看一下具体的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;beans&gt;</span><br><span class="line"></span><br><span class="line">   &lt;!-- Definition for javaCollection --&gt;</span><br><span class="line">   &lt;bean id=&quot;javaCollection&quot; class=&quot;com.howtodoinjava.JavaCollection&quot;&gt;</span><br><span class="line"></span><br><span class="line">      &lt;!-- java.util.List --&gt;</span><br><span class="line">      &lt;property name=&quot;customList&quot;&gt;</span><br><span class="line">        &lt;list&gt;</span><br><span class="line">           &lt;value&gt;INDIA&lt;/value&gt;</span><br><span class="line">           &lt;value&gt;Pakistan&lt;/value&gt;</span><br><span class="line">           &lt;value&gt;USA&lt;/value&gt;</span><br><span class="line">           &lt;value&gt;UK&lt;/value&gt;</span><br><span class="line">        &lt;/list&gt;</span><br><span class="line">      &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">     &lt;!-- java.util.Set --&gt;</span><br><span class="line">     &lt;property name=&quot;customSet&quot;&gt;</span><br><span class="line">        &lt;set&gt;</span><br><span class="line">           &lt;value&gt;INDIA&lt;/value&gt;</span><br><span class="line">           &lt;value&gt;Pakistan&lt;/value&gt;</span><br><span class="line">           &lt;value&gt;USA&lt;/value&gt;</span><br><span class="line">           &lt;value&gt;UK&lt;/value&gt;</span><br><span class="line">        &lt;/set&gt;</span><br><span class="line">      &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">     &lt;!-- java.util.Map --&gt;</span><br><span class="line">     &lt;property name=&quot;customMap&quot;&gt;</span><br><span class="line">        &lt;map&gt;</span><br><span class="line">           &lt;entry key=&quot;1&quot; value=&quot;INDIA&quot;/&gt;</span><br><span class="line">           &lt;entry key=&quot;2&quot; value=&quot;Pakistan&quot;/&gt;</span><br><span class="line">           &lt;entry key=&quot;3&quot; value=&quot;USA&quot;/&gt;</span><br><span class="line">           &lt;entry key=&quot;4&quot; value=&quot;UK&quot;/&gt;</span><br><span class="line">        &lt;/map&gt;</span><br><span class="line">      &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">      &lt;!-- java.util.Properties --&gt;</span><br><span class="line">    &lt;property name=&quot;customProperies&quot;&gt;</span><br><span class="line">        &lt;props&gt;</span><br><span class="line">            &lt;prop key=&quot;admin&quot;&gt;admin@nospam.com&lt;/prop&gt;</span><br><span class="line">            &lt;prop key=&quot;support&quot;&gt;support@nospam.com&lt;/prop&gt;</span><br><span class="line">        &lt;/props&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+<p></p><h3 id="answer-15"></h3><p></p>
+<h3 id="15、如何向Spring-Bean中注入一个Java-util-Properties？"><a href="#15、如何向Spring-Bean中注入一个Java-util-Properties？" class="headerlink" title="15、如何向Spring Bean中注入一个Java.util.Properties？"></a>15、如何向Spring Bean中注入一个Java.util.Properties？</h3><p>第一种方法是使用如下面代码所示的 <code>&lt;props&gt;</code> 标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;adminUser&quot; class=&quot;com.howtodoinjava.common.Customer&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- java.util.Properties --&gt;</span><br><span class="line">    &lt;property name=&quot;emails&quot;&gt;</span><br><span class="line">        &lt;props&gt;</span><br><span class="line">            &lt;prop key=&quot;admin&quot;&gt;admin@nospam.com&lt;/prop&gt;</span><br><span class="line">            &lt;prop key=&quot;support&quot;&gt;support@nospam.com&lt;/prop&gt;</span><br><span class="line">        &lt;/props&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure></p>
+<p>也可用”util:”命名空间来从properties文件中创建出一个propertiesbean，然后利用setter方法注入bean的引用。</p>
+<p></p><h3 id="answer-16"></h3><p></p>
+<h3 id="16、请解释Spring-Bean的自动装配？"><a href="#16、请解释Spring-Bean的自动装配？" class="headerlink" title="16、请解释Spring Bean的自动装配？"></a>16、请解释Spring Bean的自动装配？</h3><p>在Spring框架中，在配置文件中设定bean的依赖关系是一个很好的机制，Spring容器还可以自动装配合作关系bean之间的关联关系。这意味着Spring可以通过向Bean Factory中注入的方式自动搞定bean之间的依赖关系。自动装配可以设置在每个bean上，也可以设定在特定的bean上。</p>
+<p>下面的XML配置文件表明了如何根据名称将一个bean设置为自动装配：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;employeeDAO&quot; class=&quot;com.howtodoinjava.EmployeeDAOImpl&quot; autowire=&quot;byName&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>除了bean配置文件中提供的自动装配模式，还可以使用@Autowired注解来自动装配指定的bean。在使用@Autowired注解之前需要在按照如下的配置方式在Spring配置文件进行配置才可以使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;context:annotation-config /&gt;</span><br></pre></td></tr></table></figure>
+<p>也可以通过在配置文件中配置 <code>AutowiredAnnotationBeanPostProcessor</code> 达到相同的效果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean class =&quot;org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>配置好以后就可以使用@Autowired来标注了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">public EmployeeDAOImpl ( EmployeeManager manager ) &#123;</span><br><span class="line">    this.manager = manager;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p></p><h3 id="answer-17"></h3><p></p>
+<h3 id="17、请解释自动装配模式的区别？"><a href="#17、请解释自动装配模式的区别？" class="headerlink" title="17、请解释自动装配模式的区别？"></a>17、请解释自动装配模式的区别？</h3><p>在Spring框架中共有5种自动装配，让我们逐一分析。</p>
+<ol>
+<li>no：这是Spring框架的默认设置，在该设置下自动装配是关闭的，开发者需要自行在bean定义中用标签明确的设置依赖关系。</li>
+<li>byName：该选项可以根据bean名称设置依赖关系。当向一个bean中自动装配一个属性时，容器将根据bean的名称自动在在配置文件中查询一个匹配的bean。如果找到的话，就装配这个属性，如果没找到的话就报错。</li>
+<li>byType：该选项可以根据bean类型设置依赖关系。当向一个bean中自动装配一个属性时，容器将根据bean的类型自动在在配置文件中查询一个匹配的bean。如果找到的话，就装配这个属性，如果没找到的话就报错。</li>
+<li>constructor：造器的自动装配和byType模式类似，但是仅仅适用于与有构造器相同参数的bean，如果在容器中没有找到与构造器参数类型一致的bean，那么将会抛出异常。</li>
+<li>autodetect：该模式自动探测使用构造器自动装配或者byType自动装配。首先，首先会尝试找合适的带参数的构造器，如果找到的话就是用构造器自动装配，如果在bean内部没有找到相应的构造器或者是无参构造器，容器就会自动选择byTpe的自动装配方式。</li>
+</ol>
+<p></p><h3 id="answer-18"></h3><p></p>
+<h3 id="18、如何开启基于注解的自动装配？"><a href="#18、如何开启基于注解的自动装配？" class="headerlink" title="18、如何开启基于注解的自动装配？"></a>18、如何开启基于注解的自动装配？</h3><p>要使用 @Autowired，需要注册 <code>AutowiredAnnotationBeanPostProcessor</code>，可以有以下两种方式来实现：</p>
+<p>1、引入配置文件中的 <code>&lt;bean&gt;</code> 下引入 <code>&lt;context:annotation-config&gt;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;beans&gt;</span><br><span class="line">    &lt;context:annotation-config /&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+<p>2、在bean配置文件中直接引入 <code>AutowiredAnnotationBeanPostProcessor</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;beans&gt;</span><br><span class="line">    &lt;bean class=&quot;org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor&quot;/&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p>
+<p></p><h3 id="answer-19"></h3><p></p>
+<h3 id="19、请举例解释-Required-annotation？"><a href="#19、请举例解释-Required-annotation？" class="headerlink" title="19、请举例解释@Required annotation？"></a>19、请举例解释@Required annotation？</h3><p>在产品级别的应用中，IoC容器可能声明了数十万个bean，bean与bean之间有着复杂的依赖关系。设值注解方法的短板之一就是验证所有的属性是否被注解是一项十分困难的操作。可以通过在<bean>中设置“dependency-check”来解决这个问题。</bean></p>
+<p>在应用程序的生命周期中，你可能不大愿意花时间在验证所有bean的属性是否按照上下文文件正确配置。或者你宁可验证某个bean的特定属性是否被正确的设置。即使是用“dependency-check”属性也不能很好的解决这个问题，在这种情况下，你需要使用@Required 注解。</p>
+<p>需要用如下的方式使用来标明bean的设值方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class EmployeeFactoryBean extends AbstractFactoryBean&lt;Object&gt;</span><br><span class="line">&#123;</span><br><span class="line">    private String designation;</span><br><span class="line"></span><br><span class="line">    public String getDesignation() &#123;</span><br><span class="line">        return designation;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Required</span><br><span class="line">    public void setDesignation(String designation) &#123;</span><br><span class="line">        this.designation = designation;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //more code here</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>RequiredAnnotationBeanPostProcessor</code> 是Spring中的后置处理用来验证被@Required 注解的bean属性是否被正确的设置了。在使用 <code>RequiredAnnotationBeanPostProcesso</code> 来验证bean属性之前，首先要在IoC容器中对其进行注册：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean class=&quot;org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>但是如果没有属性被用 @Required 注解过的话，后置处理器会抛出一个 <code>BeanInitializationException</code> 异常。</p>
+<p></p><h3 id="answer-20"></h3><p></p>
+<h3 id="20、请举例解释-Autowired注解？"><a href="#20、请举例解释-Autowired注解？" class="headerlink" title="20、请举例解释@Autowired注解？"></a>20、请举例解释@Autowired注解？</h3><p>@Autowired注解对自动装配何时何处被实现提供了更多细粒度的控制。@Autowired注解可以像@Required注解、构造器一样被用于在bean的设值方法上自动装配bean的属性，一个参数或者带有任意名称或带有多个参数的方法。</p>
+<p>比如，可以在设值方法上使用@Autowired注解来替代配置文件中的 <code>&lt;property&gt;</code> 元素。当Spring容器在setter方法上找到@Autowired注解时，会尝试用byType 自动装配。</p>
+<p>当然我们也可以在构造方法上使用@Autowired 注解。带有@Autowired 注解的构造方法意味着在创建一个bean时将会被自动装配，即便在配置文件中使用 <code>&lt;constructor-arg&gt;</code> 元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class TextEditor &#123;</span><br><span class="line">   private SpellChecker spellChecker;</span><br><span class="line"></span><br><span class="line">   @Autowired</span><br><span class="line">   public TextEditor(SpellChecker spellChecker)&#123;</span><br><span class="line">      System.out.println(&quot;Inside TextEditor constructor.&quot; );</span><br><span class="line">      this.spellChecker = spellChecker;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   public void spellCheck()&#123;</span><br><span class="line">      spellChecker.checkSpelling();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面是没有构造参数的配置方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;beans&gt;</span><br><span class="line"></span><br><span class="line">   &lt;context:annotation-config/&gt;</span><br><span class="line"></span><br><span class="line">   &lt;!-- Definition for textEditor bean without constructor-arg  --&gt;</span><br><span class="line">   &lt;bean id=&quot;textEditor&quot; class=&quot;com.howtodoinjava.TextEditor&quot;&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">   &lt;!-- Definition for spellChecker bean --&gt;</span><br><span class="line">   &lt;bean id=&quot;spellChecker&quot; class=&quot;com.howtodoinjava.SpellChecker&quot;&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p>
+<p></p><h3 id="answer-21"></h3><p></p>
+<h3 id="21、请举例说明-Qualifier注解？"><a href="#21、请举例说明-Qualifier注解？" class="headerlink" title="21、请举例说明@Qualifier注解？"></a>21、请举例说明@Qualifier注解？</h3><p>@Qualifier注解意味着可以在被标注bean的字段上可以自动装配。Qualifier注解可以用来取消Spring不能取消的bean应用。</p>
+<p>下面的示例将会在Customer的person属性中自动装配person的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class Customer</span><br><span class="line">&#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private Person person;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面我们要在配置文件中来配置Person类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;customer&quot; class=&quot;com.howtodoinjava.common.Customer&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;bean id=&quot;personA&quot; class=&quot;com.howtodoinjava.common.Person&quot; &gt;</span><br><span class="line">    &lt;property name=&quot;name&quot; value=&quot;lokesh&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;bean id=&quot;personB&quot; class=&quot;com.howtodoinjava.common.Person&quot; &gt;</span><br><span class="line">    &lt;property name=&quot;name&quot; value=&quot;alex&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Spring会知道要自动装配哪个person bean么？不会的，但是运行上面的示例时，会抛出下面的异常：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException:</span><br><span class="line">    No unique bean of type [com.howtodoinjava.common.Person] is defined:</span><br><span class="line">        expected single matching bean but found 2: [personA, personB]</span><br></pre></td></tr></table></figure></p>
+<p>要解决上面的问题，需要使用 @Quanlifier注解来告诉Spring容器要装配哪个bean：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Customer</span><br><span class="line">&#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    @Qualifier(&quot;personA&quot;)</span><br><span class="line">    private Person person;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p></p><h3 id="answer-22"></h3><p></p>
+<h3 id="22、构造方法注入和设值注入有什么区别？"><a href="#22、构造方法注入和设值注入有什么区别？" class="headerlink" title="22、构造方法注入和设值注入有什么区别？"></a>22、构造方法注入和设值注入有什么区别？</h3><p>请注意以下明显的区别：</p>
+<ol>
+<li>在设值注入方法支持大部分的依赖注入，如果我们仅需要注入int、string和long型的变量，我们不要用设值的方法注入。对于基本类型，如果我们没有注入的话，可以为基本类型设置默认值。在构造方法注入不支持大部分的依赖注入，因为在调用构造方法中必须传入正确的构造参数，否则的话为报错。</li>
+<li>设值注入不会重写构造方法的值。如果我们对同一个变量同时使用了构造方法注入又使用了设置方法注入的话，那么构造方法将不能覆盖由设值方法注入的值。很明显，因为构造方法尽在对象被创建时调用。</li>
+<li>在使用设值注入时有可能还不能保证某种依赖是否已经被注入，也就是说这时对象的依赖关系有可能是不完整的。而在另一种情况下，构造器注入则不允许生成依赖关系不完整的对象。</li>
+<li>在设值注入时如果对象A和对象B互相依赖，在创建对象A时Spring会抛出 <code>ObjectCurrentlyInCreationException</code> 异常，因为在B对象被创建之前A对象是不能被创建的，反之亦然。所以Spring用设值注入的方法解决了循环依赖的问题，因对象的设值方法是在对象被创建之前被调用的。</li>
+</ol>
+<p></p><h3 id="answer-23"></h3><p></p>
+<h3 id="23、Spring框架中有哪些不同类型的事件？"><a href="#23、Spring框架中有哪些不同类型的事件？" class="headerlink" title="23、Spring框架中有哪些不同类型的事件？"></a>23、Spring框架中有哪些不同类型的事件？</h3><p>Spring的ApplicationContext 提供了支持事件和代码中监听器的功能。</p>
+<p>我们可以创建bean用来监听在ApplicationContext 中发布的事件。ApplicationEvent类和在ApplicationContext接口中处理的事件，如果一个bean实现了ApplicationListener接口，当一个ApplicationEvent 被发布以后，bean会自动被通知。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class AllApplicationEventListener implements ApplicationListener &lt; ApplicationEvent &gt;</span><br><span class="line">&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onApplicationEvent(ApplicationEvent applicationEvent)</span><br><span class="line">    &#123;</span><br><span class="line">        //process event</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Spring 提供了以下5中标准的事件：</p>
+<ol>
+<li>上下文更新事件（ContextRefreshedEvent）：该事件会在ApplicationContext被初始化或者更新时发布。也可以在调用ConfigurableApplicationContext 接口中的refresh()方法时被触发。</li>
+<li>上下文开始事件（ContextStartedEvent）：当容器调用ConfigurableApplicationContext的Start()方法开始/重新开始容器时触发该事件。</li>
+<li>上下文停止事件（ContextStoppedEvent）：当容器调用ConfigurableApplicationContext的Stop()方法停止容器时触发该事件。</li>
+<li>上下文关闭事件（ContextClosedEvent）：当ApplicationContext被关闭时触发该事件。容器被关闭时，其管理的所有单例Bean都被销毁。</li>
+<li>请求处理事件（RequestHandledEvent）：在Web应用中，当一个http请求（request）结束触发该事件。</li>
+</ol>
+<p>除了上面介绍的事件以外，还可以通过扩展ApplicationEvent 类来开发自定义的事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class CustomApplicationEvent extends ApplicationEvent</span><br><span class="line">&#123;</span><br><span class="line">    public CustomApplicationEvent ( Object source, final String msg )</span><br><span class="line">    &#123;</span><br><span class="line">        super(source);</span><br><span class="line">        System.out.println(&quot;Created a Custom event&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了监听这个事件，还需要创建一个监听器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class CustomEventListener implements ApplicationListener &lt; CustomApplicationEvent &gt;</span><br><span class="line">&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onApplicationEvent(CustomApplicationEvent applicationEvent) &#123;</span><br><span class="line">        //handle event</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>之后通过applicationContext接口的publishEvent()方法来发布自定义事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CustomApplicationEvent customEvent = new CustomApplicationEvent(applicationContext, &quot;Test message&quot;);</span><br><span class="line">applicationContext.publishEvent(customEvent);</span><br></pre></td></tr></table></figure>
+<p></p><h3 id="answer-24"></h3><p></p>
+<h3 id="24、FileSystemResource和ClassPathResource有何区别？"><a href="#24、FileSystemResource和ClassPathResource有何区别？" class="headerlink" title="24、FileSystemResource和ClassPathResource有何区别？"></a>24、FileSystemResource和ClassPathResource有何区别？</h3><p>在FileSystemResource 中需要给出spring-config.xml文件在你项目中的相对路径或者绝对路径。在ClassPathResource中spring会在ClassPath中自动搜寻配置文件，所以要把ClassPathResource 文件放在ClassPath下。</p>
+<p>如果将spring-config.xml保存在了src文件夹下的话，只需给出配置文件的名称即可，因为src文件夹是默认。</p>
+<p>简而言之，ClassPathResource在环境变量中读取配置文件，FileSystemResource在配置文件中读取配置文件。</p>
+<p></p><h3 id="answer-25"></h3><p></p>
+<h3 id="25、Spring-框架中都用到了哪些设计模式？"><a href="#25、Spring-框架中都用到了哪些设计模式？" class="headerlink" title="25、Spring 框架中都用到了哪些设计模式？"></a>25、Spring 框架中都用到了哪些设计模式？</h3><p>Spring框架中使用到了大量的设计模式，下面列举了比较有代表性的：</p>
+<ul>
+<li>代理模式—在AOP和remoting中被用的比较多。</li>
+<li>单例模式—在spring配置文件中定义的bean默认为单例模式。</li>
+<li>模板方法—用来解决代码重复的问题。<br>比如. RestTemplate, JmsTemplate, JpaTemplate。</li>
+<li>前端控制器—Srping提供了DispatcherServlet来对请求进行分发。</li>
+<li>视图帮助(View Helper )—Spring提供了一系列的JSP标签，高效宏来辅助将分散的代码整合在视图里。</li>
+<li>依赖注入—贯穿于BeanFactory / ApplicationContext接口的核心理念。</li>
+<li>工厂模式—BeanFactory用来创建对象的实例。</li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2016/06/09/English-CET4-CET6/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2016/06/09/hibernate-interview/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2016/06/09/spring-interview/" data-title="25个经典的spring面试问答" data-url="http://zhengdehua.github.io/2016/06/09/spring-interview/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2016-06-09 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Technology/">Technology<span>20</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/cite/">cite<span>13</span></a></li> <li><a href="/tags/interview/">interview<span>4</span></a></li> <li><a href="/tags/java/">java<span>4</span></a></li> <li><a href="/tags/spring/">spring<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'zhengdehua' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 zhengdehua
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

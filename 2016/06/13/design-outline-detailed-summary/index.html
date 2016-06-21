@@ -1,0 +1,377 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>概要设计、详细设计(一)概念、方法、实践步骤 | nightwatch</title>
+  <meta name="author" content="zhengdehua">
+  
+  <meta name="description" content="引用 可爱桑树的博客
+
+1. 概念、方法、实践步骤设计是指根据需求开发的结果，对产品的技术实现由粗到细进行设计的过程。根据设计粒度和目的的不同可以将设计分为概要设计、详细设计等阶段以便于管理和确保质量。设计内容也要根据软件系统的实际情况进行定义，比如对于交互性要求高的系统可以有视觉设计等等。一般来说">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="概要设计、详细设计(一)概念、方法、实践步骤"/>
+  <meta property="og:site_name" content="nightwatch"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">nightwatch</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有的存档">
+			  <i class="fa fa-archive"></i>存档
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories"" title="所有的分类">
+			  <i class="fa fa-folder"></i>分类
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="全部标签">
+			  <i class="fa fa-tags"></i>标签
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="个人信息">
+			  <i class="fa fa-user"></i>关于我
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/focussites" title="收集有价值站点">
+			  <i class="fa fa-external-link-square"></i>关注站点
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 概要设计、详细设计(一)概念、方法、实践步骤</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <blockquote>
+<p>引用 <a href="http://blog.sina.com.cn/s/blog_5dfa359001016urm.html" target="_blank" rel="external">可爱桑树的博客</a></p>
+</blockquote>
+<h3 id="1-概念、方法、实践步骤"><a href="#1-概念、方法、实践步骤" class="headerlink" title="1. 概念、方法、实践步骤"></a>1. 概念、方法、实践步骤</h3><p>设计是指根据需求开发的结果，对产品的技术实现由粗到细进行设计的过程。根据设计粒度和目的的不同可以将设计分为概要设计、详细设计等阶段以便于管理和确保质量。设计内容也要根据软件系统的实际情况进行定义，比如对于交互性要求高的系统可以有视觉设计等等。<br>一般来说可以将设计阶段划分为概要设计、详细设计2阶段进行管理，程序设计可以结合项目管理、作业配分、开发团队的能力以及质量要求等因素来决定是否作为单独的阶段进行管理。</p>
+<ul>
+<li><p>概要设计: 定义实现需求的工作产品技功能、技术构架，定义设计准则及共通处理方针，分解划分功能模块，定义各功能模块的功能和业务处理，定义模块间的接口关系。典型的工作产品有《概要设计书》、《设计准则》及《共通处理方针》。一般包括系统技术构架，机能一览，机能迁移图，数据库逻辑设计，数据文件逻辑定义，系统各单位功能模块及接口定义，设计准则及共通处理方针（外观、操作、错误处理、日志、提示信息、异常处理、命名规约、编码规约等方针）等内容。</p>
+</li>
+<li><p>详细设计：定义各功能模块的功能单元的详细实现，包括接口的物理定义，明确数据库/数据文件的物理定义等。典型的工作产品：《详细设计书》。典型的内容包括各模块的功能单元实现的详细描述，数据库物理设计，数据文件物理定义，接口物理定义，状态码物理设计，输出信息（MSG/LOG）设计等内容。</p>
+</li>
+</ul>
+<h3 id="2-设计阶段的主要流程"><a href="#2-设计阶段的主要流程" class="headerlink" title="2. 设计阶段的主要流程"></a>2. 设计阶段的主要流程</h3><p>设计阶段的主要活动包括以下内容:设计阶段的计划或规划、确定设计的准则、设计以及制作设计文档、设计产物评审等。</p>
+<ol>
+<li><p>设计阶段的计划或规划内容为确定设计团队的组织并授权、评估设计阶段的工作量、明确设计的工作任务（WBS分解）以及完成时间、定义设计阶段的质量标准以及效率标准。这部分活动主要是PDCA中首要步骤，除上述内容外，还需要考虑项目管理中一些共同管理规划，比如风险管理、配置管理、干系人管理、变更管理、决策分析管理等等内容。在多人或团队作业的工作，制定合理的计划和规划是首要的步骤。</p>
+</li>
+<li><p>设计不同类型的系统其设计方法、方式等有很大的区别，比如图像处理系统、监控系统和ERP等管理系统的差异是显而易见的。因此设计阶段有个关键的活动就是确定设计准则，这个活动的主要目的就是根据系统的实际情况，选择最佳的实践，用最优的方法指导设计的进行。设计准则通常要考虑的内容包括：设计的内容、方法、工具、模板、命名规约、模块划分规则（尤其设计粒度）、质量以及效率评估方式等等。</p>
+</li>
+<li><p>设计以及制作设计文档:根据设计准则以及设计规划执行设计任务并制作设计文档多数情况不是一件复杂的工作，但是对软件系统来说却是一个迭代的、消化大量时间的过程。从我们讨论设计思路、形成初步草案、充分沟通、决策优劣、再修正、评审通过都需要理解、学习、反复迭代并花费大量时间。软件系统的设计无论采用什么形式，分层、抽象、归纳、汇总是设计的主要方法。分层和抽象是最关键的步骤，也是相对比较难掌握的，无论分层和抽象都是从分类开始的，比如功能的分类、业务的分类、信息的分类、控制模式的分类等等，只要能逐层分类就很容易进行分层和抽象。另外，归纳、汇总是常见的方法，也是体力工作，只要认真细致就能很好的完成。</p>
+</li>
+<li><p>设计产物评审：针对设计设计产物进行评审以及相关的沟通是确保设计质量的主要活动。从形式上，可以采用多种方法，比如设计小组评审、P2P评审、正式会议评审等等。</p>
+</li>
+</ol>
+<p>设计阶段的主要活动设计阶段的计划或规划、确定设计的准则、设计以及制作设计文档、设计产物评审等是个反复迭代的过程。本质上设计是个学习迭代的过程、通过不断的评审、确认、改善达到成熟，因此设计的保证手段主要是设计准则和评审。<br>根据软件项目类型的不同具体流程也有一些细节差异，每个软件开发组织可以结合业务特征具体定义，下面举例介绍2种典型的流程。</p>
+<p>例：软件外包企业，工程类的典型流程（概要设计）<br>主要特征：</p>
+<ul>
+<li>流程强调客户的参与，比如对设计的计划、设计的成果的评审。</li>
+<li>强调对关键的过程，比如系统架构的结果进行质量管控。</li>
+<li>对不同规模、技术、质量、进度要求的项目进行分级控制。</li>
+</ul>
+<blockquote>
+<p><i class="text-primary">3.1 制定及修改项目计划</i></p>
+<ul>
+<li>项目经理根据《项目计划规程》制定概要设计计划，明确设计(式样)管理组中参与概要设计人员的工作任务和完成时间，并通知各相关者进行确认。</li>
+<li>项目进行中，根据给定需求的变更和概要设计的实际进度状况的跟踪结果，及时调整或重新制定概要设计的详细进度计划。</li>
+<li>根据概要设计的进展状况，必要时修正计划并与客户达成一致。<br><i class="text-danger">注：与客户达成一致是外包的核心，计划以及核心内容和客户达成一致非常重要。</i></li>
+<li>项目概要设计计划并入项目计划中。</li>
+</ul>
+<p><i class="text-primary">3.2 确定系统架构和概要设计准则</i></p>
+<ul>
+<li><i class="text-info">确定系统架构</i><br>a. 对于A、B类项目<br>启动DAR（参见《决策分析规程》），分析风险、成本、进度的制约、技术、质量的要求，决定是否需要购买商业组件、是否复用已有构件。如果确认需要进行采购，请参见《供应商合同管理规程》。<br>根据公司人员情况、项目业务特征、性能数据量要求、可靠性要求、成本、效率、风险等方面内容提出多种系统架构进行评定，最终选定适合项目的系统架构。<br>输出参见《决策分析规程》的输出。<br>b. 对于非A、B类项目<br>设计(式样)管理组根据公司人员情况、项目业务特征、性能数据量要求、可靠性要求、成本、效率、风险等方面内容对多种系统架构进行评定，最终选定适合项目的系统架构。<br>如果用户有不同于一般项目的要求或者采用了公司不熟悉的架构，开发技术(环境)组需制作项目原型，以验证技术架构方案并确保其正确性。<br>注：根据不同工作量、技术、质量、进度要求、团队规模等识别出项目分类，并对概要设计的关键控制点（体系结构）进行不同的管控。</li>
+<li><i class="text-info">确定概要设计准则</i><br>设计(式样)管理组根据项目情况，确定项目的概要设计准则，准则通常包括：项目概要设计的方法、项目概要设计所使用的工具、概要设计成果物所使用的部分模板等。<br>设计(式样)管理组定义各种方针，各单位机能模块设计时应遵循已定义的各类方针。<br>通常需要定义的方针包括：操作、错误处理、日志、提示信息、异常处理、命名规约等方针。<br>所定义的所有的处理方针均需形成文档，进行配置管理。<br>对定义的所有内容形成《概要设计准则》。</li>
+</ul>
+<p><i class="text-primary">3.3 设计业务机能</i></p>
+<ul>
+<li>设计(式样)管理组对《系统要件定义书》中定义的业务组件使用各种方法进行细化（包括拆分、合并、分组等），并将各需求分配到这些细分的业务组件或功能模块上。</li>
+<li>设计(式样)管理组根据各类处理方针，对各单位机能组件和功能模块的外观、数据项目定义、功能概要、数据处理流程、操作方法、各机能组件或功能模块的接口和参数等进行设计。</li>
+<li>定义各机能组件和功能模块的接口和参数，各设计人员需验证其接口衔接上的一致性。</li>
+<li>将以上的内容加入对系统架构的描述，形成《概要设计书》。</li>
+<li>设计(式样)管理组将概要设计的内容按照其和需求的对应关系填入《需求追踪矩阵》。</li>
+<li>数据库逻辑设计。</li>
+</ul>
+<p><i class="text-primary">3.4 评审系统概要设计</i></p>
+<ul>
+<li>项目经理组织项目评审专家组对概要设计的成果物进行评审（参见评审规程）。评审中发现的问题需体现于《概要设计评审报告》中。评审结束后，开发经理（PJL）跟踪这些问题，直到问题得到修正。</li>
+<li>评审结束后，项目评审专家组需要根据评审的结论产生《概要设计评审报告》，并上报项目经理（PM）。</li>
+</ul>
+<p><i class="text-primary">3.5 确认概要设计</i></p>
+<ul>
+<li>概要设计评审通过后，项目经理(PM)针对《概要设计书》取得客户的认可。<br><i class="text-danger"><br>注：软件外包中的概要设计结果一般还需要客户的评审，这个也是项目屏蔽风险的主要方法，但是不同的客户技术水平并不相同，还要根据实际情况来判断。</i></li>
+</ul>
+<p><i class="text-primary">3.6 纳入基线管理</i></p>
+<ul>
+<li>概要设计评审通过后，《概要设计准则》、《概要设计书》、《需求追踪矩阵》需纳入基线管理</li>
+<li>本规程所产生的所有文档均需进行配置管理（参见配置管理规程）。产生的文档通常包括：<br>《概要设计准则》<br>《概要设计书》<br>《概要设计评审报告》</li>
+</ul>
+</blockquote>
+<p>案例2：软件产品类的典型流程<br>主要特征：</p>
+<ul>
+<li>流程强调交互设计</li>
+<li>强调设计方针的管理。</li>
+<li>对设计内容进行的明确规范</li>
+</ul>
+<blockquote>
+<p><i class="text-primary">3.1 计划编制</i><br>产品研发经理根据《开发详细时间计划》细化设计工作，编制《系统设计计划》。经相关人员确认后，提交产品团队经理审核，审核通过后发布计划。<br>产品团队经理应将《系统设计计划》及时合并到《开发详细时间计划》中。</p>
+<p><i class="text-primary">3.2 设计准则确定</i><br>系统设计组根据项目情况，确定设计准则。准则通常包括：设计的方法、设计使用的工具、设计成果物所使用的模板等。<br>系统设计组制定各种设计方针，设计过程中需遵循已定义的方针。</p>
+<p><i class="text-info">3.2.1 概要设计准则</i><br>概要设计方针通常包含：功能模块命名规约、功能模块操作、错误处理、异常处理、提示信息显示、日志记录等。<br>系统设计组汇总概要设计方针形成《概要设计准则》。</p>
+<p><i class="text-info">3.2.2 详细设计准则</i><br>详细设计的方针通常包含：类和方法命名规约、方法输入参数的排列次序、方法输出参数的格式、提示信息输出格式、方法级日志输出格式等。<br>系统设计组汇总详细设计方针形成《详细设计准则》。</p>
+<p><i class="text-info">3.2.3 设计准则评审</i><br>产品研发经理宜组织资源对《概要设计准则》、《详细设计准则》进行评审，评审通过后，由配置组进行配置管理。</p>
+<p><i class="text-primary">3.3概要设计</i></p>
+<p><i class="text-info">3.3.1《概要设计书》编制</i><br>《概要设计书》应包含以下内容：<br>系统架构设计<br>根据产品的业务特征、性能要求、可靠性要求、成本等方面内容，针对产品使用的技术平台和软硬件架构，提出多种候选方案；<br>方案的内容应包含：系统使用的软硬件技术平台及相关技术列表、系统的物理架构、物理器件类型、数据库管理系统类型、服务器类型、子系统划分及部署方式、系统的软件架构、第三方软件平台列表等；<br>功能模块设计<br>根据《产品规格说明书》的定义，结合产品的领域知识，通过拆分、合并、分组等方法，将产品的各项功能划分到子系统中，并细化到各机能组件和功能模块上；<br>系统接口设计<br>接口主要用于子系统/模块之间或内部系统与外部系统进行各种交互；<br>接口设计应根据制定各种方针，结合业务特点，并使用相应的设计方法；<br>接口设计的内容应包含：接口的名称、功能描述、接口的输入输出定义、接口的使用方法、接口的数据处理流程、输入输出的数据结构定义、异常处理机制、错误处理机制、日志记录方法及格式等；<br>数据库设计<br>根据业务的复杂程度和设计实现的需要，对核心和重要的数据生成数据字典，对于复杂的操作流程，进行适当的流程说明；<br>完成核心和重要库表的逻辑设计；</p>
+<p><i class="text-info">3.3.2《概要设计书》评审</i><br>产品研发经理组织相关干系人对《概要设计书》进行评审。评审通过后，由配置组进行配置管理。</p>
+<p><i class="text-primary">3.4 视觉设计</i><br>视觉设计的主要工作是根据交互设计的低保真原型进行高保真视觉效果设计；<br>视觉设计主要内容为整体风格把握，包括页面颜色、元素外观、配图；<br><i class="text-danger">注：强调交互设计中的视觉设计，单独作为一项工作内容进行管理。</i></p>
+<p><i class="text-primary">3.5 详细设计</i></p>
+<p><i class="text-info">3.5.1《详细设计书》编制</i><br>《详细设计书》应包含以下内容：<br>模块接口设计<br>对用于持久化的文件进行设计，设计的内容应包含:文件的存放位置、文件名称、内容编码、内容结构、读写控制机制等；<br>对持久化内存数据进行设计，设计的内容应包含数据的存储格式、数据的缓存刷新机制、数据的读写时机和方式等；<br>对数据库进行物理设计。设计的内容应包含：表、视图、存储过程等；<br>模块功能设计<br>对模块/子模块的的命名空间进行设计。如对源代码的包结构进行设计；<br>对模块/子模块的内部功能流程进行设计，将功能和职责细分到具体的类；<br>对于核心的类进行属性和方法进行设计；<br>对复杂的计算进行算法设计；<br>共通功能设计<br>对异常、错误、消息和日志进行详细的设计；<br>对内存管理、线程管理等进行设计；<br>对系统性能诸如：抗压性、吞吐量、响应速度、安全性等进行进行设计；</p>
+<p><i class="text-info">3.5.2《详细设计书》评审</i><br>产品研发经理组织相关干系人对《详细设计书》进行评审。评审通过后，由配置组进行配置管理。</p>
+<p><i class="text-primary">3.6 前端设计</i><br>前端设计是指根据视觉设计结果，进行CSS、HTML、JS进行编码；<br>前端设计的主要工作为：超文本结构设计、样式设计、交互效果实现、浏览器兼容设计、页面性能优化；<br><i class="text-danger">注：强调交互设计中的视觉设计，单独作为一项工作内容进行管理。</i></p>
+</blockquote>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2016/06/13/design-outline-detailed/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2016/06/13/design-outline-detailed-ii/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2016/06/13/design-outline-detailed-summary/" data-title="概要设计、详细设计(一)概念、方法、实践步骤" data-url="http://zhengdehua.github.io/2016/06/13/design-outline-detailed-summary/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2016-06-13 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Technology/">Technology<span>20</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/cite/">cite<span>13</span></a></li> <li><a href="/tags/Design/">Design<span>3</span></a></li> <li><a href="/tags/Requirements/">Requirements<span>3</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'zhengdehua' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 zhengdehua
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

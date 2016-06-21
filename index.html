@@ -1,0 +1,938 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>nightwatch</title>
+  <meta name="author" content="zhengdehua">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="nightwatch"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">nightwatch</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有的存档">
+			  <i class="fa fa-archive"></i>存档
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories"" title="所有的分类">
+			  <i class="fa fa-folder"></i>分类
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="全部标签">
+			  <i class="fa fa-tags"></i>标签
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="个人信息">
+			  <i class="fa fa-user"></i>关于我
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/focussites" title="收集有价值站点">
+			  <i class="fa fa-external-link-square"></i>关注站点
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header page-header-inverse ">
+  <h1 class="title title-inverse ">Winter is coming</h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart"></i>
+      And so my watch begins
+</div>    
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-06-16 </div>
+			<div class="article-title"><a href="/2016/06/16/web-xml-configuration/" >web.xml配置详解</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<blockquote>
+<p>引用 <a href="http://wiki.metawerx.net/wiki/Web.xml" target="_blank" rel="external">metawerx</a> </p>
+<p>本文主要介绍 Tomcat 中 web.xml 的配置。</p>
+<p>>> <a href="/web-xml详细参考">web.xml元素详细参考</a></p>
+</blockquote>
+<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>web.xml 文件用于描述如何在 servlet 容器中(如 Tomcat) 部署 web 应用。在很多 web 应用中，比如 WAR 文件，都包含 web.xml 文件。</p>
+<p>web.xml 文件的位置总是在 <code>application root/WEB-INF/web.xml</code>.</p>
+<p>在 web.xml 文件中，至少要包含一个 XML 描述 和 一个 <code>&lt;web-app&gt;</code> 标签。</p>
+<p>下面是一个精简的 Tomcat6.0 中的 web.xml 示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span><br><span class="line">&lt;web-app xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot;</span><br><span class="line">     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">     xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;</span><br><span class="line">     version=&quot;2.5&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure>
+<p>下面介绍在 <code>&lt;web-app&gt;</code> 标签中可以添加的元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; </span><br><span class="line">&lt;web-app xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot; </span><br><span class="line">        xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; </span><br><span class="line">        xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd&quot; </span><br><span class="line">        version=&quot;2.4&quot;&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line">        &lt;!-- General --&gt; </span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- 给应用命名，名称在 tomcat 控制台可以看到 --&gt; </span><br><span class="line">        &lt;display-name&gt;Example App&lt;/display-name&gt; </span><br><span class="line">        &lt;description&gt;An example application which is used to play with some of the features of Tomcat&lt;/description&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- 设置这个标签表示应用可以用于分布式环境 --&gt; </span><br><span class="line">        &lt;distributable /&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- 设置超时时间为 120分钟 --&gt; </span><br><span class="line">        &lt;session-config&gt; </span><br><span class="line">                &lt;session-timeout&gt;120&lt;/session-timeout&gt; </span><br><span class="line">        &lt;/session-config&gt; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line">        &lt;!-- Custom Tag Libraries --&gt; </span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- 注意 Taglib 标签从 JSP2.0 起就不再需要了，可以参考详细解释 --&gt;</span><br><span class="line">        &lt;!-- 在早起版本中 &lt;taglib&gt; 不一定得是 &lt;jsp-config&gt; 的子节点，但从 Tomcat7 开始，这是必须的了。  --&gt;</span><br><span class="line">        &lt;!-- 注意在每个 web.xml 文件中只能有一个 &lt;jsp-config&gt; 元素 --&gt;</span><br><span class="line">        &lt;!-- </span><br><span class="line">        &lt;jsp-config&gt; </span><br><span class="line">                &lt;taglib&gt; </span><br><span class="line">                        &lt;taglib-uri&gt;mytags&lt;/taglib-uri&gt; </span><br><span class="line">                        &lt;taglib-location&gt;/WEB-INF/jsp/mytaglib.tld&lt;/taglib-location&gt; </span><br><span class="line">                &lt;/taglib&gt; </span><br><span class="line">        &lt;/jsp-config&gt; </span><br><span class="line">        --&gt; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line">        &lt;!-- JSP 配置 --&gt; </span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line"></span><br><span class="line">        &lt;jsp-config&gt; </span><br><span class="line">                &lt;jsp-property-group&gt; </span><br><span class="line">                        &lt;url-pattern&gt;*.jsp&lt;/url-pattern&gt; </span><br><span class="line">                        &lt;include-prelude&gt;/WEB-INF/jspf/prelude1.jspf&lt;/include-prelude&gt; </span><br><span class="line">                        &lt;include-coda&gt;/WEB-INF/jspf/coda1.jspf&lt;/include-coda&gt; </span><br><span class="line">                &lt;/jsp-property-group&gt; </span><br><span class="line">        &lt;/jsp-config&gt; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line">        &lt;!-- Context Parameters --&gt; </span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line"></span><br><span class="line">        &lt;context-param&gt; </span><br><span class="line">                &lt;description&gt;Enable debugging for the application&lt;/description&gt; </span><br><span class="line">                &lt;param-name&gt;debug&lt;/param-name&gt; </span><br><span class="line">                &lt;param-value&gt;true&lt;/param-value&gt; </span><br><span class="line">        &lt;/context-param&gt; </span><br><span class="line">        &lt;context-param&gt; </span><br><span class="line">                &lt;description&gt;The email address of the administrator, used to send error reports.&lt;/description&gt; </span><br><span class="line">                &lt;param-name&gt;webmaster&lt;/param-name&gt; </span><br><span class="line">                &lt;param-value&gt;address@somedomain.com&lt;/param-value&gt; </span><br><span class="line">        &lt;/context-param&gt; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line">        &lt;!-- JNDI Environment Variables --&gt; </span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line"></span><br><span class="line">        &lt;env-entry&gt; </span><br><span class="line">                &lt;env-entry-name&gt;webmasterName&lt;/env-entry-name&gt; </span><br><span class="line">                &lt;env-entry-value&gt;Ms. W. Master&lt;/env-entry-value&gt; </span><br><span class="line">                &lt;env-entry-type&gt;java.lang.String&lt;/env-entry-type&gt; </span><br><span class="line">        &lt;/env-entry&gt; </span><br><span class="line">        &lt;env-entry&gt; </span><br><span class="line">                &lt;env-entry-name&gt;cms/defaultUserSettings/recordsPerPage&lt;/env-entry-name&gt; </span><br><span class="line">                &lt;env-entry-value&gt;30&lt;/env-entry-value&gt; </span><br><span class="line">                &lt;env-entry-type&gt;java.lang.Integer&lt;/env-entry-type&gt; </span><br><span class="line">        &lt;/env-entry&gt; </span><br><span class="line">        &lt;env-entry&gt; </span><br><span class="line">                &lt;env-entry-name&gt;cms/enableXMLExport&lt;/env-entry-name&gt; </span><br><span class="line">                &lt;env-entry-value&gt;false&lt;/env-entry-value&gt; </span><br><span class="line">                &lt;env-entry-type&gt;java.lang.Boolean&lt;/env-entry-type&gt; </span><br><span class="line">        &lt;/env-entry&gt; </span><br><span class="line">        &lt;env-entry&gt; </span><br><span class="line">                &lt;env-entry-name&gt;cms/enableEmailNotifications&lt;/env-entry-name&gt; </span><br><span class="line">                &lt;env-entry-value&gt;true&lt;/env-entry-value&gt; </span><br><span class="line">                &lt;env-entry-type&gt;java.lang.Boolean&lt;/env-entry-type&gt; </span><br><span class="line">        &lt;/env-entry&gt; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line">        &lt;!-- Servlets --&gt; </span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- Simple Servlet, provide a name, class, description and map to URL /servlet/SimpleServlet --&gt; </span><br><span class="line">        &lt;servlet&gt; </span><br><span class="line">                &lt;servlet-name&gt;Simple&lt;/servlet-name&gt; </span><br><span class="line">                &lt;servlet-class&gt;SimpleServlet&lt;/servlet-class&gt; </span><br><span class="line">                &lt;description&gt;This is a simple Hello World servlet&lt;/description&gt; </span><br><span class="line">        &lt;/servlet&gt; </span><br><span class="line">        &lt;servlet-mapping&gt; </span><br><span class="line">                &lt;servlet-name&gt;Simple&lt;/servlet-name&gt; </span><br><span class="line">                &lt;url-pattern&gt;/servlet/SimpleServlet&lt;/url-pattern&gt; </span><br><span class="line">        &lt;/servlet-mapping&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- CMS Servlet, responds to *.cms URL&apos;s --&gt; </span><br><span class="line">        &lt;servlet&gt; </span><br><span class="line">                &lt;!-- Identification --&gt; </span><br><span class="line">                &lt;servlet-name&gt;cms&lt;/servlet-name&gt; </span><br><span class="line">                &lt;servlet-class&gt;com.metawerx.servlets.ContentManagementSystem&lt;/servlet-class&gt; </span><br><span class="line">                &lt;description&gt;This servlet handles requests for the CMS (it is a controller in an MVC architecture)&lt;/description&gt; </span><br><span class="line"></span><br><span class="line">                &lt;!-- This servlet has two parameters --&gt; </span><br><span class="line">                &lt;init-param&gt; </span><br><span class="line">                        &lt;param-name&gt;debug&lt;/param-name&gt; </span><br><span class="line">                        &lt;param-value&gt;true&lt;/param-value&gt; </span><br><span class="line">                &lt;/init-param&gt; </span><br><span class="line">                &lt;init-param&gt; </span><br><span class="line">                        &lt;param-name&gt;detail&lt;/param-name&gt; </span><br><span class="line">                        &lt;param-value&gt;2&lt;/param-value&gt; </span><br><span class="line">                &lt;/init-param&gt; </span><br><span class="line"></span><br><span class="line">                &lt;!-- Load this servlet when the application starts (call the init() method of the servlet) --&gt; </span><br><span class="line">                &lt;load-on-startup&gt;5&lt;/load-on-startup&gt; </span><br><span class="line">                &lt;!-- &lt;run-at&gt;0:00, 6:00, 12:00, 18:00&lt;/run-at&gt; This tag is only valid for Resin --&gt; </span><br><span class="line">        &lt;/servlet&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- Map some URLs to the cms servlet (demonstrates *.extension mapping) --&gt; </span><br><span class="line">        &lt;servlet-mapping&gt; </span><br><span class="line">                &lt;!-- For any URL ending in .cms, the cms servlet will be called --&gt; </span><br><span class="line">                &lt;servlet-name&gt;cms&lt;/servlet-name&gt; </span><br><span class="line">                &lt;url-pattern&gt;*.cms&lt;/url-pattern&gt; </span><br><span class="line">        &lt;/servlet-mapping&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- Rewriter Servlet, responds to /content/* and /admin/RewriterStatistics URL&apos;s --&gt; </span><br><span class="line">        &lt;!-- Define a servlet to respond to /content/* URL&apos;s --&gt; </span><br><span class="line">        &lt;servlet&gt; </span><br><span class="line">                &lt;servlet-name&gt;rewriter&lt;/servlet-name&gt; </span><br><span class="line">                &lt;servlet-class&gt;com.metawerx.servlets.URLRewriter&lt;/servlet-class&gt; </span><br><span class="line">        &lt;/servlet&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- Map some URL&apos;s to the rewriter servlet (demonstrates /path/* and specific URL mapping) --&gt; </span><br><span class="line">        &lt;servlet-mapping&gt; </span><br><span class="line">                &lt;!-- For any URL starting with /content/, the rewriter servlet will be called --&gt; </span><br><span class="line">                &lt;servlet-name&gt;rewriter&lt;/servlet-name&gt; </span><br><span class="line">                &lt;url-pattern&gt;/content/*&lt;/url-pattern&gt; </span><br><span class="line">        &lt;/servlet-mapping&gt; </span><br><span class="line">        &lt;servlet-mapping&gt; </span><br><span class="line">                &lt;!-- The rewriter servlet can also be called directly as /admin/RewriterStatistics, to return stats --&gt; </span><br><span class="line">                &lt;servlet-name&gt;rewriter&lt;/servlet-name&gt; </span><br><span class="line">                &lt;url-pattern&gt;/admin/RewriterStatistics&lt;/url-pattern&gt; </span><br><span class="line">        &lt;/servlet-mapping&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- PathJSP Servlet, maps /shop/item/* URL&apos;s to a JSP file --&gt; </span><br><span class="line">        &lt;!-- Define a JSP file to respond to /shop/item/* URL&apos;s --&gt; </span><br><span class="line">        &lt;servlet&gt; </span><br><span class="line">                &lt;servlet-name&gt;pathjsp&lt;/servlet-name&gt; </span><br><span class="line">                &lt;jsp-file&gt;pathfinder.jsp&lt;/jsp-file&gt; </span><br><span class="line">        &lt;/servlet&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- Map some URL&apos;s to the pathjsp servlet (demonstrates /long/path/* URL mapping) --&gt; </span><br><span class="line">        &lt;servlet-mapping&gt; </span><br><span class="line">                &lt;!-- For any URL starting with /shop/item/, the pathjsp servlet will be called --&gt; </span><br><span class="line">                &lt;servlet-name&gt;pathjsp&lt;/servlet-name&gt; </span><br><span class="line">                &lt;url-pattern&gt;/shop/item/*&lt;/url-pattern&gt; </span><br><span class="line">        &lt;/servlet-mapping&gt; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line">        &lt;!-- Filters --&gt; </span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- Example filter to set character encoding on each request (from Tomcat servlets-examples context) --&gt; </span><br><span class="line">        &lt;filter&gt; </span><br><span class="line">                &lt;filter-name&gt;Set Character Encoding&lt;/filter-name&gt; </span><br><span class="line">                &lt;filter-class&gt;filters.SetCharacterEncodingFilter&lt;/filter-class&gt; </span><br><span class="line">                &lt;init-param&gt; </span><br><span class="line">                        &lt;param-name&gt;encoding&lt;/param-name&gt; </span><br><span class="line">                        &lt;param-value&gt;EUC_JP&lt;/param-value&gt; </span><br><span class="line">                &lt;/init-param&gt; </span><br><span class="line">        &lt;/filter&gt; </span><br><span class="line">        &lt;filter-mapping&gt; </span><br><span class="line">                &lt;filter-name&gt;Set Character Encoding&lt;/filter-name&gt; </span><br><span class="line">                &lt;url-pattern&gt;/*&lt;/url-pattern&gt; </span><br><span class="line">        &lt;/filter-mapping&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- Example filter to dump the HTTP request at the top of each page (from Tomcat servlets-examples context) --&gt; </span><br><span class="line">        &lt;filter&gt; </span><br><span class="line">                &lt;filter-name&gt;Request Dumper Filter&lt;/filter-name&gt; </span><br><span class="line">                &lt;filter-class&gt;filters.RequestDumperFilter&lt;/filter-class&gt; </span><br><span class="line">        &lt;/filter&gt; </span><br><span class="line">        &lt;filter-mapping&gt; </span><br><span class="line">                &lt;filter-name&gt;Request Dumper Filter&lt;/filter-name&gt; </span><br><span class="line">                &lt;url-pattern&gt;/*&lt;/url-pattern&gt; </span><br><span class="line">        &lt;/filter-mapping&gt; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line">        &lt;!-- Listeners --&gt; </span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- Define example application events listeners --&gt; </span><br><span class="line">        &lt;listener&gt; </span><br><span class="line">                &lt;listener-class&gt;com.metawerx.listener.ContextListener&lt;/listener-class&gt; </span><br><span class="line">        &lt;/listener&gt; </span><br><span class="line">        &lt;listener&gt; </span><br><span class="line">                &lt;listener-class&gt;com.metawerx.listener.SessionListener&lt;/listener-class&gt; </span><br><span class="line">        &lt;/listener&gt; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line">        &lt;!-- Security --&gt; </span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- Define roles --&gt; </span><br><span class="line">        &lt;security-role&gt; </span><br><span class="line">                &lt;role-name&gt;admin&lt;/role-name&gt; </span><br><span class="line">        &lt;/security-role&gt; </span><br><span class="line">        &lt;security-role&gt; </span><br><span class="line">                &lt;role-name&gt;cms_editors&lt;/role-name&gt; </span><br><span class="line">        &lt;/security-role&gt; </span><br><span class="line">         </span><br><span class="line">        &lt;!-- Define a constraint to restrict access to /private/* --&gt; </span><br><span class="line">        &lt;security-constraint&gt; </span><br><span class="line"></span><br><span class="line">                &lt;display-name&gt;Security constraint for the /private folder&lt;/display-name&gt; </span><br><span class="line"></span><br><span class="line">                &lt;web-resource-collection&gt; </span><br><span class="line">                         </span><br><span class="line">                        &lt;web-resource-name&gt;Protected Area&lt;/web-resource-name&gt; </span><br><span class="line">                        &lt;url-pattern&gt;/private/*&lt;/url-pattern&gt; </span><br><span class="line">                         </span><br><span class="line">                        &lt;!-- If you list http methods, only those methods are protected. --&gt; </span><br><span class="line">                        &lt;!-- Leave this commented out to protect all access --&gt; </span><br><span class="line">                        &lt;!-- </span><br><span class="line">                        &lt;http-method&gt;DELETE&lt;/http-method&gt; </span><br><span class="line">                        &lt;http-method&gt;GET&lt;/http-method&gt; </span><br><span class="line">                        &lt;http-method&gt;POST&lt;/http-method&gt; </span><br><span class="line">                        &lt;http-method&gt;PUT&lt;/http-method&gt; </span><br><span class="line">                        --&gt; </span><br><span class="line"></span><br><span class="line">                &lt;/web-resource-collection&gt; </span><br><span class="line"></span><br><span class="line">                &lt;auth-constraint&gt; </span><br><span class="line">                        &lt;!-- Only only administrator and CMS editors to access this area --&gt; </span><br><span class="line">                        &lt;role-name&gt;admin&lt;/role-name&gt; </span><br><span class="line">                        &lt;role-name&gt;cms_editors&lt;/role-name&gt; </span><br><span class="line">                &lt;/auth-constraint&gt; </span><br><span class="line"></span><br><span class="line">        &lt;/security-constraint&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- FORM based authentication --&gt; </span><br><span class="line">        &lt;!-- Leave this commented out, we will use BASIC (HTTP) authentication instead --&gt; </span><br><span class="line">        &lt;!-- </span><br><span class="line">        &lt;login-config&gt; </span><br><span class="line">                &lt;auth-method&gt;FORM&lt;/auth-method&gt; </span><br><span class="line">                &lt;form-login-config&gt; </span><br><span class="line">                        &lt;form-login-page&gt;/login.jsp&lt;/form-login-page&gt; </span><br><span class="line">                        &lt;form-error-page&gt;/error.jsp&lt;/form-error-page&gt; </span><br><span class="line">                &lt;/form-login-config&gt; </span><br><span class="line">        &lt;/login-config&gt; </span><br><span class="line">        --&gt; </span><br><span class="line">        &lt;!-- This application uses BASIC authentication --&gt; </span><br><span class="line">        &lt;login-config&gt; </span><br><span class="line">                &lt;auth-method&gt;BASIC&lt;/auth-method&gt; </span><br><span class="line">                &lt;realm-name&gt;Editor Login&lt;/realm-name&gt; </span><br><span class="line">        &lt;/login-config&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- Define a constraint to force SSL on all pages in the application --&gt; </span><br><span class="line">        &lt;security-constraint&gt; </span><br><span class="line"></span><br><span class="line">                &lt;web-resource-collection&gt; </span><br><span class="line">                        &lt;web-resource-name&gt;Entire Application&lt;/web-resource-name&gt; </span><br><span class="line">                        &lt;url-pattern&gt;/*&lt;/url-pattern&gt; </span><br><span class="line">                &lt;/web-resource-collection&gt; </span><br><span class="line"></span><br><span class="line">                &lt;user-data-constraint&gt; </span><br><span class="line">                        &lt;transport-guarantee&gt;CONFIDENTIAL&lt;/transport-guarantee&gt; </span><br><span class="line">                &lt;/user-data-constraint&gt; </span><br><span class="line"></span><br><span class="line">        &lt;/security-constraint&gt; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line">        &lt;!-- Error Handler --&gt; </span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- Define an error handler for 404 pages --&gt; </span><br><span class="line">        &lt;error-page&gt; </span><br><span class="line">                &lt;error-code&gt;404&lt;/error-code&gt; </span><br><span class="line">                &lt;location&gt;/error404.jsp&lt;/location&gt; </span><br><span class="line">        &lt;/error-page&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- Define an error handler for java.lang.Throwable --&gt; </span><br><span class="line">        &lt;error-page&gt; </span><br><span class="line">                &lt;exception-type&gt;java.lang.Throwable&lt;/exception-type&gt; </span><br><span class="line">                &lt;location&gt;/errorThrowable.jsp&lt;/location&gt; </span><br><span class="line">        &lt;/error-page&gt; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line">        &lt;!-- Extra MIME types --&gt; </span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- Set XML mime-mapping so spreadsheets open properly instead of being sent as an octet/stream --&gt; </span><br><span class="line">        &lt;mime-mapping&gt; </span><br><span class="line">                &lt;extension&gt;xls&lt;/extension&gt; </span><br><span class="line">                &lt;mime-type&gt;application/vnd.ms-excel&lt;/mime-type&gt; </span><br><span class="line">        &lt;/mime-mapping&gt; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line">        &lt;!-- Locale --&gt; </span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- Set Locale Encoding --&gt; </span><br><span class="line">        &lt;locale-encoding-mapping-list&gt; </span><br><span class="line">                &lt;locale-encoding-mapping&gt; </span><br><span class="line">                        &lt;locale&gt;ja&lt;/locale&gt; </span><br><span class="line">                        &lt;encoding&gt;Shift_JIS&lt;/encoding&gt; </span><br><span class="line">                &lt;/locale-encoding-mapping&gt; </span><br><span class="line">        &lt;/locale-encoding-mapping-list&gt; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line">        &lt;!-- Welcome Files --&gt; </span><br><span class="line">        &lt;!-- ========================================================== --&gt; </span><br><span class="line"></span><br><span class="line">        &lt;!-- Define, in order of preference, which file to show when no filename is defined in the path --&gt; </span><br><span class="line">        &lt;!-- eg: when user goes to http://yoursite.com/ or http://yoursite.com/somefolder --&gt; </span><br><span class="line">        &lt;!-- Defaults are provided in the server-wide web.xml file, such as index.jsp, index.htm --&gt; </span><br><span class="line">        &lt;!-- Note: using this tag overrides the defaults, so don&apos;t forget to add them here --&gt; </span><br><span class="line">        &lt;welcome-file-list&gt; </span><br><span class="line">                &lt;!-- Use index.swf if present, or splash.jsp, otherwise just look for the normal defaults --&gt; </span><br><span class="line">                &lt;welcome-file&gt;index.swf&lt;/welcome-file&gt; </span><br><span class="line">                &lt;welcome-file&gt;splash.jsp&lt;/welcome-file&gt; </span><br><span class="line">                &lt;welcome-file&gt;index.html&lt;/welcome-file&gt; </span><br><span class="line">                &lt;welcome-file&gt;index.htm&lt;/welcome-file&gt; </span><br><span class="line">                &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt; </span><br><span class="line">        &lt;/welcome-file-list&gt; </span><br><span class="line"></span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2016/06/16/web-xml-configuration/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-06-15 </div>
+			<div class="article-title"><a href="/2016/06/15/regexp-common/" >常用正则表达式</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h4 id="常用正则表达式"><a href="#常用正则表达式" class="headerlink" title="常用正则表达式"></a>常用正则表达式</h4><blockquote>
+<p><code>^\d+$</code><br>非负整数</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^\d+(\.\d+)?$</code><br>非负浮点数</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$</code><br>正浮点数</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^((-\d+(\.\d+)?)|(0+(\.0+)?))$</code><br>非正浮点数</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$</code><br>负浮点数</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(-?\d+)(\.\d+)?$</code><br>浮点数</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(-?\d+)(\.\d{0,2})?$</code><br>浮点数(两位小数)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^\w+$</code><br>由数字、26个英文字母或者下划线组成的字符串</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^[\u4E00-\u9FFF]+$</code><br>匹配中文</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^[\x80-\xff]+$</code><br>中文字符(双字节)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$</code><br>email 地址</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(-?\d+)(\.\d{0,2})?$</code><br>金额</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^([a-zA-z]+://)?([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?$</code><br>网址</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$</code><br>IP 地址</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>&lt;.+?&gt;</code><br>HTML 标记</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>[1-9]\d{5}(?!\d)</code><br>中国邮政编码</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^\d{14}\d{3}?\w$</code><br>身份证</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(19|20)\d\d+(0[1-9]|1[012])+(0[1-9]|[12][0-9]|3[01])</code><br>日期 YYYYMMDD</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^((((19|20)(([02468][048])|([13579][26]))-02-29))|((20[0-9][0-9])|(19[0-9][0-9]))-((((0[1-9])|(1[0-2]))-((0[1-9])|(1\d)|(2[0-8])))|((((0[13578])|(1[02]))-31)|(((01,3-9])|(1[0-2]))-(29|30)))))$</code><br>日期(严格匹配合法日期 YYYY-MM-DD)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^([0-1]?[0-9]|2[0-3])(:([0-5][0-9])){0,2}$</code><br>时间(不含日期)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^(19|20)\d{2}[/\s\-\.]*(0[1-9]|1[0-2]|[1-9])[/\s\-\.]*(0[1-9]|3[01]|[12][0-9]|[1-9])[\s] *(2[0-3]|[01]?\d)(:[0-5]\d){0,2}$</code><br>时间(含日期)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^1[0-2]\d|\d{1,2}$</code><br>年龄</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>(\d{3}-|\d{4}-)?(\d{8}|\d{7})?</code><br>国内电话号码</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^[0-9]{11}$</code><br>手机号码</p>
+</blockquote>
+
+	
+	</div>
+  <a type="button" href="/2016/06/15/regexp-common/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-06-15 </div>
+			<div class="article-title"><a href="/2016/06/15/regexp-essential/" >正则表达式入门</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<blockquote>
+<p>引用 <a href="http://www.cnblogs.com/deerchao/archive/2006/08/24/zhengzhe30fengzhongjiaocheng.html" target="_blank" rel="external">deerchao 的博客</a></p>
+</blockquote>
+<h5 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h5><p><a href="#section-1">正则表达式到底是什么东西？</a><br><a href="#section-2">入门 </a><br><a href="#section-3">测试正则表达式 </a><br><a href="#section-4">元字符 </a><br><a href="#section-5">字符转义 </a><br><a href="#section-6">重复 </a><br><a href="#section-7">字符类 </a><br><a href="#section-8">分支条件 </a><br><a href="#section-9">反义 </a><br><a href="#section-10">分组 </a><br><a href="#section-11">后向引用 </a><br><a href="#section-12">零宽断言 </a><br><a href="#section-13">负向零宽断言 </a><br><a href="#section-14">注释 </a><br><a href="#section-15">贪婪与懒惰 </a><br><a href="#section-16">处理选项 </a><br><a href="#section-17">平衡组/递归匹配 </a><br><a href="#section-18">还有些什么东西没提到 </a></p>
+<h1 id="section-1"></h1>
+
+<p><strong>正则表达式到底是什么东西？</strong></p>
+<p>在编写处理字符串的程序或网页时，经常会有查找符合某些复杂规则的字符串的需要。<strong>正则表达式</strong>就是用于描述这些规则的工具。换句话说，正则表达式就是记录文本规则的代码。</p>
+<p>很可能你使用过Windows/Dos下用于文件查找的<strong>通配符(wildcard)</strong>，也就是<code>*</code>和<code>?</code>。如果你想查找某个目录下的所有的Word文档的话，你会搜索<code>*.doc</code>。在这里，<code>*</code>会被解释成任意的字符串。和通配符类似，正则表达式也是用来进行文本匹配的工具，只不过比起通配符，它能更精确地描述你的需求——当然，代价就是更复杂——比如你可以编写一个正则表达式，用来查找所有以0开头，后面跟着2-3个数字，然后是一个连字号“-”，最后是7或8位数字的字符串(像010-12345678或0376-7654321)。</p>
+<blockquote>
+<p>字符是计算机软件处理文字时最基本的单位，可能是字母，数字，标点符号，空格，换行符，汉字等等。字符串是0个或更多个字符的序列。文本也就是文字，字符串。说某个字符串匹配某个正则表达式，通常是指这个字符串里有一部分（或几部分分别）能满足表达式给出的条件。</p>
+</blockquote>
+<h1 id="section-2"></h1>
+
+<p><strong>入门</strong></p>
+<p>学习正则表达式的最好方法是从例子开始，理解例子之后再自己对例子进行修改，实验。下面给出了不少简单的例子，并对它们作了详细的说明。</p>
+<p>假设你在一篇英文小说里查找hi，你可以使用正则表达式<code>hi</code>。</p>
+<p>这几乎是最简单的正则表达式了，它可以精确匹配这样的字符串：由两个字符组成，前一个字符是h,后一个是i。通常，处理正则表达式的工具会提供一个忽略大小写的选项，如果选中了这个选项，它可以匹配hi,HI,Hi,hI这四种情况中的任意一种。</p>
+<p>不幸的是，很多单词里包含hi这两个连续的字符，比如<em>him,history,high</em>等等。用<code>hi</code>来查找的话，这里边的hi也会被找出来。如果要精确地查找hi这个单词的话，我们应该使用<code>\bhi\b</code>。</p>
+<p><code>\b</code>是正则表达式规定的一个特殊代码（好吧，某些人叫它<strong>元字符，metacharacter</strong>），代表着单词的开头或结尾，也就是单词的分界处。虽然通常英文的单词是由空格，标点符号或者换行来分隔的，但是<code>\b</code>并不匹配这些单词分隔字符中的任何一个，它只<strong>匹配一个位置</strong>。</p>
+<p>假如你要找的是hi后面不远处跟着一个Lucy，你应该用<code>\bhi\b.*\bLucy\b</code>。</p>
+<p>这里，.是另一个元字符，匹配除了换行符以外的任意字符。<code>*</code>同样是元字符，<br>不过它代表的不是字符，也不是位置，而是数量——它指定<code>*</code>前边的内容可以连续重复使用任意次以使整个表达式得到匹配。<br>因此，<code>.*</code>连在一起就意味着任意数量的不包含换行的字符。现在<code>\bhi\b.*\bLucy\b</code>的意思就很明显了：<br>先是一个单词hi,然后是任意个任意字符(但不能是换行)，最后是Lucy这个单词。</p>
+<blockquote>
+<p>如果需要更精确的说法，<code>\b</code>匹配这样的位置：它的前一个字符和后一个字符不全是(一个是,一个不是或不存在)<code>\w</code>。</p>
+</blockquote>
+<p>如果同时使用其它元字符，我们就能构造出功能更强大的正则表达式。比如下面这个例子：</p>
+<p><code>0\d\d-\d\d\d\d\d\d\d\d</code>匹配这样的字符串：以0开头，然后是两个数字，然后是一个连字号“-”，最后是8个数字(也就是中国的电话号码。当然，这个例子只能匹配区号为3位的情形)。</p>
+<blockquote>
+<p>换行符就是<code>&#39;\n&#39;</code>,ASCII编码为10(十六进制0x0A)的字符。</p>
+</blockquote>
+<p>这里的<code>\d</code>是个新的元字符，匹配一位数字(0，或1，或2，或……)。-不是元字符，只匹配它本身——连字符(或者减号，或者中横线，或者随你怎么称呼它)。</p>
+<p>为了避免那么多烦人的重复，我们也可以这样写这个表达式：<code>0\d{2}-\d{8}</code>。 这里<code>\d</code>后面的<code>{2}({8})</code>的意思是前面<code>\d</code>必须连续重复匹配2次(8次)。</p>
+<h1 id="section-3"></h1>
+
+<p><strong>测试正则表达式</strong></p>
+<p>如果你不觉得正则表达式很难读写的话，要么你是一个天才，要么，你不是地球人。正则表达式的语法很令人头疼，即使对经常使用它的人来说也是如此。由于难于读写，容易出错，所以找一种工具对正则表达式进行测试是很有必要的。</p>
+<p>不同的环境下正则表达式的一些细节是不相同的，本教程介绍的是微软 .Net Framework 2.0下正则表达式的行为，所以，我向你介绍一个.Net下的工具<a href="http://deerchao.net/tools/regex_tester/index.htm" target="_blank" rel="external">Regex Tester</a>。首先你确保已经安装了.Net Framework 2.0，然后下载Regex Tester。这是个绿色软件，下载完后打开压缩包,直接运行RegexTester.exe就可以了。</p>
+<blockquote>
+<p>其它可用的测试工具:</p>
+<ul>
+<li><a href="http://www.regexbuddy.com/" target="_blank" rel="external">RegexBuddy</a></li>
+<li><a href="http://www.regexpal.com/" target="_blank" rel="external">Javascript正则表达式在线测试工具</a></li>
+</ul>
+</blockquote>
+<h1 id="section-4"></h1>
+
+<p><strong>元字符</strong></p>
+<p>现在你已经知道几个很有用的元字符了，如<code>\b</code>,<code>.</code>,<code>*</code>，还有<code>\d</code>.正则表达式里还有更多的元字符，<br>比如<code>\s</code>匹配任意的空白符，包括空格，制表符(Tab)，换行符，中文全角空格等。<code>\w</code>匹配字母或数字或下划线或汉字等。</p>
+<p>下面来看看更多的例子：</p>
+<p><code>\ba\w*\b</code>匹配以字母a开头的单词——先是某个单词开始处(<code>\b</code>)，然后是字母a,然后是任意数量的字母或数字(<code>\w*</code>)，最后是单词结束处(<code>\b</code>)。</p>
+<blockquote>
+<p>对中文/汉字的特殊处理是由.Net提供的正则表达式引擎支持的，其它环境下的具体情况请查看相关文档。</p>
+</blockquote>
+<p><code>\d+</code>匹配1个或更多连续的数字。这里的<code>+</code>是和<code>*</code>类似的元字符，不同的是<code>*</code>匹配重复任意次(可能是0次)，而<code>+</code>则匹配重复1次或更多次。</p>
+<blockquote>
+<p>好吧，现在我们说说正则表达式里的单词是什么意思吧：就是不少于一个的连续的<code>\w</code>。不错，这与学习英文时要背的成千上万个同名的东西的确关系不大 :)</p>
+</blockquote>
+<p><code>\b\w{6}\b</code> 匹配刚好6个字符的单词。</p>
+<p><img src="/resources/image/png/QQ截图20160616210618.png" alt=""></p>
+<p>元字符<code>^</code>（和数字6在同一个键位上的符号）和<code>$</code>都匹配一个位置，这和<code>\b</code>有点类似。<code>^</code>匹配你要用来查找的<br>字符串的开头，<code>$</code>匹配结尾。这两个代码在验证输入的内容时非常有用，<br>比如一个网站如果要求你填写的QQ号必须为5位到12位数字时，可以使用：<code>^\d{5,12}$</code>。</p>
+<p>这里的{5,12}和前面介绍过的{2}是类似的，只不过{2}匹配只能不多不少重复2次，{5,12}则是重复的次数不能少于5次，不能多于12次，否则都不匹配。</p>
+<p>因为使用了<code>^</code>和<code>$</code>，所以输入的整个字符串都要用来和<code>\d{5,12}</code>来匹配，也就是说整个输入必须是5到12个数字，<br>因此如果输入的QQ号能匹配这个正则表达式的话，那就符合要求了。</p>
+<blockquote>
+<p>正则表达式引擎通常会提供一个“测试指定的字符串是否匹配一个正则表达式”的方法，如JavaScript里的RegExp.test()方法或.NET里的Regex.IsMatch()方法。这里的匹配是指是字符串里有没有符合表达式规则的部分。如果不使用<code>^</code>和<code>$</code>的话，<br>对于<code>\d{5,12}</code>而言，使用这样的方法就只能保证字符串里包含5到12连续位数字，而不是整个字符串就是5到12位数字。</p>
+</blockquote>
+<p>和忽略大小写的选项类似，有些正则表达式处理工具还有一个处理多行的选项。如果选中了这个选项，<code>^</code>和<code>$</code>的意义就变成了匹配行的开始处和结束处。</p>
+<h1 id="section-5"></h1>
+
+<p><strong>字符转义</strong></p>
+<p>如果你想查找元字符本身的话，比如你查找<code>.</code>,或者<code>*</code>,就出现了问题：你没办法指定它们，<br>因为它们会被解释成别的意思。这时你就得使用<code>\</code>来取消这些字符的特殊意义。因此，你应该使用<code>\.</code>和<code>\*</code>。<br>当然，要查找<code>\</code>本身，你也得用<code>\\</code>.</p>
+<p>例如：<code>unibetter\.com</code> 匹配unibetter.com，<code>C:\\Windows</code> 匹配C:\Windows。</p>
+<h1 id="section-6"></h1>
+
+<p><strong>重复</strong></p>
+<p>你已经看过了前面的<code>*</code>,<code>+</code>,<code>{2}</code>,<code>{5,12}</code>这几个匹配重复的方式了。下面是正则表达式中所有的限定符(指定数量的代码，例如<code>*</code>,<code>{5,12}</code>等)：</p>
+<p><img src="/resources/image/png/QQ截图20160616212007.png" alt=""></p>
+<p>下面是一些使用重复的例子：</p>
+<p><code>Windows\d+</code> 匹配Windows后面跟1个或更多数字</p>
+<p><code>^\w+</code> 匹配一行的第一个单词(或整个字符串的第一个单词，具体匹配哪个意思得看选项设置)</p>
+<h1 id="section-7"></h1>
+
+<p><strong>字符类</strong></p>
+<p>要想查找数字，字母或数字，空白是很简单的，因为已经有了对应这些字符集合的元字符，但是如果你想匹配没有预定义元字符的字符集合(比如元音字母a,e,i,o,u),应该怎么办？</p>
+<p>很简单，你只需要在方括号里列出它们就行了，像<code>[aeiou]</code>就匹配任何一个英文元音字母，<code>[.?!]</code>匹配标点符号(.或?或!)。</p>
+<p>我们也可以轻松地指定一个字符范围，像<code>[0-9]</code>代表的含意与<code>\d</code>就是完全一致的：一位数字；同理<code>[a-z0-9A-Z_]</code>也完全等同于<code>\w</code>（如果只考虑英文的话）。</p>
+<p>下面是一个更复杂的表达式：<code>\(?0\d{2}[) -]?\d{8}</code>。</p>
+<p>这个表达式可以匹配几种格式的电话号码，像(010)88886666，或022-22334455，或02912345678等。我们对它进行一些分析吧：首先是一个转义字符<code>\(</code>,它能出现0次或1次(<code>?</code>),然后是一个0，后面跟着2个数字(<code>\d{2}</code>)，然后是<code>)</code>或<code>-</code>或<code>空格</code>中的一个，它出现1次或不出现(<code>?</code>)，<br>最后是8个数字(<code>\d{8}</code>)。</p>
+<blockquote>
+<p>“(”和“)”也是元字符，后面的<a href="#section-9">分组节</a>里会提到，所以在这里需要使用<a href="#section-5">转义</a>。</p>
+</blockquote>
+<h1 id="section-8"></h1>
+
+<p><strong>分枝条件</strong></p>
+<p>不幸的是，刚才那个表达式也能匹配010)12345678或(022-87654321这样的“不正确”的格式。要解决这个问题，我们需要用到分枝条件。正则表达式里的分枝条件指的是有几种规则，如果满足其中任意一种规则都应该当成匹配，具体方法是用<code>|</code>把不同的规则分隔开。听不明白？没关系，看例子：</p>
+<p><code>0\d{2}-\d{8}|0\d{3}-\d{7}</code>这个表达式能匹配两种以连字号分隔的电话号码：一种是三位区号，8位本地号(如010-12345678)，一种是4位区号，7位本地号(0376-2233445)</p>
+<p><code>\(0\d{2}\)[- ]?\d{8}|0\d{2}[- ]?\d{8}</code>这个表达式匹配3位区号的电话号码，其中区号可以用小括号括起来，也可以不用，区号与本地号间可以用连字号或空格间隔，也可以没有间隔。你可以试试用分枝条件把这个表达式扩展成也支持4位区号的</p>
+<p><code>\d{5}-\d{4}|\d{5}</code>这个表达式用于匹配美国的邮政编码。美国邮编的规则是5位数字，或者用连字号间隔的9位数字。之所以要给出这个例子是因为它能说明一个问题：<strong>使用分枝条件时，要注意各个条件的顺序。</strong><br>如果你把它改成<code>\d{5}|\d{5}-\d{4}</code>的话，那么就只会匹配5位的邮编(以及9位邮编的前5位)。原因是匹配分枝条件时，将会从左到右地测试每个条件，如果满足了某个分枝的话，就不会去再管其它的条件了。</p>
+<h1 id="section-9"></h1>
+
+<p><strong>分组</strong></p>
+<p>我们已经提到了怎么重复单个字符（直接在字符后面加上限定符就行了）；但如果想要重复多个字符又该怎么办？你可以用小括号来指定子表达式(也叫做分组)，然后你就可以指定这个子表达式的重复次数了，你也可以对子表达式进行其它一些操作(后面会有介绍)。</p>
+<p><code>(\d{1,3}\.){3}\d{1,3}</code>是一个简单的IP地址匹配表达式。要理解这个表达式，请按下列顺序分析它：<br><code>\d{1,3}</code>匹配1到3位的数字，<code>(\d{1,3}\.){3}</code>匹配三位数字加上一个英文句号(这个整体也就是这个分组)重复3次，最后再加上一个一到三位的数字(<code>\d{1,3}</code>)。</p>
+<p>不幸的是，它也将匹配256.300.888.999这种不可能存在的IP地址。如果能使用算术比较的话，或许能简单地解决这个问题，<br>但是正则表达式中并不提供关于数学的任何功能，所以只能使用冗长的分组，选择，字符类来描述一个正确的IP地址：<br><code>((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)</code></p>
+<p>理解这个表达式的关键是理解<code>2[0-4]\d|25[0-5]|[01]?\d\d?</code>，这里我就不细说了，你自己应该能分析得出来它的意义。</p>
+<blockquote>
+<p>IP地址中每个数字都不能大于255，大家千万不要被《24》第三季的编剧给忽悠了……</p>
+</blockquote>
+<h1 id="section-10"></h1>
+
+<p><strong>反义</strong></p>
+<p>有时需要查找不属于某个能简单定义的字符类的字符。比如想查找除了数字以外，其它任意字符都行的情况，<br>这时需要用到反义：</p>
+<p><img src="/resources/image/png/QQ截图20160616214956.png" alt=""></p>
+<p>例子：<code>\S+</code>匹配不包含空白符的字符串。</p>
+<p><code>&lt;a[^&gt;]+&gt;</code>匹配用尖括号括起来的以a开头的字符串。</p>
+<h1 id="section-11"></h1>
+
+<p><strong>后向引用</strong></p>
+<p>使用小括号指定一个子表达式后，<strong>匹配这个子表达式的文本</strong>(也就是此分组捕获的内容)可以在表达式或其它程序中作进一步的处理。默认情况下，每个分组会自动拥有一个<strong>组号</strong>，规则是：从左向右，以分组的左括号为标志，第一个出现的分组的组号为1，第二个为2，以此类推。</p>
+<p>后向引用用于重复搜索前面某个分组匹配的文本。例如，<code>\1</code>代表分组1匹配的文本。难以理解？请看示例：</p>
+<p><code>\b(\w+)\b\s+\1\b</code>可以用来匹配重复的单词，像go go, 或者kitty kitty。<br>这个表达式首先是一个单词，也就是单词开始处和结束处之间的多于一个的字母或数字(<code>\b(\w+)\b</code>)，这个单词会被捕获到编号为1的分组中，然后是1个或几个空白符(<code>\s+</code>)，最后是分组1中捕获的内容（也就是前面匹配的那个单词）(<code>\1</code>)。</p>
+<p>你也可以自己指定子表达式的组名。要指定一个子表达式的组名，请使用这样的语法：<br><code>(?&lt;Word&gt;\w+)</code>(或者把尖括号换成<code>&#39;</code>也行：<code>(?&#39;Word&#39;\w+)</code>),这样就把<code>\w+</code>的组名指定为<code>Word</code>了。<br>要反向引用这个分组捕获的内容，你可以使用<code>\k&lt;Word&gt;</code>,所以上一个例子也可以写成这样：<br><code>\b(?&lt;Word&gt;\w+)\b\s+\k&lt;Word&gt;\b</code>。</p>
+<blockquote>
+<p>呃……其实,组号分配还不像我刚说得那么简单：</p>
+<p>分组0对应整个正则表达式<br>实际上组号分配过程是要从左向右扫描两遍的：第一遍只给未命名组分配，<br>第二遍只给命名组分配－－因此所有命名组的组号都大于未命名的组号<br>你可以使用<code>(?:exp)</code>这样的语法来剥夺一个分组对组号分配的参与权．</p>
+</blockquote>
+<p>使用小括号的时候，还有很多特定用途的语法。下面列出了最常用的一些：</p>
+<p><img src="/resources/image/png/QQ截图20160616220201.png" alt=""></p>
+<p>我们已经讨论了前两种语法。第三个<code>(?:exp)</code>不会改变正则表达式的处理方式，<br>只是这样的组匹配的内容不会像前两种那样被捕获到某个组里面，也不会拥有组号。<br>“我为什么会想要这样做？”——好问题，你觉得为什么呢？</p>
+<h1 id="section-12"></h1>
+
+<p><strong>零宽断言</strong></p>
+<p>接下来的四个用于查找在某些内容(但并不包括这些内容)之前或之后的东西，<br>也就是说它们像<code>\b</code>,<code>^</code>,<code>$</code>那样用于指定一个位置，这个位置应该满足一定的条件(即断言)，因此它们也被称为零宽断言。最好还是拿例子来说明吧：</p>
+<p><code>(?=exp)</code>也叫<strong>零宽度正预测先行断言</strong>，它断言自身出现的位置的后面能匹配表达式exp。<br>比如<code>\b\w+(?=ing\b)</code>，匹配以ing结尾的单词的前面部分(除了ing以外的部分)，<br>如查找I’m singing while you’re dancing.时，它会匹配sing和danc。</p>
+<p><code>(?&lt;=exp)</code>也叫<strong>零宽度正回顾后发断言</strong>，它断言自身出现的位置的前面能匹配表达式exp。<br>比如<code>(?&lt;=\bre)\w+\b</code>会匹配以re开头的单词的后半部分(除了re以外的部分)，<br>例如在查找reading a book时，它匹配ading。</p>
+<p>假如你想要给一个很长的数字中每三位间加一个逗号(当然是从右边加起了)，你可以这样查找需要在前面和里面添加逗号的部分：<code>((?&lt;=\d)\d{3})+\b</code>，用它对1234567890进行查找时结果是234567890。</p>
+<blockquote>
+<p>地球人，是不是觉得这些术语名称太复杂，太难记了？我也有同感。知道有这么一种东西就行了，它叫什么，随它去吧！人若无名，便可专心练剑；物若无名，便可随意取舍……</p>
+<p>断言用来声明一个应该为真的事实。正则表达式中只有当断言为真时才会继续进行匹配。</p>
+</blockquote>
+<p>下面这个例子同时使用了这两种断言：<code>(?&lt;=\s)\d+(?=\s)</code>匹配以空白符间隔的数字(再次强调，不包括这些空白符)。</p>
+<h1 id="section-13"></h1>
+
+<p><strong>负向零宽断言</strong></p>
+<p>前面我们提到过怎么查找不是某个字符或不在某个字符类里的字符的方法(反义)。但是如果我们只是想要确保某个字符没有出现，但并不想去匹配它时怎么办？例如，如果我们想查找这样的单词–它里面出现了字母q,但是q后面跟的不是字母u,我们可以尝试这样：</p>
+<p><code>\b\w*q[^u]\w*\b</code>匹配包含后面不是字母u的字母q的单词。但是如果多做测试(或者你思维足够敏锐，直接就观察出来了)，你会发现，如果q出现在单词的结尾的话，像Iraq,Benq，这个表达式就会出错。这是因为<code>[^u]</code>总要匹配一个字符，所以如果q是单词的最后一个字符的话，后面的<code>[^u]</code>将会匹配q后面的单词分隔符(可能是空格，或者是句号或其它的什么)，后面的<code>\w*\b</code>将会匹配下一个单词，于是<code>\b\w*q[^u]\w*\b</code>就能匹配整个Iraq fighting。负向零宽断言能解决这样的问题，因为它只匹配一个位置，并不消费任何字符。现在，我们可以这样来解决这个问题：<code>\b\w*q(?!u)\w*\b</code>。</p>
+<p><strong>零宽度负预测先行断言</strong><code>(?!exp)</code>，断言此位置的后面不能匹配表达式exp。例如：<code>\d{3}(?!\d)</code>匹配三位数字，而且这三位数字的后面不能是数字；<code>\b((?!abc)\w)+\b</code>匹配不包含连续字符串abc的单词。</p>
+<p>同理，我们可以用<code>(?&lt;!exp)</code>,零宽度负回顾后发断言来断言此位置的前面不能匹配表达式exp：<code>(?&lt;![a-z])\d{7}</code>匹配前面不是小写字母的七位数字。</p>
+<p>一个更复杂的例子：<code>(?&lt;=&lt;(\w+)&gt;).*(?=&lt;\/\1&gt;)</code>匹配不包含属性的简单HTML标签内里的内容。<code>(?&lt;=&lt;(\w+)&gt;)</code>指定了这样的前缀：被尖括号括起来的单词(比如可能是<code>&lt;b&gt;</code>)，然后是<code>.*</code>(任意的字符串),最后是一个后缀<code>(?=&lt;\/\1&gt;)</code>。注意后缀里的<code>\/</code>，它用到了前面提过的字符转义；<code>\1</code>则是一个反向引用，引用的正是捕获的第一组，前面的<code>(\w+)</code>匹配的内容，这样如果前缀实际上是<code>&lt;b&gt;</code>的话，后缀就是<code>&lt;/b&gt;</code>了。整个表达式匹配的是<code>&lt;b&gt;</code>和<code>&lt;/b&gt;</code>之间的内容(再次提醒，不包括前缀和后缀本身)。</p>
+<blockquote>
+<p>请详细分析表达式<code>(?&lt;=&lt;(\w+)&gt;).*(?=&lt;\/\1&gt;)</code>，这个表达式最能表现零宽断言的真正用途。</p>
+</blockquote>
+<h1 id="section-14"></h1>
+
+<p><strong>注释</strong></p>
+<p>小括号的另一种用途是通过语法<code>(?#comment)</code>来包含注释。例如：<code>2[0-4]\d(?#200-249)|25[0-5](?#250-255)|[01]?\d\d?(?#0-199)</code>。</p>
+<p>要包含注释的话，最好是启用“忽略模式里的空白符”选项，这样在编写表达式时能任意的添加空格，Tab，换行，而实际使用时这些都将被忽略。启用这个选项后，在#后面到这一行结束的所有文本都将被当成注释忽略掉。例如，我们可以前面的一个表达式写成这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(?&lt;=    # 断言要匹配的文本的前缀</span><br><span class="line">&lt;(\w+)&gt; # 查找尖括号括起来的字母或数字(即HTML/XML标签)</span><br><span class="line">)       # 前缀结束</span><br><span class="line">.*      # 匹配任意文本</span><br><span class="line">(?=     # 断言要匹配的文本的后缀</span><br><span class="line">&lt;\/\1&gt;  # 查找尖括号括起来的内容：前面是一个&quot;/&quot;，后面是先前捕获的标签</span><br><span class="line">)       # 后缀结束</span><br></pre></td></tr></table></figure></p>
+<h1 id="section-15"></h1>
+
+<p><strong>贪婪与懒惰</strong></p>
+<p>当正则表达式中包含能接受重复的限定符时，通常的行为是（在使整个表达式能得到匹配的前提下）匹配尽可能多的字符。<br>以这个表达式为例：<code>a.*b</code>，它将会匹配最长的以a开始，以b结束的字符串。如果用它来搜索aabab的话，<br>它会匹配整个字符串aabab。这被称为<strong>贪婪</strong>匹配。</p>
+<p>有时，我们更需要<strong>懒惰</strong>匹配，也就是匹配尽可能少的字符。前面给出的限定符都可以被转化为懒惰匹配模式，<br>只要在它后面加上一个问号<code>?</code>。这样<code>.*?</code>就意味着 <u>匹配任意数量的重复，但是在能使整个匹配成功的前提下使用最少的重复</u>。现在看看懒惰版的例子吧：</p>
+<p><code>a.*?b</code>匹配 <u>最短的，以a开始，以b结束的字符串</u>。如果把它应用于aabab的话，它会匹配 <u>aab（第一到第三个字符）</u> 和 <u>ab（第四到第五个字符）</u>。</p>
+<p><img src="/resources/image/png/QQ截图20160616223509.png" alt=""></p>
+<blockquote>
+<p>为什么第一个匹配是aab（第一到第三个字符）而不是ab（第二到第三个字符）？简单地说，因为正则表达式有另一条规则，比懒惰／贪婪规则的优先级更高：最先开始的匹配拥有最高的优先权——The match that begins earliest wins。</p>
+</blockquote>
+<h1 id="section-16"></h1>
+
+<p><strong>处理选项</strong></p>
+<p>上面介绍了几个选项如忽略大小写，处理多行等，这些选项能用来改变处理正则表达式的方式。下面是.Net中常用的正则表达式选项：</p>
+<p><img src="/resources/image/png/QQ截图20160616223902.png" alt=""></p>
+<blockquote>
+<p>在C#中，你可以使用<a href="http://msdn2.microsoft.com/zh-cn/library/h5845fdz.aspx" target="_blank" rel="external">Regex(String, RegexOptions)构造函数</a>来设置正则表达式的处理选项。<br>如：<code>Regex regex = new Regex(@&quot;\ba\w{6}\b&quot;, RegexOptions.IgnoreCase);</code></p>
+</blockquote>
+<p>一个经常被问到的问题是：是不是只能同时使用多行模式和单行模式中的一种？答案是：不是。这两个选项之间没有任何关系，除了它们的名字比较相似（以至于让人感到疑惑）以外。</p>
+<h1 id="section-17"></h1>
+
+<p><strong>平衡组/递归匹配</strong></p>
+<p>有时我们需要匹配像<u>( 100 * ( 50 + 15 ) )这样的可嵌套的层次性结构</u>，这时简单地使用<code>\(.+\)</code>则只会匹配到最左边的左括号和最右边的右括号之间的内容(这里我们讨论的是贪婪模式，懒惰模式也有下面的问题)。假如原来的字符串里的左括号和右括号出现的次数不相等，比如( 5 / ( 3 + 2 ) ) )，那我们的匹配结果里两者的个数也不会相等。有没有办法在这样的字符串里匹配到最长的，配对的括号之间的内容呢？</p>
+<blockquote>
+<p>这里介绍的平衡组语法是由.Net Framework支持的；其它语言／库不一定支持这种功能，或者支持此功能但需要使用不同的语法。</p>
+</blockquote>
+<p>为了避免<code>(</code>和<code>\(</code>把你的大脑彻底搞糊涂，我们还是用尖括号代替圆括号吧。现在我们的问题变成了如何把<u>xx <aa <bbb=""> <bbb> aa&gt; yy</bbb></aa></u>这样的字符串里，最长的配对的尖括号内的内容捕获出来？</p>
+<p>这里需要用到以下的语法构造：</p>
+<ul>
+<li><code>(?&#39;group&#39;)</code> 把捕获的内容命名为group,并压入<strong>堆栈(Stack)</strong></li>
+<li><code>(?&#39;-group&#39;)</code> 从堆栈上弹出最后压入堆栈的名为group的捕获内容，如果堆栈本来为空，则本分组的匹配失败</li>
+<li><code>(?(group)yes|no)</code> 如果堆栈上存在以名为group的捕获内容的话，继续匹配yes部分的表达式，否则继续匹配no部分</li>
+<li><code>(?!)</code> 零宽负向先行断言，由于没有后缀表达式，试图匹配总是失败</li>
+</ul>
+<p>我们需要做的是每碰到了左括号，就在压入一个”Open”,每碰到一个右括号，就弹出一个，到了最后就看看堆栈是否为空－－如果不为空那就证明左括号比右括号多，那匹配就应该失败。正则表达式引擎会进行回溯(放弃最前面或最后面的一些字符)，尽量使整个表达式得到匹配。</p>
+<blockquote>
+<p>如果你不是一个程序员（或者你自称程序员但是不知道堆栈是什么东西），你就这样理解上面的三种语法吧：第一个就是在黑板上写一个”group”，第二个就是从黑板上擦掉一个”group”，第三个就是看黑板上写的还有没有”group”，如果有就继续匹配yes部分，否则就匹配no部分。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;                         #最外层的左括号</span><br><span class="line">    [^&lt;&gt;]*                #最外层的左括号后面的不是括号的内容</span><br><span class="line">    (</span><br><span class="line">        (</span><br><span class="line">            (?&apos;Open&apos;&lt;)    #碰到了左括号，在黑板上写一个&quot;Open&quot;</span><br><span class="line">            [^&lt;&gt;]*       #匹配左括号后面的不是括号的内容</span><br><span class="line">        )+</span><br><span class="line">        (</span><br><span class="line">            (?&apos;-Open&apos;&gt;)   #碰到了右括号，擦掉一个&quot;Open&quot;</span><br><span class="line">            [^&lt;&gt;]*        #匹配右括号后面不是括号的内容</span><br><span class="line">        )+</span><br><span class="line">    )*</span><br><span class="line">    (?(Open)(?!))         #在遇到最外层的右括号前面，判断黑板上还有没有没擦掉的&quot;Open&quot;；如果还有，则匹配失败</span><br><span class="line"></span><br><span class="line">&gt;                         #最外层的右括号</span><br></pre></td></tr></table></figure>
+<p>平衡组的一个最常见的应用就是匹配HTML,下面这个例子可以匹配<u>嵌套的<code>&lt;div&gt;</code>标签</u>：<code>&lt;div[^&gt;]*&gt;[^&lt;&gt;]*(((?&#39;Open&#39;&lt;div[^&gt;]*&gt;)[^&lt;&gt;]*)+((?&#39;-Open&#39;&lt;/div&gt;)[^&lt;&gt;]*)+)*(?(Open)(?!))&lt;/div&gt;</code>.</p>
+<h1 id="section-18"></h1>
+
+<p><strong>还有些什么东西没提到</strong></p>
+<p>上边已经描述了构造正则表达式的大量元素，但是还有很多没有提到的东西。下面是一些未提到的元素的列表，包含语法和简单的说明。你可以在网上找到更详细的参考资料来学习它们–当你需要用到它们的时候。如果你安装了MSDN Library,你也可以在里面找到.net下正则表达式详细的文档。</p>
+<p><img src="/resources/image/png/2016-06-16_225427.png" alt=""></p>
+<blockquote>
+<p>这里的介绍很简略，如果你需要更详细的信息，而又没有在电脑上安装MSDN Library,可以查看<a href="http://msdn.microsoft.com/zh-cn/library/az24scfc.aspx" target="_blank" rel="external">关于正则表达式语言元素的MSDN在线文档</a>。</p>
+</blockquote>
+
+	
+	</div>
+  <a type="button" href="/2016/06/15/regexp-essential/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-06-15 </div>
+			<div class="article-title"><a href="/2016/06/15/regexp-grammer/" >正则表达式语法简明参考</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h4 id="正则表达式语法简明参考"><a href="#正则表达式语法简明参考" class="headerlink" title="正则表达式语法简明参考"></a>正则表达式语法简明参考</h4><p>一个正则表达式就是由普通字符（例如字符 a 到 z）以及特殊字符（称为元字符）组成的文字模式。该模式描述在查找文字主体时待匹配的一个或多个字符串。正则表达式作为一个模板，将某个字符模式与所搜索的字符串进行匹配。</p>
+<p>这里有一些可能会遇到的正则表达式示例：</p>
+<p><img src="/resources/image/png/QQ截图20160616210825.png" alt=""></p>
+<p>下表是元字符及其在正则表达式上下文中的行为的一个完整列表：</p>
+<blockquote>
+<p><code>\</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">将下一个字符标记为一个特殊字符、或一个原义字符、或一个 后向引用、</span><br><span class="line">或一个八进制转义符。例如，&apos;n&apos; 匹配字符 &quot;n&quot;。&apos;\n&apos; 匹配一个换行符。</span><br><span class="line">序列 &apos;\\&apos; 匹配 &quot;\&quot; 而 &quot;\(&quot; 则匹配 &quot;(&quot;。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>^</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">匹配输入字符串的开始位置。如果设置了 RegExp 对象的 Multiline 属性，</span><br><span class="line">^ 也匹配 &apos;\n&apos; 或 &apos;\r&apos; 之后的位置。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>$</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">匹配输入字符串的结束位置。如果设置了RegExp 对象的 Multiline 属性，</span><br><span class="line">$ 也匹配 &apos;\n&apos; 或 &apos;\r&apos; 之前的位置。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>*</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配前面的子表达式零次或多次。例如，zo* 能匹配 &quot;z&quot; 以及 &quot;zoo&quot;。 * 等价于&#123;0,&#125;。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>+</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">匹配前面的子表达式一次或多次。例如，&apos;zo+&apos; 能匹配 &quot;zo&quot; 以及 &quot;zoo&quot;，</span><br><span class="line">但不能匹配 &quot;z&quot;。+ 等价于 &#123;1,&#125;。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>?</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">匹配前面的子表达式零次或一次。例如，&quot;do(es)?&quot; 可以匹配 &quot;do&quot; 或 &quot;does&quot; 中的&quot;do&quot; 。</span><br><span class="line">? 等价于 &#123;0,1&#125;。</span><br><span class="line"></span><br><span class="line">当该字符紧跟在任何一个其他限制符 (*, +, ?, &#123;n&#125;, &#123;n,&#125;, &#123;n,m&#125;) 后面时，</span><br><span class="line">匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，</span><br><span class="line">而默认的贪婪模式则尽可能多的匹配所搜索的字符串。</span><br><span class="line">例如，对于字符串 &quot;oooo&quot;，&apos;o+?&apos; 将匹配单个 &quot;o&quot;，而 &apos;o+&apos; 将匹配所有 &apos;o&apos;。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>{n}</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n 是一个非负整数。匹配确定的 n 次。例如，&apos;o&#123;2&#125;&apos; 不能匹配 &quot;Bob&quot; 中的 &apos;o&apos;，</span><br><span class="line">但是能匹配 &quot;food&quot; 中的两个 o。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>{n,}</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n 是一个非负整数。至少匹配n 次。例如，&apos;o&#123;2,&#125;&apos; 不能匹配 &quot;Bob&quot; 中的 &apos;o&apos;，</span><br><span class="line">但能匹配 &quot;foooood&quot; 中的所有 o。&apos;o&#123;1,&#125;&apos; 等价于 &apos;o+&apos;。&apos;o&#123;0,&#125;&apos; 则等价于 &apos;o*&apos;。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>{n,m}</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m 和 n 均为非负整数，其中n &lt;= m。最少匹配 n 次且最多匹配 m 次。</span><br><span class="line">&quot;o&#123;1,3&#125;&quot; 将匹配 &quot;fooooood&quot; 中的前三个 o。&apos;o&#123;0,1&#125;&apos; 等价于 &apos;o?&apos;。请注意在逗号和两个数之间不能有空格。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>.</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配除 &quot;\n&quot; 之外的任何单个字符。要匹配包括 &apos;\n&apos; 在内的任何字符，请使用象 &apos;[.\n]&apos; 的模式。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>(pattern)</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">匹配pattern 并获取这一匹配。所获取的匹配可以从产生的 Matches 集合得到，</span><br><span class="line">在VBScript 中使用 SubMatches 集合，在JScript 中则使用 $0…$9 属性。</span><br><span class="line">要匹配圆括号字符，请使用 &apos;\(&apos; 或 &apos;\)&apos;。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>(?:pattern)</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">匹配 pattern 但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。</span><br><span class="line">这在使用 &quot;或&quot; 字符 (|) 来组合一个模式的各个部分是很有用。例如， </span><br><span class="line">&apos;industr(?:y|ies) 就是一个比 &apos;industry|industries&apos; 更简略的表达式。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>(?=pattern)</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">正向预查，在任何匹配 pattern 的字符串开始处匹配查找字符串。</span><br><span class="line">这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。</span><br><span class="line">例如， &apos;Windows (?=95|98|NT|2000)&apos; 能匹配 &quot;Windows 2000&quot; 中的 &quot;Windows&quot; ，</span><br><span class="line">但不能匹配 &quot;Windows 3.1&quot; 中的 &quot;Windows&quot;。预查不消耗字符，也就是说，</span><br><span class="line">在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，</span><br><span class="line">而不是从包含预查的字符之后开始。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>(?!pattern)</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">负向预查，在任何不匹配Negative lookahead matches the search string at any point </span><br><span class="line">where a string not matching pattern 的字符串开始处匹配查找字符串。</span><br><span class="line">这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。</span><br><span class="line">例如&apos;Windows (?!95|98|NT|2000)&apos; 能匹配 &quot;Windows 3.1&quot; 中的 &quot;Windows&quot;，但不能匹配 </span><br><span class="line">&quot;Windows 2000&quot; 中的 &quot;Windows&quot;。预查不消耗字符，也就是说，在一个匹配发生后，</span><br><span class="line">在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>x|y</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配 x 或 y。例如，&apos;z|food&apos; 能匹配 &quot;z&quot; 或 &quot;food&quot;。&apos;(z|f)ood&apos; 则匹配 &quot;zood&quot; 或 &quot;food&quot;。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>[xyz]</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符集合。匹配所包含的任意一个字符。例如， &apos;[abc]&apos; 可以匹配 &quot;plain&quot; 中的 &apos;a&apos;。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>[^xyz]</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">负值字符集合。匹配未包含的任意字符。例如， &apos;[^abc]&apos; 可以匹配 &quot;plain&quot; 中的&apos;p&apos;。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>[a-z]</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符范围。匹配指定范围内的任意字符。例如，&apos;[a-z]&apos; 可以匹配 &apos;a&apos; 到 &apos;z&apos; 范围内的任意小写字母字符。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>[^a-z]</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">负值字符范围。匹配任何不在指定范围内的任意字符。例如，&apos;[^a-z]&apos; 可以匹配任何不在 </span><br><span class="line">&apos;a&apos; 到 &apos;z&apos; 范围内的任意字符。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\b</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">匹配一个单词边界，也就是指单词和空格间的位置。例如， &apos;er\b&apos; 可以匹配&quot;never&quot; 中的 &apos;er&apos;，</span><br><span class="line">但不能匹配 &quot;verb&quot; 中的 &apos;er&apos;。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\B</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配非单词边界。&apos;er\B&apos; 能匹配 &quot;verb&quot; 中的 &apos;er&apos;，但不能匹配 &quot;never&quot; 中的 &apos;er&apos;。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\cx</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">匹配由x指明的控制字符。例如，\cM 匹配一个 Control-M 或回车符。 </span><br><span class="line">x 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 &apos;c&apos; 字符。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\d</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配一个数字字符。等价于 [0-9]。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\D</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配一个非数字字符。等价于 [^0-9]。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\f</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配一个换页符。等价于 \x0c 和 \cL。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\n</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配一个换行符。等价于 \x0a 和 \cJ。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\r</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配一个回车符。等价于 \x0d 和 \cM。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\s</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\S</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\t</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配一个制表符。等价于 \x09 和 \cI。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\v</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配一个垂直制表符。等价于 \x0b 和 \cK。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\w</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配包括下划线的任何单词字符。等价于&apos;[A-Za-z0-9_]&apos;。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\W</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配任何非单词字符。等价于 &apos;[^A-Za-z0-9_]&apos;。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\xn</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">匹配 n，其中 n 为十六进制转义值。十六进制转义值必须为确定的两个数字长。</span><br><span class="line">例如， &apos;\x41&apos; 匹配 &quot;A&quot;。&apos;\x041&apos; 则等价于 &apos;\x04&apos; &amp; &quot;1&quot;。</span><br><span class="line">正则表达式中可以使用 ASCII 编码。.</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\num</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">匹配 num，其中 num 是一个正整数。对所获取的匹配的引用。</span><br><span class="line">例如，&apos;(.)\1&apos; 匹配两个连续的相同字符。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\n</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">标识一个八进制转义值或一个后向引用。如果 \n 之前至少 n 个获取的子表达式，</span><br><span class="line">则 n 为后向引用。否则，如果 n 为八进制数字 (0-7)，则 n 为一个八进制转义值。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\nm</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">标识一个八进制转义值或一个后向引用。如果 \nm 之前至少有is preceded by at least nm </span><br><span class="line">个获取得子表达式，则 nm 为后向引用。如果 \nm 之前至少有 n 个获取，</span><br><span class="line">则 n 为一个后跟文字 m 的后向引用。如果前面的条件都不满足，</span><br><span class="line">若  n 和 m 均为八进制数字 (0-7)，则 \nm 将匹配八进制转义值 nm。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\nml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果 n 为八进制数字 (0-3)，且 m 和 l 均为八进制数字 (0-7)，则匹配八进制转义值 nml。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>\un</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配 n，其中 n 是一个用四个十六进制数字表示的 Unicode 字符。例如，\u00A9 匹配版权符号 (?)。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+	
+	</div>
+  <a type="button" href="/2016/06/15/regexp-grammer/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-06-15 </div>
+			<div class="article-title"><a href="/2016/06/15/svn-clean-failed-exception/" >SVN clean失败解决方法</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<blockquote>
+<p>引用 <a href="http://blog.csdn.net/victory08/article/details/42100325" target="_blank" rel="external">victory08的专栏</a></p>
+</blockquote>
+<p>svn执行clean up后出现提示:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn cleanup failed–previous operation has not finished; run cleanup if it was interrupted</span><br></pre></td></tr></table></figure></p>
+<p>svn提交遇到恶心的问题，可能是因为上次cleanup中断后，进入死循环了。</p>
+<p>错误如下：<br><img src="/resources/image/jpg/20131107104545_0781.jpg" alt=""></p>
+<p>解决方法：清空svn的队列</p>
+<p>1.下载<a href="/downloads/tools/sqlite3.zip">sqlite3.exe</a>  </p>
+<p>2.找到你项目的.svn文件，查看是否存在wc.db</p>
+<p>3.将sqlite3.exe放到.svn的同级目录</p>
+<p>4.启动cmd执行sqlite3 .svn/wc.db “select * from work_queue”</p>
+<p><img src="/resources/image/jpg/20131107104915_3125.jpg" alt=""></p>
+<p>5.看到很多记录，下一步执行delete from work_queue</p>
+<p><img src="/resources/image/jpg/20131107104941_2500.jpg" alt=""></p>
+<p>6.ok了，现在在到项目里面，执行cleanup，完全没问题了，图标状态也已经恢复了。</p>
+
+	
+	</div>
+  <a type="button" href="/2016/06/15/svn-clean-failed-exception/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+<ul class="pagination">
+	 
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
+
+        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+
+		
+		   <li class="next"> <a href="/page/2/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+        
+	
+</ul>
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/English/">English<span>2</span></a></li>
+		
+			<li><a href="/categories/Technology/">Technology<span>20</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/database/">database<span>1</span></a></li>
+		
+			<li><a href="/tags/Requirements/">Requirements<span>3</span></a></li>
+		
+			<li><a href="/tags/Design/">Design<span>3</span></a></li>
+		
+			<li><a href="/tags/regexp/">regexp<span>4</span></a></li>
+		
+			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
+		
+			<li><a href="/tags/English/">English<span>2</span></a></li>
+		
+			<li><a href="/tags/mysql/">mysql<span>2</span></a></li>
+		
+			<li><a href="/tags/spring/">spring<span>1</span></a></li>
+		
+			<li><a href="/tags/interview/">interview<span>4</span></a></li>
+		
+			<li><a href="/tags/transaction/">transaction<span>1</span></a></li>
+		
+			<li><a href="/tags/cite/">cite<span>13</span></a></li>
+		
+			<li><a href="/tags/servlet/">servlet<span>1</span></a></li>
+		
+			<li><a href="/tags/java/">java<span>4</span></a></li>
+		
+			<li><a href="/tags/hibernate/">hibernate<span>2</span></a></li>
+		
+			<li><a href="/tags/Git/">Git<span>2</span></a></li>
+		
+			<li><a href="/tags/j2ee/">j2ee<span>1</span></a></li>
+		
+			<li><a href="/tags/堆栈/">堆栈<span>1</span></a></li>
+		
+			<li><a href="/tags/svn/">svn<span>1</span></a></li>
+		
+			<li><a href="/tags/jvm/">jvm<span>1</span></a></li>
+		
+			<li><a href="/tags/VCS/">VCS<span>2</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>22</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/06/16/web-xml-configuration/" ><i class="fa fa-file-o"></i>web.xml配置详解</a>
+      </li>
+    
+      <li>
+        <a href="/2016/06/15/regexp-common/" ><i class="fa fa-file-o"></i>常用正则表达式</a>
+      </li>
+    
+      <li>
+        <a href="/2016/06/15/regexp-essential/" ><i class="fa fa-file-o"></i>正则表达式入门</a>
+      </li>
+    
+      <li>
+        <a href="/2016/06/15/regexp-grammer/" ><i class="fa fa-file-o"></i>正则表达式语法简明参考</a>
+      </li>
+    
+      <li>
+        <a href="/2016/06/15/svn-clean-failed-exception/" ><i class="fa fa-file-o"></i>SVN clean失败解决方法</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>链接</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-linkedin"></i><a href="https://www.linkedin.com/in/%E5%BE%B7%E5%8D%8E-%E9%83%91-8a4601120" title="我的LinkedIn" target="_blank"]);">我的 LinkedIn</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/zhengdehua" title="我的GitHub" target="_blank"]);">我的 GitHub</a></li>
+	
+		<li><i class="fa fa-external-link"></i><a href="http://howtodoinjava.com" title="HowToDoInJava" target="_blank"]);">HowToDoInJava</a></li>
+	
+		<li><i class="fa fa-external-link"></i><a href="http://javarevisited.blogspot.com/" title="javarevisited" target="_blank"]);">javarevisited</a></li>
+	
+		<li><i class="fa fa-external-link"></i><a href="http://www.mkyong.com/" title="mkyong" target="_blank"]);">mkyong</a></li>
+	
+		<li><i class="fa fa-external-link"></i><a href="http://www.journaldev.com/" title="journaldev" target="_blank"]);">journaldev</a></li>
+	
+	</ul>
+</div>
+
+
+		
+			<div class="widget">
+	<h4 style="font-weight: bold; color: #333;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif">recent_comments</h4>
+	<ul class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="0" data-show-admin="1" data-excerpt-length="100" ></ul>
+	
+	<script type="text/javascript">
+	    var duoshuoQuery = { short_name: 'zhengdehua' };
+	    (function() {
+	    var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+	</script>
+
+</div>
+
+
+
+		
+			<section id="recent-visitors" class="widget widget_recent_comments">
+	<h4 style="font-weight: bold; color: #333;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif">recent_visitors</h4>
+  	<div class="panelbody clearfix"><ul class="ds-recent-visitors" data-num-items="30"></ul></div>
+</section>
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 zhengdehua
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

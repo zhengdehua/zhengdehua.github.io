@@ -1,0 +1,328 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>hibernate 主键增加方式 | nightwatch</title>
+  <meta name="author" content="zhengdehua">
+  
+  <meta name="description" content="hibernate 对表的主键维护提供了若干策略，开发人员可以根据系统实际需要选择适合的策略。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="hibernate 主键增加方式"/>
+  <meta property="og:site_name" content="nightwatch"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">nightwatch</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有的存档">
+			  <i class="fa fa-archive"></i>存档
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories"" title="所有的分类">
+			  <i class="fa fa-folder"></i>分类
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="全部标签">
+			  <i class="fa fa-tags"></i>标签
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="个人信息">
+			  <i class="fa fa-user"></i>关于我
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/focussites" title="收集有价值站点">
+			  <i class="fa fa-external-link-square"></i>关注站点
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> hibernate 主键增加方式</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>hibernate 对表的主键维护提供了若干策略，开发人员可以根据系统实际需要选择适合的策略。</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <blockquote>
+<p>引用 <a href="http://www.cnblogs.com/zhanghaoh/archive/2013/03/13/2957234.html" target="_blank" rel="external">菜鸟的春天</a></p>
+</blockquote>
+<p class="bg-primary">1.assigned:</p>
+
+<p>主键由外部程序负责生成，无需Hibernate参与。—-如果要由程序代码来指定主键,就采有这种.</p>
+<p class="bg-primary">2.increment:</p>
+
+<p>对 long ， short 或 int 的数据列生成自动增长主键。increment主键生成方式的特点是与底层数据库无关性，大部分数据库如 Mysql，MSSQL 和ORACLE等都支持increament生成方式。此方式的实现机制为在当前应用实例中维持一个变量，以保存着当前的最大值，之后每次需要生成主键的 时候将此值加1作为主键。increment方式的不足之处是当多个线程并发对数据库表进行写操作时，可能出现相同的主键值，发生主键重复的冲突，因此多线程并发操作时，不应该使用此方法。</p>
+<p class="bg-primary">3.identity:</p>
+
+<p>如果数据列的类型是 long， short 或 int ，可使用主键生成器生成自动增长Hibernate主键。与底层数据库有关，要求数据库支持identify,如MySQL中是auto_increment,SQL Server中是Identify.支持的数据库有MySQL,SQL Server,DB2,Sybase和HypersonicSQL.(好像不支持oracle) 无需Hibernate和用户的干涉，使用较为方便，但不便于在不同的数据库之间移植程序。identity的优点是不会发生 increment方式的并发错做问题。数据库涉及到的表要设置自动增长。</p>
+<p class="bg-primary">4.sequence:</p>
+
+<p>在ORACLE等数据库中使用sequence生成主键。sequence的特点是于数据库的相关性，seqhio要求底层能支持sequence，列如Oracle。</p>
+<p class="bg-primary">5.hilo:</p>
+
+<p>通过hi/lo 算法生成主键，需要一个表来保存额外的主键信息。这样生成的标识符只在特定的数据库是唯一的，在使用JTA（Java分布式事务） 获得链接或用户自定义提供的链接中，不要使用这种生成器。hilo方式需要维护表信息，因此对数据的影响的要率会造成一定影响。</p>
+<p class="bg-primary">6.seqhio:</p>
+
+<p>与hilo 类似，通过hi/lo 算法实现的主键生成机制，只是主键历史状态保存在Sequence中，适用于支持Sequence的数据库，如Oracle。如果数据列的类型是 long， short 或 int可使用该主键生成器。</p>
+<p class="bg-primary">7.native:</p>
+
+<p>由Hibernate根据不同的数据库方言，自行判断采用identity、hilo、sequence其中一种作为Hibernate主键生成方式，native的 优点是与底层性无关，便于不同数据库之间的移植，由Hibernate根据不同数据库选择主键的生成方式。在oracle中需要创建叫 Hibernate_sequence名字的sequence，如果设置了Hibernate.hbm2ddl.auto属性，不需要手动建立序列，前提 是数据库帐号必须有Create Sequence这种高级权限。mysql等数据库则不用建立sequence。</p>
+<p class="bg-primary">8.uuid.hex:</p>
+
+<p>采用基于128位的算法生成唯一值，并编制成32位长度的唯一字符串作为主键值，uuid.hex的优点是支持大部分数据库，缺点就是要占用较大的存储空间。对于并发Insert要求较高的系统，推荐采用uuid.hex 作为主键生成机制。</p>
+<p class="bg-primary">9.uuid.string:</p>
+
+<p>使用UUID算法，UUID被编码为一个16个字符长的任意ASCII字符组成的字符串。不能在PostgreSQL数据库中使用。uuid.string同uuid.hex类似，需要占很大的存储空间。</p>
+<p class="bg-primary">10.foreign:</p>
+
+<p>使用外部表的字段作为Hibernate主键。</p>
+<p>一般而言，利用uuid.hex方式生成Hibernate主键将提供最好的性能和数据库平台适应性。<br>另外由于常用的数据库，如Oracle、DB2、 SQLServer、MySql 等，都提供了易用的主键生成机制（Auto-Increase 字段或者Sequence）。我们可以在数据库提供的主键生成机制上，采用generator-class=native的主键生成方式。不过值得注意的 是，一些数据库提供的主键生成机制在效率上未必最佳，大量并发insert数据时可能会引起表之间的互锁。数据库提供的主键生成机制，往往是通过在一个内 部表中保存当前主键状态（如对于自增型主键而言，此内部表中就维护着当前的最大值和递增量），之后每次插入数据会读取这个最大值，然后加上递增量作为新记 录的主键，之后再把这个新的最大值更新回内部表中，这样，一次Insert操作可能导致数据库内部多次表读写操作，同时伴随的还有数据的加锁解锁操作，这对性能产生了较大影响。因此，对于并发Insert要求较高的系统，推荐采用uuid.hex 作为主键生成机制。</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2016/06/14/regexp-single-multi-line/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2016/06/13/git-submodule/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2016/06/14/hibernate-pk-increment/" data-title="hibernate 主键增加方式" data-url="http://zhengdehua.github.io/2016/06/14/hibernate-pk-increment/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2016-06-14 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Technology/">Technology<span>20</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/cite/">cite<span>13</span></a></li> <li><a href="/tags/interview/">interview<span>4</span></a></li> <li><a href="/tags/hibernate/">hibernate<span>2</span></a></li> <li><a href="/tags/java/">java<span>4</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'zhengdehua' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 zhengdehua
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

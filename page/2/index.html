@@ -1,0 +1,1053 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 2 页 | nightwatch</title>
+  <meta name="author" content="zhengdehua">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="nightwatch"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">nightwatch</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有的存档">
+			  <i class="fa fa-archive"></i>存档
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories"" title="所有的分类">
+			  <i class="fa fa-folder"></i>分类
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="全部标签">
+			  <i class="fa fa-tags"></i>标签
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="个人信息">
+			  <i class="fa fa-user"></i>关于我
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/focussites" title="收集有价值站点">
+			  <i class="fa fa-external-link-square"></i>关注站点
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header page-header-inverse ">
+  <h1 class="title title-inverse ">Winter is coming</h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart"></i>
+      And so my watch begins
+</div>    
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-06-15 </div>
+			<div class="article-title"><a href="/2016/06/15/database-transaction/" title="阐述数据库事务的概念和特性">数据库事务</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<blockquote>
+<p>引用 <a href="http://www.cnblogs.com/zhangpengme/archive/2011/11/24/2261625.html" target="_blank" rel="external">柯枫技术博客-1</a><br>引用 <a href="http://www.cnblogs.com/zhangpengme/archive/2011/11/24/2261975.html" target="_blank" rel="external">柯枫技术博客-2</a></p>
+</blockquote>
+<h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>　　数据库事务(Database Transaction) ，是指作为单个逻辑工作单元执行的一系列操作。 事务处理可以确保除非事务性单元内的所有操作都成功完成，否则不会永久更新面向数据的资源。通过将一组相关操作组合为一个要么全部成功要么全部失败的单元，可以简化错误恢复并使应用程序更加可靠。一个逻辑工作单元要成为事务，必须满足所谓的ACID(原子性、一致性、隔离性 和 持久性) 属性。</p>
+<h4 id="操作流程"><a href="#操作流程" class="headerlink" title="操作流程"></a>操作流程</h4><p>　　设想网上购物的一次交易，其付款过程至少包括以下几步数据库操作：<br>　　· 更新客户所购商品的库存信息<br>　　· 保存客户付款信息–可能包括与银行系统的交互<br>　　· 生成订单并且保存到数据库中<br>　　· 更新用户相关信息，例如购物数量等等<br>　　正常的情况下，这些操作将顺利进行，最终交易成功，与交易相关的所有数据库信息也成功地更新。但是，如果在这一系列过程中任何一个环节出了差错，例如在更新商品库存信息时发生异常、该顾客银行帐户存款不足等，都将导致交易失败。一旦交易失败，数据库中所有信息都必须保持交易前的状态不变，比如最后一步更新用户信息时失败而导致交易失败，那么必须保证这笔失败的交易不影响数据库的状态–库存信息没有被更新、用户也没有付款，订单也没有生成。否则，数据库的信息将会一片混乱而不可预测。<br>　　数据库事务正是用来保证这种情况下交易的平稳性和可预测性的技术。</p>
+<h4 id="数据库事务的ACID属性"><a href="#数据库事务的ACID属性" class="headerlink" title="数据库事务的ACID属性"></a>数据库事务的ACID属性</h4><p><strong>原子性（atomic）</strong><br>　　事务必须是原子工作单元；对于其数据修改，要么全都执行，要么全都不执行。通常，与某个事务关联的操作具有共同的目标，并且是相互依赖的。如果系统只执行这些操作的一个子集，则可能会破坏事务的总体目标。原子性消除了系统处理操作子集的可能性。<br><strong>一致性（consistent）</strong><br>　　事务在完成时，必须使所有的数据都保持一致状态。在相关数据库中，所有规则都必须应用于事务的修改，以保持所有数据的完整性。事务结束时，所有的内部数据结构（如 B 树索引或双向链表）都必须是正确的。某些维护一致性的责任由应用程序开发人员承担，他们必须确保应用程序已强制所有已知的完整性约束。例如，当开发用于转帐的应用程序时，应避免在转帐过程中任意移动小数点。<br><strong>隔离性（insulation）</strong><br>　　由并发事务所作的修改必须与任何其它并发事务所作的修改隔离。事务查看数据时数据所处的状态，要么是另一并发事务修改它之前的状态，要么是另一事务修改它之后的状态，事务不会查看中间状态的数据。这称为可串行性，因为它能够重新装载起始数据，并且重播一系列事务，以使数据结束时的状态与原始事务执行的状态相同。当事务可序列化时将获得最高的隔离级别。在此级别上，从一组可并行执行的事务获得的结果与通过连续运行每个事务所获得的结果相同。由于高度隔离会限制可并行执行的事务数，所以一些应用程序降低隔离级别以换取更大的吞吐量。防止数据丢失<br><strong>持久性(durability）</strong><br>　　事务完成之后，它对于系统的影响是永久性的。该修改即使出现致命的系统故障也将一直保持。</p>
+<h4 id="事务的5种状态"><a href="#事务的5种状态" class="headerlink" title="事务的5种状态"></a>事务的5种状态</h4><ol>
+<li><p>活动状态<br>事务在执行时的状态叫活动状态。</p>
+</li>
+<li><p>部分提交状态<br>事务中最后一条语句被执行后的状态叫部分提交状态。</p>
+</li>
+<li><p>失败状态<br>事务不能正常执行的状态叫失败状态。</p>
+</li>
+<li><p>提交状态<br>事务在部分提交后，将往硬盘上写入数据，当最后一条信息写入后的状态叫提交状态。进入提交状态的事务就成功完成了。</p>
+</li>
+<li><p>中止状态<br>事务回滚并且数据库已经恢复到事务开始执行前的状态叫中止状态。</p>
+</li>
+</ol>
+<h4 id="数据并发的问题"><a href="#数据并发的问题" class="headerlink" title="数据并发的问题"></a>数据并发的问题</h4><p>一个数据库可能拥有多个访问客户端，这些客户端都可以并发方式访问数据库。数据库中的相同数据可能同时被多个事务访问，如果没有采取必要的隔离措施，就会导致各种并发问题，破坏数据的完整性。这些问题可以归结为5类，包括3类数据读问题（脏读、幻象读和不可重复读）以及2类数据更新问题（第一类丢失更新和第二类丢失更新）。下面，我们分别通过实例讲解引发问题的场景。</p>
+<p><strong>脏读（dirty read） </strong><br>在讲解脏读前，我们先讲一个笑话：一个有结巴的人在饮料店柜台前转悠，老板很热情地迎上来：“喝一瓶？”，结巴连忙说：“我…喝…喝…”，老板麻利地打开易拉罐递给结巴，结巴终于憋出了他的那句话：“我…喝…喝…喝不起啊！”。在这个笑话中，饮料店老板就对结巴进行了脏读。<br>A事务读取B事务尚未提交的更改数据，并在这个数据的基础上操作。如果恰巧B事务回滚，那么A事务读到的数据根本是不被承认的。来看取款事务和转账事务并发时引发的脏读场景：</p>
+<p><img src="/resources/image/png/QQ截图20160615105129.png" alt=""></p>
+<p>在这个场景中，B希望取款500元而后又撤销了动作，而A往相同的账户中转账100元，就因为A事务读取了B事务尚未提交的数据，因而造成账户白白丢失了500元。</p>
+<p><strong>不可重复读（unrepeatable read） </strong><br>不可重复读是指A事务读取了B事务已经提交的更改数据。假设A在取款事务的过程中，B往该账户转账100元，A两次读取账户的余额发生不一致：</p>
+<p><img src="/resources/image/png/QQ截图20160615105602.png" alt=""></p>
+<p>在同一事务中，T4时间点和T7时间点读取账户存款余额不一样。</p>
+<p><strong>幻象读（phantom read） </strong><br>A事务读取B事务提交的新增数据，这时A事务将出现幻象读的问题。幻象读一般发生在计算统计数据的事务中，举一个例子，假设银行系统在同一个事务中，两次统计存款账户的总金额，在两次统计过程中，刚好新增了一个存款账户，并存入100元，这时，两次统计的总金额将不一致： </p>
+<p><img src="/resources/image/png/QQ截图20160615105650.png" alt=""></p>
+<p>如果新增数据刚好满足事务的查询条件，这个新数据就进入了事务的视野，因而产生了两个统计不一致的情况。<br>　　幻象读和不可重复读是两个容易混淆的概念，前者是指读到了其它已经提交事务的新增数据，而后者是指读到了已经提交事务的更改数据（更改或删除），为了避免这两种情况，采取的对策是不同的，防止读取到更改数据，只需要对操作的数据添加行级锁，阻止操作中的数据发生变化，而防止读取到新增数据，则往往需要添加表级锁——将整个表锁定，防止新增数据。</p>
+<p><strong>第一类丢失更新 </strong><br>A事务撤销时，把已经提交的B事务的更新数据覆盖了。这种错误可能造成很严重的问题，通过下面的账户取款转账就可以看出来：</p>
+<p><img src="/resources/image/png/QQ截图20160615105747.png" alt=""></p>
+<p>A事务在撤销时，“不小心”将B事务已经转入账户的金额给抹去了。</p>
+<p>简言之：<br>两个事务都同时更新一行数据，但是第二个事务却中途失败退出，导致对数据的两个修改都失效了。</p>
+<p><strong>第二类丢失更新 </strong><br>A事务覆盖B事务已经提交的数据，造成B事务所做操作丢失：</p>
+<p><img src="/resources/image/png/QQ截图20160615105842.png" alt=""></p>
+<p>上面的例子里由于支票转账事务覆盖了取款事务对存款余额所做的更新，导致银行最后损失了100元，相反如果转账事务先提交，那么用户账户将损失100元。</p>
+<p>简言之：<br>有两个并发事务同时读取同一行数据，然后其中一个对它进行修改提交，而另一个也进行了修改提交。这就会造成<br>第一次写操作失效。 </p>
+<h4 id="数据库的隔离级别"><a href="#数据库的隔离级别" class="headerlink" title="数据库的隔离级别"></a>数据库的隔离级别</h4><p>为了兼顾并发效率和异常控制，在标准SQL规范中，定义了4个事务隔<br>离级别，（ORACLE和SQLSERER对标准隔离级别有不同的实现 ）</p>
+<p>Read Uncommitted：<br>直译就是”读未提交”,意思就是即使一个更新语句没有提交,但是别<br>的事务可以读到这个改变.这是很不安全的. </p>
+<p>Read Committed：<br>直译就是”读提交”,意思就是语句提交以后即执行了COMMIT以后<br>别的事务就能读到这个改变. </p>
+<p>Repeatable Read：<br>直译就是”可以重复读”,这是说在同一个事务里面先后执行同一个<br>查询语句的时候,得到的结果是一样的. </p>
+<p>Serializable:<br>直译就是”序列化”,意思是说这个事务执行的时候不允许别的事务<br>并发执行.</p>
+<p><strong>隔离级别对并发的控制</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>LU</th>
+<th>DR</th>
+<th>NRR</th>
+<th>SLU</th>
+<th>PR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RU</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>RC</td>
+<td>N</td>
+<td>N</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>RR</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>S</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<p><span class="text-danger"><br>    注：LU：丢失更新；DR：脏读；NRR：非重复读；SLU：二类丢失更新；PR：幻像读<br>        RU: 读未提交；RC：读提交；RR：可重复读；S：序列化<br></span></p>
+<h4 id="隔离级别与并发性能的关系"><a href="#隔离级别与并发性能的关系" class="headerlink" title="隔离级别与并发性能的关系"></a>隔离级别与并发性能的关系</h4><p><img src="/resources/image/png/1364389498_1995.PNG" alt=""></p>
+<h4 id="隔离级别的设置原则"><a href="#隔离级别的设置原则" class="headerlink" title="隔离级别的设置原则"></a>隔离级别的设置原则</h4><ul>
+<li>隔离级别越高，越能保证数据的完整性和一致性，但是对并发性能的影响也越大。</li>
+<li>对于多数应用程序，可以优先考虑把数据库系统的隔离级别设为Read Committed，它能够避免脏读，<br>而且具有较好的并发性能。尽管它会导致不可重复读、虚读和第二类丢失更新这些并发问题，<br>在可能出现这类问题的个别场合，可以由应用程序采用<strong>悲观锁</strong>或<strong>乐观锁</strong>来控制。</li>
+</ul>
+<h5 id="在mysql-exe程序中中设置隔离级别："><a href="#在mysql-exe程序中中设置隔离级别：" class="headerlink" title="在mysql.exe程序中中设置隔离级别："></a>在mysql.exe程序中中设置隔离级别：</h5><ul>
+<li><p>每启动一个mysql.exe程序，就会获得一个单独的数据库连接。每个数据库连接都有个全局变量@@tx_isolation，表示当前的事务隔离级别。MySQL默认的隔离级别为Repeatable Read。如果要察看当前的隔离级别，可使用如下SQL命令：<br><code>–mysql&gt; select @@tx_isolation;</code></p>
+</li>
+<li><p>如果要把当前mysql.exe程序的隔离级别改为Read Committed，可使用如下SQL命令：<br><code>–mysql&gt; set transaction isolation level read committed;</code></p>
+</li>
+</ul>
+<h5 id="在Hibernate中设置隔离级别："><a href="#在Hibernate中设置隔离级别：" class="headerlink" title="在Hibernate中设置隔离级别："></a>在Hibernate中设置隔离级别：</h5><ul>
+<li><p>在Hibernate的配置文件中可以显式的设置隔离级别。每一种隔离级别都对应一个整数：<br>–1：Read Uncommitted<br>–2：Read Committed<br>–4：Repeatable Read<br>–8：Serializable</p>
+</li>
+<li><p>例如，以下代码把hibernate.cfg.xml文件中的隔离级别设为Read Committed：<br><code>hibernate.connection.isolation=2</code><br>对于从数据库连接池中获得的每个连接，Hibernate都会把它改为使用Read Committed隔离级别。</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2016/06/15/database-transaction/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-06-14 </div>
+			<div class="article-title"><a href="/2016/06/14/heap-stack/" title="引用一篇对栈和堆解释的不错的帖子">简谈堆和栈</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>引用 <a href="http://blog.jobbole.com/75321/" target="_blank" rel="external">伯乐在线</a></p>
+<h3 id="什么是堆和栈，它们在哪儿？"><a href="#什么是堆和栈，它们在哪儿？" class="headerlink" title="什么是堆和栈，它们在哪儿？"></a>什么是堆和栈，它们在哪儿？</h3><h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>编程语言书籍中经常解释值类型被创建在栈上，引用类型被创建在堆上，但是并没有本质上解释这堆和栈是什么。我仅有高级语言编程经验，没有看过对此更清晰的解释。我的意思是我理解什么是栈，但是它们到底是什么，在哪儿呢（站在实际的计算机物理内存的角度上看）？</p>
+<ol>
+<li>在通常情况下由操作系统（OS）和语言的运行时（runtime）控制吗？</li>
+<li>它们的作用范围是什么？</li>
+<li>它们的大小由什么决定？</li>
+<li>哪个更快？</li>
+</ol>
+<h4 id="答案一"><a href="#答案一" class="headerlink" title="答案一"></a>答案一</h4><p>栈是为执行线程留出的内存空间。当函数被调用的时候，栈顶为局部变量和一些 bookkeeping 数据预留块。当函数执行完毕，块就没有用了，可能在下次的函数调用的时候再被使用。栈通常用后进先出（LIFO）的方式预留空间；因此最近的保留块（reserved block）通常最先被释放。这么做可以使跟踪堆栈变的简单；从栈中释放块（free block）只不过是指针的偏移而已。</p>
+<p>堆（heap）是为动态分配预留的内存空间。和栈不一样，从堆上分配和重新分配块没有固定模式；你可以在任何时候分配和释放它。这样使得跟踪哪部分堆已经被分配和被释放变的异常复杂；有许多定制的堆分配策略用来为不同的使用模式下调整堆的性能。</p>
+<p>每一个线程都有一个栈，但是每一个应用程序通常都只有一个堆（尽管为不同类型分配内存使用多个堆的情况也是有的）。</p>
+<p>直接回答你的问题： </p>
+<ol>
+<li><p>当线程创建的时候，操作系统（OS）为每一个系统级（system-level）的线程分配栈。<br>通常情况下，操作系统通过调用语言的运行时（runtime）去为应用程序分配堆。 </p>
+</li>
+<li><p>栈附属于线程，因此当线程结束时栈被回收。堆通常通过运行时在应用程序启动时被分配，<br>当应用程序（进程）退出时被回收。</p>
+</li>
+<li><p>当线程被创建的时候，设置栈的大小。在应用程序启动的时候，设置堆的大小，但是可以在需要的时候扩展（分配器向操作系统申请更多的内存）。 </p>
+</li>
+<li><p>栈比堆要快，因为它存取模式使它可以轻松的分配和重新分配内存（指针/整型只是进行简单的递增或者递减运算），然而堆在分配和释放的时候有更多的复杂的 bookkeeping参与。另外，在栈上的每个字节频繁的被复用也就意味着它可能映射到处理器缓存中，所以很快（译者注：局部性原理）。</p>
+</li>
+</ol>
+<h4 id="答案二"><a href="#答案二" class="headerlink" title="答案二"></a>答案二</h4><p><strong>Stack:</strong></p>
+<ol>
+<li>和堆一样存储在计算机 RAM 中。</li>
+<li>在栈上创建变量的时候会扩展，并且会自动回收。</li>
+<li>相比堆而言在栈上分配要快的多。</li>
+<li>用数据结构中的栈实现。</li>
+<li>存储局部数据，返回地址，用做参数传递。</li>
+<li>当用栈过多时可导致栈溢出（无穷次（大量的）的递归调用，或者大量的内存分配）。</li>
+<li>在栈上的数据可以直接访问（不是非要使用指针访问）。</li>
+<li>如果你在编译之前精确的知道你需要分配数据的大小并且不是太大的时候，可以使用栈。</li>
+<li>当你程序启动时决定栈的容量上限。</li>
+</ol>
+<p><strong>Heap:</strong></p>
+<ol>
+<li>和栈一样存储在计算机RAM。</li>
+<li>在堆上的变量必须要手动释放，不存在作用域的问题。数据可用 delete, delete[] 或者 free 来释放。</li>
+<li>相比在栈上分配内存要慢。</li>
+<li>通过程序按需分配。</li>
+<li>大量的分配和释放可造成内存碎片。</li>
+<li>在 C++ 中，在堆上创建数的据使用指针访问，用 new 或者 malloc 分配内存。</li>
+<li>如果申请的缓冲区过大的话，可能申请失败。</li>
+<li>在运行期间你不知道会需要多大的数据或者你需要分配大量的内存的时候，建议你使用堆。</li>
+<li>可能造成内存泄露。 </li>
+</ol>
+<p>举例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int foo()</span><br><span class="line">&#123;</span><br><span class="line">    char *pBuffer; //&lt;--nothing allocated yet (excluding the pointer itself, which is allocated here on the stack).</span><br><span class="line">    bool b = true; // Allocated on the stack.</span><br><span class="line">    if(b)</span><br><span class="line">    &#123;</span><br><span class="line">        //Create 500 bytes on the stack</span><br><span class="line">        char buffer[500];</span><br><span class="line"></span><br><span class="line">        //Create 500 bytes on the heap</span><br><span class="line">        pBuffer = new char[500];</span><br><span class="line"></span><br><span class="line">    &#125;//&lt;-- buffer is deallocated here, pBuffer is not</span><br><span class="line">&#125;//&lt;--- oops there&apos;s a memory leak, I should have called delete[] pBuffer;</span><br></pre></td></tr></table></figure></p>
+<h4 id="答案三"><a href="#答案三" class="headerlink" title="答案三"></a>答案三</h4><p>堆和栈是两种内存分配的两个统称。可能有很多种不同的实现方式，但是实现要符合几个基本的概念:</p>
+<ol>
+<li><p>对栈而言，栈中的新加数据项放在其他数据的顶部，移除时你也只能移除最顶部的数据（不能越位获取）。<br><img src="/resources/image/jpg/8fb5e10cc2c0a32a009ee5a81ae5e7fe.jpg" alt=""></p>
+</li>
+<li><p>对堆而言，数据项位置没有固定的顺序。你可以以任何顺序插入和删除，因为他们没有“顶部”数据这一概念。<br><img src="/resources/image/jpg/a3992ba4954f116ac93e51c8748e33ad.jpg" alt=""></p>
+</li>
+</ol>
+<p>上面上个图片很好的描述了堆和栈分配内存的方式。</p>
+<h5 id="在通常情况下由操作系统（OS）和语言的运行时（runtime）控制吗？"><a href="#在通常情况下由操作系统（OS）和语言的运行时（runtime）控制吗？" class="headerlink" title="在通常情况下由操作系统（OS）和语言的运行时（runtime）控制吗？"></a>在通常情况下由操作系统（OS）和语言的运行时（runtime）控制吗？</h5><p>如前所述，堆和栈是一个统称，可以有很多的实现方式。计算机程序通常有一个栈叫做<a href="https://en.wikipedia.org/wiki/Call_stack" target="_blank" rel="external">调用栈</a>，用来存储当前函数调用相关的信息（比如：主调函数的地址，局部变量），因为函数调用之后需要返回给主调函数。栈通过扩展和收缩来承载信息。实际上，程序不是由运行时来控制的，它由编程语言、操作系统甚至是系统架构来决定。</p>
+<p>堆是在任何内存中动态和随机分配的（内存的）统称；也就是无序的。内存通常由操作系统分配，通过应用程序调用 API 接口去实现分配。在管理动态分配内存上会有一些额外的开销，不过这由操作系统来处理。</p>
+<h5 id="它们的作用范围是什么？"><a href="#它们的作用范围是什么？" class="headerlink" title="它们的作用范围是什么？"></a>它们的作用范围是什么？</h5><p>调用栈是一个低层次的概念，就程序而言，它和“作用范围”没什么关系。如果你反汇编一些代码，你就会看到指针引用堆栈部分。就高级语言而言，语言有它自己的范围规则。一旦函数返回，函数中的局部变量会直接直接释放。你的编程语言就是依据这个工作的。</p>
+<p>在堆中，也很难去定义。作用范围是由操作系统限定的，但是你的编程语言可能增加它自己的一些规则，去限定堆在应用程序中的范围。体系架构和操作系统是使用虚拟地址的，然后由处理器翻译到实际的物理地址中，还有页面错误等等。它们记录那个页面属于那个应用程序。不过你不用关心这些，因为你仅仅在你的编程语言中分配和释放内存，和一些错误检查（出现分配失败和释放失败的原因）。</p>
+<h5 id="它们的大小由什么决定？"><a href="#它们的大小由什么决定？" class="headerlink" title="它们的大小由什么决定？"></a>它们的大小由什么决定？</h5><p>依旧，依赖于语言，编译器，操作系统和架构。栈通常提前分配好了，因为栈必须是连续的内存块。语言的编译器或者操作系统决定它的大小。不要在栈上存储大块数据，这样可以保证有足够的空间不会溢出，除非出现了无限递归的情况（额，栈溢出了）或者其它不常见了编程决议。</p>
+<p>堆是任何可以动态分配的内存的统称。这要看你怎么看待它了，它的大小是变动的。在现代处理器中和操作系统的工作方式是高度抽象的，因此你在正常情况下不需要担心它实际的大小，除非你必须要使用你还没有分配的内存或者已经释放了的内存。</p>
+<h5 id="哪个更快一些？"><a href="#哪个更快一些？" class="headerlink" title="哪个更快一些？"></a>哪个更快一些？</h5><p>栈更快因为所有的空闲内存都是连续的，因此不需要对空闲内存块通过列表来维护。只是一个简单的指向当前栈顶的指针。编译器通常用一个专门的、快速的寄存器来实现。更重要的一点事是，随后的栈上操作通常集中在一个内存块的附近，这样的话有利于处理器的高速访问（译者注：局部性原理）。</p>
+<h4 id="答案四"><a href="#答案四" class="headerlink" title="答案四"></a>答案四</h4><p>你问题的答案是依赖于实现的，根据不同的编译器和处理器架构而不同。下面简单的解释一下：</p>
+<ol>
+<li>栈和堆都是用来从底层操作系统中获取内存的。</li>
+<li>在多线程环境下每一个线程都可以有他自己完全的独立的栈，但是他们共享堆。并行存取被堆控制而不是栈。</li>
+</ol>
+<p><strong>堆:</strong></p>
+<ol>
+<li><p>堆包含一个链表来维护已用和空闲的内存块。在堆上新分配（用 new 或者 malloc）内存是从空闲的内存块中找到一些满足要求的合适块。这个操作会更新堆中的块链表。这些元信息也存储在堆上，经常在每个块的头部一个很小区域。</p>
+</li>
+<li><p>堆的增加新快通常从地地址向高地址扩展。因此你可以认为堆随着内存分配而不断的增加大小。如果申请的内存大小很小的话，通常从底层操作系统中得到比申请大小要多的内存。</p>
+</li>
+<li><p>申请和释放许多小的块可能会产生如下状态：在已用块之间存在很多小的空闲块。进而申请大块内存失败，虽然空闲块的总和足够，但是空闲的小块是零散的，不能满足申请的大小，。这叫做“堆碎片”。</p>
+</li>
+<li><p>当旁边有空闲块的已用块被释放时，新的空闲块可能会与相邻的空闲块合并为一个大的空闲块，这样可以有效的减少“堆碎片”的产生。</p>
+</li>
+</ol>
+<p><img src="/resources/image/png/b4f167893c867d7380c47add6ccf887a.png" alt=""></p>
+<p><strong>栈:</strong></p>
+<ol>
+<li><p>栈经常与 sp 寄存器（译者注：”stack pointer”，了解汇编的朋友应该都知道）一起工作，最初 sp 指向栈顶（栈的高地址）。</p>
+</li>
+<li><p>CPU 用 push 指令来将数据压栈，用 pop 指令来弹栈。当用 push 压栈时，sp 值减少（向低地址扩展）。当用 pop 弹栈时，sp 值增大。存储和获取数据都是 CPU 寄存器的值。</p>
+</li>
+<li><p>当函数被调用时，CPU使用特定的指令把当前的 IP （译者注：“instruction pointer”，是一个寄存器，用来记录 CPU 指令的位置）压栈。即执行代码的地址。CPU 接下来将调用函数地址赋给 IP ，进行调用。当函数返回时，旧的 IP 被弹栈，CPU 继续去函数调用之前的代码。</p>
+</li>
+<li><p>当进入函数时，sp 向下扩展，扩展到确保为函数的局部变量留足够大小的空间。如果函数中有一个 32-bit 的局部变量会在栈中留够四字节的空间。当函数返回时，sp 通过返回原来的位置来释放空间。</p>
+</li>
+<li><p>如果函数有参数的话，在函数调用之前，会将参数压栈。函数中的代码通过 sp 的当前位置来定位参数并访问它们。</p>
+</li>
+<li><p>函数嵌套调用和使用魔法一样，每一次新调用的函数都会分配函数参数，返回值地址、局部变量空间、嵌套调用的活动记录都要被压入栈中。函数返回时，按照正确方式的撤销。</p>
+</li>
+<li><p>栈要受到内存块的限制，不断的函数嵌套/为局部变量分配太多的空间，可能会导致栈溢出。当栈中的内存区域都已经被使用完之后继续向下写（低地址），会触发一个 CPU 异常。这个异常接下会通过语言的运行时转成各种类型的栈溢出异常。（译者注：“不同语言的异常提示不同，因此通过语言运行时来转换”我想他表达的是这个含义）</p>
+</li>
+</ol>
+<p><img src="/resources/image/png/4cc14ac67f20aa09657ceb6e1bff1ff7.png" alt=""></p>
+<h5 id="函数的分配可以用堆来代替栈吗？"><a href="#函数的分配可以用堆来代替栈吗？" class="headerlink" title="函数的分配可以用堆来代替栈吗？"></a>函数的分配可以用堆来代替栈吗？</h5><p>不可以的，函数的活动记录（即局部或者自动变量）被分配在栈上， 这样做不但存储了这些变量，而且可以用来嵌套函数的追踪。</p>
+<p>堆的管理依赖于运行时环境，C 使用 malloc ，C++ 使用 new ，但是很多语言有垃圾回收机制。</p>
+<p>栈是更低层次的特性与处理器架构紧密的结合到一起。当堆不够时可以扩展空间，这不难做到，因为可以有库函数可以调用。但是，扩展栈通常来说是不可能的，因为在栈溢出的时候，执行线程就被操作系统关闭了，这已经太晚了。</p>
+<blockquote>
+<p>作者提出的一些不确定点</p>
+<ol>
+<li><p>我没有听过 bookkeeping data 这种说法，故没有翻译。从上下文理解来看，可以想成是用来寄存器值？函数参数？返回地址？如果有了解具体含义的朋友，烦请告知。</p>
+</li>
+<li><p>栈和堆栈是一回事，英文表达是 stack，堆是 heap。</p>
+</li>
+<li><p>调用栈的概念，我是第一次听说，不太熟悉。大家可以去查查资料研究一下。</p>
+</li>
+</ol>
+</blockquote>
+
+	
+	</div>
+  <a type="button" href="/2016/06/14/heap-stack/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-06-14 </div>
+			<div class="article-title"><a href="/2016/06/14/tomcat-exception/" >tomcat 常见问题</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p><strong>Tomcat JNDI 设置数据源解析类</strong></p>
+<h4 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h4><p>tomcat 中 context.xml 中增加属性 <code>factory=&quot;org.apache.commons.dbcp.BasicDataSourceFactory&quot;</code></p>
+<hr>
+<h4 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h4><p><strong>内存溢出</strong></p>
+<h4 id="方案-1"><a href="#方案-1" class="headerlink" title="方案"></a>方案</h4>
+	
+	</div>
+  <a type="button" href="/2016/06/14/tomcat-exception/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-06-14 </div>
+			<div class="article-title"><a href="/2016/06/14/jvm-hotspot/" title="java 应用在生产环境中需要根据实际服务器条件配置 jvm 的参数，让应用更稳定地运行。">jvm 内存配置详解</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<blockquote>
+<p>引用 <a href="http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html" target="_blank" rel="external">oracle 官网</a></p>
+</blockquote>
+<h4 id="Behavioral-Options"><a href="#Behavioral-Options" class="headerlink" title="Behavioral Options"></a>Behavioral Options</h4><p><code>-XX:-AllowUserSignalHandlers</code></p>
+<blockquote>
+<p>Do not complain if the application installs signal handlers. (Relevant to Solaris and Linux only.)</p>
+</blockquote>
+<p><code>-XX:AltStackSize=16384</code></p>
+<blockquote>
+<p>Alternate signal stack size (in Kbytes). (Relevant to Solaris only, removed from 5.0.)</p>
+</blockquote>
+<p><code>-XX:-DisableExplicitGC</code></p>
+<blockquote>
+<p>By default calls to System.gc() are enabled (-XX:-DisableExplicitGC). Use -XX:+DisableExplicitGC to disable calls to System.gc(). Note that the JVM still performs garbage collection when necessary.</p>
+</blockquote>
+<p><code>-XX:+FailOverToOldVerifier</code></p>
+<blockquote>
+<p>Fail over to old verifier when the new type checker fails. (Introduced in 6.)</p>
+</blockquote>
+<p><code>-XX:+HandlePromotionFailure</code></p>
+<blockquote>
+<p>The youngest generation collection does not require a guarantee of full promotion of all live objects. (Introduced in 1.4.2 update 11) [5.0 and earlier: false.]</p>
+</blockquote>
+<p><code>-XX:+MaxFDLimit</code></p>
+<blockquote>
+<p>Bump the number of file descriptors to max. (Relevant  to Solaris only.)</p>
+</blockquote>
+<p><code>-XX:PreBlockSpin=10</code></p>
+<blockquote>
+<p>Spin count variable for use with -XX:+UseSpinning. Controls the maximum spin iterations allowed before entering operating system thread synchronization code. (Introduced in 1.4.2.)</p>
+</blockquote>
+<p><code>-XX:-RelaxAccessControlCheck</code></p>
+<blockquote>
+<p>Relax the access control checks in the verifier. (Introduced in 6.)</p>
+</blockquote>
+<p><code>-XX:+ScavengeBeforeFullGC</code></p>
+<blockquote>
+<p>Do young generation GC prior to a full GC. (Introduced in 1.4.1.)</p>
+</blockquote>
+<p><code>-XX:+UseAltSigs</code></p>
+<blockquote>
+<p>Use alternate signals instead of SIGUSR1 and SIGUSR2 for VM internal signals. (Introduced in 1.3.1 update 9, 1.4.1. Relevant to Solaris only.)</p>
+</blockquote>
+<p><code>-XX:+UseBoundThreads</code></p>
+<blockquote>
+<p>Bind user level threads to kernel threads. (Relevant to Solaris only.)</p>
+</blockquote>
+<p><code>-XX:-UseConcMarkSweepGC</code></p>
+<blockquote>
+<p>Use concurrent mark-sweep collection for the old generation. (Introduced in 1.4.1)</p>
+</blockquote>
+<p><code>-XX:+UseGCOverheadLimit</code></p>
+<blockquote>
+<p>Use a policy that limits the proportion of the VM’s time that is spent in GC before an OutOfMemory error is thrown. (Introduced in 6.)</p>
+</blockquote>
+<p><code>-XX:+UseLWPSynchronization</code></p>
+<blockquote>
+<p>Use LWP-based instead of thread based synchronization. (Introduced in 1.4.0. Relevant to Solaris only.)</p>
+</blockquote>
+<p><code>-XX:-UseParallelGC</code></p>
+<blockquote>
+<p>Use parallel garbage collection for scavenges. (Introduced in 1.4.1)</p>
+</blockquote>
+<p><code>-XX:-UseParallelOldGC</code></p>
+<blockquote>
+<p>Use parallel garbage collection for the full collections. Enabling this option automatically sets -XX:+UseParallelGC. (Introduced in 5.0 update 6.)</p>
+</blockquote>
+<p><code>-XX:-UseSerialGC</code></p>
+<blockquote>
+<p>Use serial garbage collection. (Introduced in 5.0.)</p>
+</blockquote>
+<p><code>-XX:-UseSpinning</code></p>
+<blockquote>
+<p>Enable naive spinning on Java monitor before entering operating system thread synchronizaton code. (Relevant to 1.4.2 and 5.0 only.) [1.4.2, multi-processor Windows platforms: true]</p>
+</blockquote>
+<p><code>-XX:+UseTLAB</code></p>
+<blockquote>
+<p>Use thread-local object allocation (Introduced in 1.4.0, known as UseTLE prior to that.) [1.4.2 and earlier, x86 or with -client: false]</p>
+</blockquote>
+<p><code>-XX:+UseSplitVerifier</code></p>
+<blockquote>
+<p>Use the new type checker with StackMapTable attributes. (Introduced in 5.0.)[5.0: false]</p>
+</blockquote>
+<p><code>-XX:+UseThreadPriorities</code></p>
+<blockquote>
+<p>Use native thread priorities.</p>
+</blockquote>
+<p><code>-XX:+UseVMInterruptibleIO</code></p>
+<blockquote>
+<p>Thread interrupt before or with EINTR for I/O operations results in OS_INTRPT. (Introduced in 6. Relevant to Solaris only.)</p>
+</blockquote>
+<h4 id="Garbage-First-G1-Garbage-Collection-Options"><a href="#Garbage-First-G1-Garbage-Collection-Options" class="headerlink" title="Garbage First (G1) Garbage Collection Options"></a>Garbage First (G1) Garbage Collection Options</h4><p><code>-XX:+UseG1GC</code></p>
+<blockquote>
+<p>Use the Garbage First (G1) Collector</p>
+</blockquote>
+<p><code>-XX:MaxGCPauseMillis=n</code></p>
+<blockquote>
+<p>Sets a target for the maximum GC pause time. This is a soft goal, and the JVM will make its best effort to achieve it.</p>
+</blockquote>
+<p><code>-XX:InitiatingHeapOccupancyPercent=n</code></p>
+<blockquote>
+<p>Percentage of the (entire) heap occupancy to start a concurrent GC cycle. It is used by GCs that trigger a concurrent GC cycle based on the occupancy of the entire heap, not just one of the generations (e.g., G1). A value of 0 denotes ‘do constant GC cycles’. The default value is 45.</p>
+</blockquote>
+<p><code>-XX:NewRatio=n</code></p>
+<blockquote>
+<p>Ratio of old/new generation sizes. The default value is 2.</p>
+</blockquote>
+<p><code>-XX:SurvivorRatio=n</code></p>
+<blockquote>
+<p>Ratio of eden/survivor space size. The default value is 8.</p>
+</blockquote>
+<p><code>-XX:MaxTenuringThreshold=n</code></p>
+<blockquote>
+<p>Maximum value for tenuring threshold. The default value is 15.</p>
+</blockquote>
+<p><code>-XX:ParallelGCThreads=n</code></p>
+<blockquote>
+<p>Sets the number of threads used during parallel phases of the garbage collectors. The default value varies with the platform on which the JVM is running.</p>
+</blockquote>
+<p><code>-XX:ConcGCThreads=n</code></p>
+<blockquote>
+<p>Number of threads concurrent garbage collectors will use. The default value varies with the platform on which the JVM is running.</p>
+</blockquote>
+<p><code>-XX:G1ReservePercent=n</code></p>
+<blockquote>
+<p>Sets the amount of heap that is reserved as a false ceiling to reduce the possibility of promotion failure. The default value is 10.</p>
+</blockquote>
+<p><code>-XX:G1HeapRegionSize=n</code></p>
+<blockquote>
+<p>With G1 the Java heap is subdivided into uniformly sized regions. This sets the size of the individual sub-divisions. The default value of this parameter is determined ergonomically based upon heap size. The minimum value is 1Mb and the maximum value is 32Mb.</p>
+</blockquote>
+<hr>
+<h4 id="Performance-Options"><a href="#Performance-Options" class="headerlink" title="Performance Options"></a>Performance Options</h4><p><code>-XX:+AggressiveOpts</code></p>
+<blockquote>
+<p>Turn on point performance compiler optimizations that are expected to be default in upcoming releases. (Introduced in 5.0 update 6.)</p>
+</blockquote>
+<p><code>-XX:CompileThreshold=10000</code></p>
+<blockquote>
+<p>Number of method invocations/branches before compiling [-client: 1,500]</p>
+</blockquote>
+<p><code>-XX:LargePageSizeInBytes=4m</code></p>
+<blockquote>
+<p>Sets the large page size used for the Java heap. (Introduced in 1.4.0 update 1.) [amd64: 2m.]</p>
+</blockquote>
+<p><code>-XX:MaxHeapFreeRatio=70</code></p>
+<blockquote>
+<p>Maximum percentage of heap free after GC to avoid shrinking.</p>
+</blockquote>
+<p><code>-XX:MaxNewSize=size</code></p>
+<blockquote>
+<p>Maximum size of new generation (in bytes). Since 1.4, MaxNewSize is computed as a function of NewRatio. [1.3.1 Sparc: 32m; 1.3.1 x86: 2.5m.]</p>
+</blockquote>
+<p><code>-XX:MaxPermSize=64m</code></p>
+<blockquote>
+<p>Size of the Permanent Generation.  [5.0 and newer: 64 bit VMs are scaled 30% larger; 1.4 amd64: 96m; 1.3.1 -client: 32m.]</p>
+</blockquote>
+<p><code>-XX:MinHeapFreeRatio=40</code></p>
+<blockquote>
+<p>Minimum percentage of heap free after GC to avoid expansion.</p>
+</blockquote>
+<p><code>-XX:NewRatio=2</code></p>
+<blockquote>
+<p>Ratio of old/new generation sizes. [Sparc -client: 8; x86 -server: 8; x86 -client: 12.]-client: 4 (1.3) 8 (1.3.1+), x86: 12]</p>
+</blockquote>
+<p><code>-XX:NewSize=2m</code></p>
+<blockquote>
+<p>Default size of new generation (in bytes) [5.0 and newer: 64 bit VMs are scaled 30% larger; x86: 1m; x86, 5.0 and older: 640k]</p>
+</blockquote>
+<p><code>-XX:ReservedCodeCacheSize=32m</code></p>
+<blockquote>
+<p>Reserved code cache size (in bytes) - maximum code cache size. [Solaris 64-bit, amd64, and -server x86: 2048m; in 1.5.0_06 and earlier, Solaris 64-bit and amd64: 1024m.]</p>
+</blockquote>
+<p><code>-XX:SurvivorRatio=8</code></p>
+<blockquote>
+<p>Ratio of eden/survivor space size [Solaris amd64: 6; Sparc in 1.3.1: 25; other Solaris platforms in 5.0 and earlier: 32]</p>
+</blockquote>
+<p><code>-XX:TargetSurvivorRatio=50</code></p>
+<blockquote>
+<p>Desired percentage of survivor space used after scavenge.</p>
+</blockquote>
+<p><code>-XX:ThreadStackSize=512</code></p>
+<blockquote>
+<p>Thread Stack Size (in Kbytes). (0 means use default stack size) [Sparc: 512; Solaris x86: 320 (was 256 prior in 5.0 and earlier); Sparc 64 bit: 1024; Linux amd64: 1024 (was 0 in 5.0 and earlier); all others 0.]</p>
+</blockquote>
+<p><code>-XX:+UseBiasedLocking</code></p>
+<blockquote>
+<p>Enable biased locking. For more details, see this <a href="http://www.oracle.com/technetwork/java/tuning-139912.html" target="_blank" rel="external">tuning example</a>. (Introduced in 5.0 update 6.) [5.0: false]</p>
+</blockquote>
+<p><code>-XX:+UseFastAccessorMethods</code></p>
+<blockquote>
+<p>Use optimized versions of Get Field.</p>
+</blockquote>
+<p><code>-XX:-UseISM</code></p>
+<blockquote>
+<p>Use Intimate Shared Memory. [Not accepted for non-Solaris platforms.] For details, see <a href="http://www.oracle.com/technetwork/java/ism-139376.html" target="_blank" rel="external">Intimate Shared Memory</a>.</p>
+</blockquote>
+<p><code>-XX:+UseLargePages</code></p>
+<blockquote>
+<p>Use large page memory. (Introduced in 5.0 update 5.) For details, see <a href="http://www.oracle.com/technetwork/java/javase/tech/largememory-jsp-137182.html" target="_blank" rel="external">Java Support for Large Memory Pages</a>.</p>
+</blockquote>
+<p><code>-XX:+UseMPSS</code></p>
+<blockquote>
+<p>Use Multiple Page Size Support w/4mb pages for the heap. Do not use with ISM as this replaces the need for ISM. (Introduced in 1.4.0 update 1, Relevant to Solaris 9 and newer.) [1.4.1 and earlier: false]</p>
+</blockquote>
+<p><code>-XX:+UseStringCache</code></p>
+<blockquote>
+<p>Enables caching of commonly allocated strings.</p>
+</blockquote>
+<p><code>-XX:AllocatePrefetchLines=1</code></p>
+<blockquote>
+<p>Number of cache lines to load after the last object allocation using prefetch instructions generated in JIT compiled code. Default values are 1 if the last allocated object was an instance and 3 if it was an array. </p>
+</blockquote>
+<p><code>-XX:AllocatePrefetchStyle=1</code></p>
+<blockquote>
+<p>Generated code style for prefetch instructions.<br>0 - no prefetch instructions are generate<em>d</em>,<br>1 - execute prefetch instructions after each allocation,<br>2 - use TLAB allocation watermark pointer to gate when prefetch instructions are executed.</p>
+</blockquote>
+<p><code>-XX:+UseCompressedStrings</code></p>
+<blockquote>
+<p>Use a byte[] for Strings which can be represented as pure ASCII. (Introduced in Java 6 Update 21 Performance Release) </p>
+</blockquote>
+<p><code>-XX:+OptimizeStringConcat</code></p>
+<blockquote>
+<p>Optimize String concatenation operations where possible. (Introduced in Java 6 Update 20) </p>
+</blockquote>
+<hr>
+<h4 id="Debugging-Options"><a href="#Debugging-Options" class="headerlink" title="Debugging Options"></a>Debugging Options</h4><p><code>-XX:-CITime</code></p>
+<blockquote>
+<p>Prints time spent in JIT Compiler. (Introduced in 1.4.0.)</p>
+</blockquote>
+<p><code>-XX:ErrorFile=./hs_err_pid&lt;pid&gt;.log</code></p>
+<blockquote>
+<p>If an error occurs, save the error data to this file. (Introduced in 6.)</p>
+</blockquote>
+<p><code>-XX:-ExtendedDTraceProbes</code></p>
+<blockquote>
+<p>Enable performance-impacting <a href="http://docs.oracle.com/javase/6/docs/technotes/guides/vm/dtrace.html" target="_blank" rel="external">dtrace</a> probes. (Introduced in 6. Relevant to Solaris only.)</p>
+</blockquote>
+<p><code>-XX:HeapDumpPath=./java_pid&lt;pid&gt;.hprof</code></p>
+<blockquote>
+<p>Path to directory or filename for heap dump. Manageable. (Introduced in 1.4.2 update 12, 5.0 update 7.)</p>
+</blockquote>
+<p><code>-XX:-HeapDumpOnOutOfMemoryError</code></p>
+<blockquote>
+<p>Dump heap to file when java.lang.OutOfMemoryError is thrown. Manageable. (Introduced in 1.4.2 update 12, 5.0 update 7.)</p>
+</blockquote>
+<p><code>-XX:OnError=&quot;&lt;cmd args&gt;;&lt;cmd args&gt;&quot;</code></p>
+<blockquote>
+<p>Run user-defined commands on fatal error. (Introduced in 1.4.2 update 9.)</p>
+</blockquote>
+<p><code>-XX:OnOutOfMemoryError=&quot;&lt;cmd args&gt;; &lt;cmd args&gt;&quot;</code></p>
+<blockquote>
+<p>Run user-defined commands when an OutOfMemoryError is first thrown. (Introduced in 1.4.2 update 12, 6)</p>
+</blockquote>
+<p><code>-XX:-PrintClassHistogram</code></p>
+<blockquote>
+<p>Print a histogram of class instances on Ctrl-Break. Manageable. (Introduced in 1.4.2.) The <a href="http://docs.oracle.com/javase/6/docs/technotes/tools/share/jmap.html" target="_blank" rel="external">jmap -histo</a> command provides equivalent functionality.</p>
+</blockquote>
+<p><code>-XX:-PrintConcurrentLocks</code></p>
+<blockquote>
+<p>Print java.util.concurrent locks in Ctrl-Break thread dump. Manageable. (Introduced in 6.) The <a href="http://docs.oracle.com/javase/6/docs/technotes/tools/share/jstack.html" target="_blank" rel="external">jstack -l</a> command provides equivalent functionality.</p>
+</blockquote>
+<p><code>-XX:-PrintCommandLineFlags</code></p>
+<blockquote>
+<p>Print flags that appeared on the command line. (Introduced in 5.0.)</p>
+</blockquote>
+<p><code>-XX:-PrintCompilation</code></p>
+<blockquote>
+<p>Print message when a method is compiled.</p>
+</blockquote>
+<p><code>-XX:-PrintGC</code></p>
+<blockquote>
+<p>Print messages at garbage collection. Manageable.</p>
+</blockquote>
+<p><code>-XX:-PrintGCDetails</code></p>
+<blockquote>
+<p>Print more details at garbage collection. Manageable. (Introduced in 1.4.0.)</p>
+</blockquote>
+<p><code>-XX:-PrintGCTimeStamps</code></p>
+<blockquote>
+<p>Print timestamps at garbage collection. Manageable (Introduced in 1.4.0.)</p>
+</blockquote>
+<p><code>-XX:-PrintTenuringDistribution</code></p>
+<blockquote>
+<p>Print tenuring age information.</p>
+</blockquote>
+<p><code>-XX:-PrintAdaptiveSizePolicy</code></p>
+<blockquote>
+<p>Enables printing of information about adaptive generation sizing.</p>
+</blockquote>
+<p><code>-XX:-TraceClassLoading</code></p>
+<blockquote>
+<p>Trace loading of classes.</p>
+</blockquote>
+<p><code>-XX:-TraceClassLoadingPreorder</code></p>
+<blockquote>
+<p>Trace all classes loaded in order referenced (not loaded). (Introduced in 1.4.2.)</p>
+</blockquote>
+<p><code>-XX:-TraceClassResolution</code></p>
+<blockquote>
+<p>Trace constant pool resolutions. (Introduced in 1.4.2.)</p>
+</blockquote>
+<p><code>-XX:-TraceClassUnloading</code></p>
+<blockquote>
+<p>Trace unloading of classes.</p>
+</blockquote>
+<p><code>-XX:-TraceLoaderConstraints</code></p>
+<blockquote>
+<p>Trace recording of loader constraints. (Introduced in 6.)</p>
+</blockquote>
+<p><code>-XX:+PerfDataSaveToFile</code></p>
+<blockquote>
+<p>Saves jvmstat binary data on exit.</p>
+</blockquote>
+<p><code>-XX:ParallelGCThreads=n</code></p>
+<blockquote>
+<p>Sets the number of garbage collection threads in the young and old parallel garbage collectors. The default value varies with the platform on which the JVM is running.</p>
+</blockquote>
+<p><code>-XX:+UseCompressedOops</code></p>
+<blockquote>
+<p>Enables the use of compressed pointers (object references represented as 32 bit offsets instead of 64-bit pointers) for optimized 64-bit performance with Java heap sizes less than 32gb.</p>
+</blockquote>
+<p><code>-XX:+AlwaysPreTouch</code></p>
+<blockquote>
+<p>Pre-touch the Java heap during JVM initialization. Every page of the heap is thus demand-zeroed during initialization rather than incrementally during application execution.</p>
+</blockquote>
+<p><code>-XX:AllocatePrefetchDistance=n</code></p>
+<blockquote>
+<p>Sets the prefetch distance for object allocation. Memory about to be written with the value of new objects is prefetched into cache at this distance (in bytes) beyond the address of the last allocated object. Each Java thread has its own allocation point. The default value varies with the platform on which the JVM is running.</p>
+</blockquote>
+<p><code>-XX:InlineSmallCode=n</code></p>
+<blockquote>
+<p>Inline a previously compiled method only if its generated native code size is less than this. The default value varies with the platform on which the JVM is running.</p>
+</blockquote>
+<p><code>-XX:MaxInlineSize=35</code></p>
+<blockquote>
+<p>Maximum bytecode size of a method to be inlined.</p>
+</blockquote>
+<p><code>-XX:FreqInlineSize=n</code></p>
+<blockquote>
+<p>Maximum bytecode size of a frequently executed method to be inlined. The default value varies with the platform on which the JVM is running.</p>
+</blockquote>
+<p><code>-XX:LoopUnrollLimit=n</code></p>
+<blockquote>
+<p>Unroll loop bodies with server compiler intermediate representation node count less than this value. The limit used by the server compiler is a function of this value, not the actual value. The default value varies with the platform on which the JVM is running.</p>
+</blockquote>
+<p><code>-XX:InitialTenuringThreshold=7</code></p>
+<blockquote>
+<p>Sets the initial tenuring threshold for use in adaptive GC sizing in the parallel young collector. The tenuring threshold is the number of times an object survives a young collection before being promoted to the old, or tenured, generation.</p>
+</blockquote>
+<p><code>-XX:MaxTenuringThreshold=n</code></p>
+<blockquote>
+<p>Sets the maximum tenuring threshold for use in adaptive GC sizing. The current largest value is 15. The default value is 15 for the parallel collector and is 4 for CMS.</p>
+</blockquote>
+<p><code>-Xloggc:&lt;filename&gt;</code></p>
+<blockquote>
+<p>Log GC verbose output to specified file. The verbose output is controlled by the normal verbose GC flags.</p>
+</blockquote>
+<p><code>-XX:-UseGCLogFileRotation</code></p>
+<blockquote>
+<p>Enabled GC log rotation, requires -Xloggc.</p>
+</blockquote>
+<p><code>-XX:NumberOfGClogFiles=1</code></p>
+<blockquote>
+<p>Set the number of files to use when rotating logs, must be &gt;= 1. The rotated log files will use the following naming scheme, <filename>.0, <filename>.1, …, <filename>.n-1.</filename></filename></filename></p>
+</blockquote>
+<p><code>-XX:GCLogFileSize=8K</code></p>
+<blockquote>
+<p>The size of the log file at which point the log will be rotated, must be &gt;= 8K.</p>
+</blockquote>
+
+	
+	</div>
+  <a type="button" href="/2016/06/14/jvm-hotspot/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-06-14 </div>
+			<div class="article-title"><a href="/2016/06/14/mysql-exception/" >mysql 常见问题</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its de 错误解</span><br></pre></td></tr></table></figure>
+<h4 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h4><p>这是我们开启了bin-log, 我们就必须指定我们的函数是否是<br>1 DETERMINISTIC 不确定的<br>2 NO SQL 没有SQl语句，当然也不会修改数据<br>3 READS SQL DATA 只是读取数据，当然也不会修改数据<br>4 MODIFIES SQL DATA 要修改数据<br>5 CONTAINS SQL 包含了SQL语句</p>
+<p>其中在function里面，只有 DETERMINISTIC, NO SQL 和 READS SQL DATA 被支持。如果我们开启了 bin-log, 我们就必须为我们的function指定一个参数。</p>
+<p>在MySQL中创建函数时出现这种错误的解决方法：<br><code>set global log_bin_trust_function_creators=TRUE;</code></p>
+<hr>
+<h4 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql 1449 ： The user specified as a definer (&apos;root&apos;@&apos;%&apos;) does not exist</span><br></pre></td></tr></table></figure>
+<h4 id="方案-1"><a href="#方案-1" class="headerlink" title="方案"></a>方案</h4><p>权限问题，授权 给 root  所有sql 权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; grant all privileges on *.* to root@&quot;%&quot; identified by &quot;.&quot;;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h4><p><strong>mysql无法被远程访问</strong></p>
+<h4 id="方案-2"><a href="#方案-2" class="headerlink" title="方案"></a>方案</h4><p>通过 mysql 客户端软件或者通过命令行进入 mysql, 然后在 mysql 数据库中的 user 表中，将 localhost 改为 %, 然后运行 flush privileges; 即可。</p>
+
+	
+	</div>
+  <a type="button" href="/2016/06/14/mysql-exception/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+<ul class="pagination">
+	 
+		
+    	<li class="prev"><a href="/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i> 上一页</a></li>
+  		
+
+        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+
+		
+		   <li class="next"> <a href="/page/3/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+        
+	
+</ul>
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/English/">English<span>2</span></a></li>
+		
+			<li><a href="/categories/Technology/">Technology<span>20</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/cite/">cite<span>13</span></a></li>
+		
+			<li><a href="/tags/vocabulary/">vocabulary<span>1</span></a></li>
+		
+			<li><a href="/tags/jvm/">jvm<span>1</span></a></li>
+		
+			<li><a href="/tags/servlet/">servlet<span>1</span></a></li>
+		
+			<li><a href="/tags/English/">English<span>2</span></a></li>
+		
+			<li><a href="/tags/Requirements/">Requirements<span>3</span></a></li>
+		
+			<li><a href="/tags/mysql/">mysql<span>2</span></a></li>
+		
+			<li><a href="/tags/svn/">svn<span>1</span></a></li>
+		
+			<li><a href="/tags/hibernate/">hibernate<span>2</span></a></li>
+		
+			<li><a href="/tags/regexp/">regexp<span>4</span></a></li>
+		
+			<li><a href="/tags/transaction/">transaction<span>1</span></a></li>
+		
+			<li><a href="/tags/堆栈/">堆栈<span>1</span></a></li>
+		
+			<li><a href="/tags/高考/">高考<span>1</span></a></li>
+		
+			<li><a href="/tags/Git/">Git<span>2</span></a></li>
+		
+			<li><a href="/tags/interview/">interview<span>4</span></a></li>
+		
+			<li><a href="/tags/j2ee/">j2ee<span>1</span></a></li>
+		
+			<li><a href="/tags/spring/">spring<span>1</span></a></li>
+		
+			<li><a href="/tags/tomcat/">tomcat<span>1</span></a></li>
+		
+			<li><a href="/tags/java/">java<span>4</span></a></li>
+		
+			<li><a href="/tags/database/">database<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>22</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/06/16/web-xml-configuration/" ><i class="fa fa-file-o"></i>web.xml配置详解</a>
+      </li>
+    
+      <li>
+        <a href="/2016/06/15/regexp-common/" ><i class="fa fa-file-o"></i>常用正则表达式</a>
+      </li>
+    
+      <li>
+        <a href="/2016/06/15/regexp-essential/" ><i class="fa fa-file-o"></i>正则表达式入门</a>
+      </li>
+    
+      <li>
+        <a href="/2016/06/15/regexp-grammer/" ><i class="fa fa-file-o"></i>正则表达式语法简明参考</a>
+      </li>
+    
+      <li>
+        <a href="/2016/06/15/svn-clean-failed-exception/" ><i class="fa fa-file-o"></i>SVN clean失败解决方法</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>链接</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-linkedin"></i><a href="https://www.linkedin.com/in/%E5%BE%B7%E5%8D%8E-%E9%83%91-8a4601120" title="我的LinkedIn" target="_blank"]);">我的 LinkedIn</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/zhengdehua" title="我的GitHub" target="_blank"]);">我的 GitHub</a></li>
+	
+		<li><i class="fa fa-external-link"></i><a href="http://howtodoinjava.com" title="HowToDoInJava" target="_blank"]);">HowToDoInJava</a></li>
+	
+		<li><i class="fa fa-external-link"></i><a href="http://javarevisited.blogspot.com/" title="javarevisited" target="_blank"]);">javarevisited</a></li>
+	
+		<li><i class="fa fa-external-link"></i><a href="http://www.mkyong.com/" title="mkyong" target="_blank"]);">mkyong</a></li>
+	
+		<li><i class="fa fa-external-link"></i><a href="http://www.journaldev.com/" title="journaldev" target="_blank"]);">journaldev</a></li>
+	
+	</ul>
+</div>
+
+
+		
+			<div class="widget">
+	<h4 style="font-weight: bold; color: #333;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif">recent_comments</h4>
+	<ul class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="0" data-show-admin="1" data-excerpt-length="100" ></ul>
+	
+	<script type="text/javascript">
+	    var duoshuoQuery = { short_name: 'zhengdehua' };
+	    (function() {
+	    var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+	</script>
+
+</div>
+
+
+
+		
+			<section id="recent-visitors" class="widget widget_recent_comments">
+	<h4 style="font-weight: bold; color: #333;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif">recent_visitors</h4>
+  	<div class="panelbody clearfix"><ul class="ds-recent-visitors" data-num-items="30"></ul></div>
+</section>
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 zhengdehua
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

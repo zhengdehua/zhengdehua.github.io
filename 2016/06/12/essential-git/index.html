@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Git 基本命令 | nightwatch</title>
+  <meta name="author" content="zhengdehua">
+  
+  <meta name="description" content="Git 的发明者是 Linux 创始人 linus, 和 SVN 一样是一种版本控制系统，但是其特有的离线控制特点，使其越来越受欢迎。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Git 基本命令"/>
+  <meta property="og:site_name" content="nightwatch"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">nightwatch</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有的存档">
+			  <i class="fa fa-archive"></i>存档
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories"" title="所有的分类">
+			  <i class="fa fa-folder"></i>分类
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="全部标签">
+			  <i class="fa fa-tags"></i>标签
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="个人信息">
+			  <i class="fa fa-user"></i>关于我
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/focussites" title="收集有价值站点">
+			  <i class="fa fa-external-link-square"></i>关注站点
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Git 基本命令</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>Git 的发明者是 Linux 创始人 linus, 和 SVN 一样是一种版本控制系统，但是其特有的离线控制特点，使其越来越受欢迎。</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p><code>git init</code> </p>
+<blockquote>
+<p>创建本地仓库，在当前文件夹下创建一个 .git 文件夹，里面有版本信息、标记内容等。</p>
+</blockquote>
+<p><code>git remote add origin git@github.com:zhengdehua/xxx.git</code></p>
+<blockquote>
+<p>关联本地仓库和远程仓库, 关联后，每次 push 的时候就不用再指定远程仓库了。</p>
+</blockquote>
+<p><code>git add</code> 和 <code>git rm</code></p>
+<blockquote>
+<p>从本地仓库增删文件，结果会保存到本地缓存。</p>
+</blockquote>
+<p><code>git commit -m &quot;注释&quot;</code></p>
+<blockquote>
+<p>提交本机缓存中的内容到本地的 HEAD 里面。</p>
+</blockquote>
+<p><code>git push origin master</code></p>
+<blockquote>
+<p>把本地的 commit(提交) push 到远程仓库上，origin 就是之前 <code>git remote add origin</code> 里面的 origin, origin 代替了远程仓库的地址: git push git@github.com:zhengdehua/xxx.git master</p>
+</blockquote>
+<p><code>git pull origin master</code></p>
+<blockquote>
+<p>从远处仓库 pull 新的改动</p>
+</blockquote>
+<p><code>git status</code></p>
+<blockquote>
+<p>查看提交状态，可以看到增删改的文件变化。</p>
+</blockquote>
+<p><code>git add -A</code></p>
+<blockquote>
+<p>提交全部修改</p>
+</blockquote>
+<p><strong>取回远端 master 与本地 master 合并</strong><br><code>git checkout master</code><br><code>git fetch --all</code> 或 <code>git fetch origin master</code><br><code>git reset --hard origin/master</code> 或 <code>git rebase origin/master</code></p>
+<p><strong>查找包含某文件的 commit</strong><br><code>git log 文件路径</code><br><code>git show commit_id</code> 或 <code>git log --follow filename(绝对路径)</code></p>
+<p><strong>清空 git working copy 还没追踪的文件</strong><br><code>git clena -f</code><br><code>git clean -f -d</code> (删除目录)<br><code>git clean -f -X</code> (删除忽略的文件)<br><code>git clean -f -x</code> (删除忽略和非忽略的文件)</p>
+<p><strong>配置 git </strong></p>
+<blockquote>
+<p>配置 git 用户信息：<br><code>git config --global user.name &quot;xxx&quot;</code> – 配置用户名<br><code>git config --global user.email &quot;xxx&quot;</code> – 配置邮箱<br><code>git config --list</code> – 查看配置列表</p>
+<p>配置 sshkey, 上传代码时这个 sshkey 用来确认是否有上传权限<br>以 github 为例:</p>
+<ol>
+<li>创建本地 ssh: <code>ssh-keygen -t rsa -C &quot;github 注册邮箱&quot;</code></li>
+<li>在 github 中添加这个 sshkey:<br>复制 C:\Documents and Settings\Administrator.ssh\id_rsa.pub 文件中的内容;<br>登录 Github –&gt; Account Setting  –&gt; SSH-KEY –&gt; Add SSH-KEY –&gt; 粘贴id_rsa.pub中的内容；</li>
+<li>验证: <code>ssh -T git@github.com</code><br>出现 Hi xxx! You’ve successfully authenticated, but GitHub does not provide shell access. 说明配置成功，可以连接上 Github</li>
+</ol>
+</blockquote>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2016/06/13/design-outline-detailed-ii/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2016/06/09/English-2016-college-entrance/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2016/06/12/essential-git/" data-title="Git 基本命令" data-url="http://zhengdehua.github.io/2016/06/12/essential-git/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2016-06-12 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Technology/">Technology<span>20</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Git/">Git<span>2</span></a></li> <li><a href="/tags/VCS/">VCS<span>2</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'zhengdehua' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 zhengdehua
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

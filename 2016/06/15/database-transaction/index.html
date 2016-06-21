@@ -1,0 +1,400 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据库事务 | nightwatch</title>
+  <meta name="author" content="zhengdehua">
+  
+  <meta name="description" content="阐述数据库事务的概念和特性">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="数据库事务"/>
+  <meta property="og:site_name" content="nightwatch"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">nightwatch</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有的存档">
+			  <i class="fa fa-archive"></i>存档
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories"" title="所有的分类">
+			  <i class="fa fa-folder"></i>分类
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="全部标签">
+			  <i class="fa fa-tags"></i>标签
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="个人信息">
+			  <i class="fa fa-user"></i>关于我
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/focussites" title="收集有价值站点">
+			  <i class="fa fa-external-link-square"></i>关注站点
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 数据库事务</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>阐述数据库事务的概念和特性</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <blockquote>
+<p>引用 <a href="http://www.cnblogs.com/zhangpengme/archive/2011/11/24/2261625.html" target="_blank" rel="external">柯枫技术博客-1</a><br>引用 <a href="http://www.cnblogs.com/zhangpengme/archive/2011/11/24/2261975.html" target="_blank" rel="external">柯枫技术博客-2</a></p>
+</blockquote>
+<h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>　　数据库事务(Database Transaction) ，是指作为单个逻辑工作单元执行的一系列操作。 事务处理可以确保除非事务性单元内的所有操作都成功完成，否则不会永久更新面向数据的资源。通过将一组相关操作组合为一个要么全部成功要么全部失败的单元，可以简化错误恢复并使应用程序更加可靠。一个逻辑工作单元要成为事务，必须满足所谓的ACID(原子性、一致性、隔离性 和 持久性) 属性。</p>
+<h4 id="操作流程"><a href="#操作流程" class="headerlink" title="操作流程"></a>操作流程</h4><p>　　设想网上购物的一次交易，其付款过程至少包括以下几步数据库操作：<br>　　· 更新客户所购商品的库存信息<br>　　· 保存客户付款信息–可能包括与银行系统的交互<br>　　· 生成订单并且保存到数据库中<br>　　· 更新用户相关信息，例如购物数量等等<br>　　正常的情况下，这些操作将顺利进行，最终交易成功，与交易相关的所有数据库信息也成功地更新。但是，如果在这一系列过程中任何一个环节出了差错，例如在更新商品库存信息时发生异常、该顾客银行帐户存款不足等，都将导致交易失败。一旦交易失败，数据库中所有信息都必须保持交易前的状态不变，比如最后一步更新用户信息时失败而导致交易失败，那么必须保证这笔失败的交易不影响数据库的状态–库存信息没有被更新、用户也没有付款，订单也没有生成。否则，数据库的信息将会一片混乱而不可预测。<br>　　数据库事务正是用来保证这种情况下交易的平稳性和可预测性的技术。</p>
+<h4 id="数据库事务的ACID属性"><a href="#数据库事务的ACID属性" class="headerlink" title="数据库事务的ACID属性"></a>数据库事务的ACID属性</h4><p><strong>原子性（atomic）</strong><br>　　事务必须是原子工作单元；对于其数据修改，要么全都执行，要么全都不执行。通常，与某个事务关联的操作具有共同的目标，并且是相互依赖的。如果系统只执行这些操作的一个子集，则可能会破坏事务的总体目标。原子性消除了系统处理操作子集的可能性。<br><strong>一致性（consistent）</strong><br>　　事务在完成时，必须使所有的数据都保持一致状态。在相关数据库中，所有规则都必须应用于事务的修改，以保持所有数据的完整性。事务结束时，所有的内部数据结构（如 B 树索引或双向链表）都必须是正确的。某些维护一致性的责任由应用程序开发人员承担，他们必须确保应用程序已强制所有已知的完整性约束。例如，当开发用于转帐的应用程序时，应避免在转帐过程中任意移动小数点。<br><strong>隔离性（insulation）</strong><br>　　由并发事务所作的修改必须与任何其它并发事务所作的修改隔离。事务查看数据时数据所处的状态，要么是另一并发事务修改它之前的状态，要么是另一事务修改它之后的状态，事务不会查看中间状态的数据。这称为可串行性，因为它能够重新装载起始数据，并且重播一系列事务，以使数据结束时的状态与原始事务执行的状态相同。当事务可序列化时将获得最高的隔离级别。在此级别上，从一组可并行执行的事务获得的结果与通过连续运行每个事务所获得的结果相同。由于高度隔离会限制可并行执行的事务数，所以一些应用程序降低隔离级别以换取更大的吞吐量。防止数据丢失<br><strong>持久性(durability）</strong><br>　　事务完成之后，它对于系统的影响是永久性的。该修改即使出现致命的系统故障也将一直保持。</p>
+<h4 id="事务的5种状态"><a href="#事务的5种状态" class="headerlink" title="事务的5种状态"></a>事务的5种状态</h4><ol>
+<li><p>活动状态<br>事务在执行时的状态叫活动状态。</p>
+</li>
+<li><p>部分提交状态<br>事务中最后一条语句被执行后的状态叫部分提交状态。</p>
+</li>
+<li><p>失败状态<br>事务不能正常执行的状态叫失败状态。</p>
+</li>
+<li><p>提交状态<br>事务在部分提交后，将往硬盘上写入数据，当最后一条信息写入后的状态叫提交状态。进入提交状态的事务就成功完成了。</p>
+</li>
+<li><p>中止状态<br>事务回滚并且数据库已经恢复到事务开始执行前的状态叫中止状态。</p>
+</li>
+</ol>
+<h4 id="数据并发的问题"><a href="#数据并发的问题" class="headerlink" title="数据并发的问题"></a>数据并发的问题</h4><p>一个数据库可能拥有多个访问客户端，这些客户端都可以并发方式访问数据库。数据库中的相同数据可能同时被多个事务访问，如果没有采取必要的隔离措施，就会导致各种并发问题，破坏数据的完整性。这些问题可以归结为5类，包括3类数据读问题（脏读、幻象读和不可重复读）以及2类数据更新问题（第一类丢失更新和第二类丢失更新）。下面，我们分别通过实例讲解引发问题的场景。</p>
+<p><strong>脏读（dirty read） </strong><br>在讲解脏读前，我们先讲一个笑话：一个有结巴的人在饮料店柜台前转悠，老板很热情地迎上来：“喝一瓶？”，结巴连忙说：“我…喝…喝…”，老板麻利地打开易拉罐递给结巴，结巴终于憋出了他的那句话：“我…喝…喝…喝不起啊！”。在这个笑话中，饮料店老板就对结巴进行了脏读。<br>A事务读取B事务尚未提交的更改数据，并在这个数据的基础上操作。如果恰巧B事务回滚，那么A事务读到的数据根本是不被承认的。来看取款事务和转账事务并发时引发的脏读场景：</p>
+<p><img src="/resources/image/png/QQ截图20160615105129.png" alt=""></p>
+<p>在这个场景中，B希望取款500元而后又撤销了动作，而A往相同的账户中转账100元，就因为A事务读取了B事务尚未提交的数据，因而造成账户白白丢失了500元。</p>
+<p><strong>不可重复读（unrepeatable read） </strong><br>不可重复读是指A事务读取了B事务已经提交的更改数据。假设A在取款事务的过程中，B往该账户转账100元，A两次读取账户的余额发生不一致：</p>
+<p><img src="/resources/image/png/QQ截图20160615105602.png" alt=""></p>
+<p>在同一事务中，T4时间点和T7时间点读取账户存款余额不一样。</p>
+<p><strong>幻象读（phantom read） </strong><br>A事务读取B事务提交的新增数据，这时A事务将出现幻象读的问题。幻象读一般发生在计算统计数据的事务中，举一个例子，假设银行系统在同一个事务中，两次统计存款账户的总金额，在两次统计过程中，刚好新增了一个存款账户，并存入100元，这时，两次统计的总金额将不一致： </p>
+<p><img src="/resources/image/png/QQ截图20160615105650.png" alt=""></p>
+<p>如果新增数据刚好满足事务的查询条件，这个新数据就进入了事务的视野，因而产生了两个统计不一致的情况。<br>　　幻象读和不可重复读是两个容易混淆的概念，前者是指读到了其它已经提交事务的新增数据，而后者是指读到了已经提交事务的更改数据（更改或删除），为了避免这两种情况，采取的对策是不同的，防止读取到更改数据，只需要对操作的数据添加行级锁，阻止操作中的数据发生变化，而防止读取到新增数据，则往往需要添加表级锁——将整个表锁定，防止新增数据。</p>
+<p><strong>第一类丢失更新 </strong><br>A事务撤销时，把已经提交的B事务的更新数据覆盖了。这种错误可能造成很严重的问题，通过下面的账户取款转账就可以看出来：</p>
+<p><img src="/resources/image/png/QQ截图20160615105747.png" alt=""></p>
+<p>A事务在撤销时，“不小心”将B事务已经转入账户的金额给抹去了。</p>
+<p>简言之：<br>两个事务都同时更新一行数据，但是第二个事务却中途失败退出，导致对数据的两个修改都失效了。</p>
+<p><strong>第二类丢失更新 </strong><br>A事务覆盖B事务已经提交的数据，造成B事务所做操作丢失：</p>
+<p><img src="/resources/image/png/QQ截图20160615105842.png" alt=""></p>
+<p>上面的例子里由于支票转账事务覆盖了取款事务对存款余额所做的更新，导致银行最后损失了100元，相反如果转账事务先提交，那么用户账户将损失100元。</p>
+<p>简言之：<br>有两个并发事务同时读取同一行数据，然后其中一个对它进行修改提交，而另一个也进行了修改提交。这就会造成<br>第一次写操作失效。 </p>
+<h4 id="数据库的隔离级别"><a href="#数据库的隔离级别" class="headerlink" title="数据库的隔离级别"></a>数据库的隔离级别</h4><p>为了兼顾并发效率和异常控制，在标准SQL规范中，定义了4个事务隔<br>离级别，（ORACLE和SQLSERER对标准隔离级别有不同的实现 ）</p>
+<p>Read Uncommitted：<br>直译就是”读未提交”,意思就是即使一个更新语句没有提交,但是别<br>的事务可以读到这个改变.这是很不安全的. </p>
+<p>Read Committed：<br>直译就是”读提交”,意思就是语句提交以后即执行了COMMIT以后<br>别的事务就能读到这个改变. </p>
+<p>Repeatable Read：<br>直译就是”可以重复读”,这是说在同一个事务里面先后执行同一个<br>查询语句的时候,得到的结果是一样的. </p>
+<p>Serializable:<br>直译就是”序列化”,意思是说这个事务执行的时候不允许别的事务<br>并发执行.</p>
+<p><strong>隔离级别对并发的控制</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>LU</th>
+<th>DR</th>
+<th>NRR</th>
+<th>SLU</th>
+<th>PR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RU</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>RC</td>
+<td>N</td>
+<td>N</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>RR</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>S</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<p><span class="text-danger"><br>    注：LU：丢失更新；DR：脏读；NRR：非重复读；SLU：二类丢失更新；PR：幻像读<br>        RU: 读未提交；RC：读提交；RR：可重复读；S：序列化<br></span></p>
+<h4 id="隔离级别与并发性能的关系"><a href="#隔离级别与并发性能的关系" class="headerlink" title="隔离级别与并发性能的关系"></a>隔离级别与并发性能的关系</h4><p><img src="/resources/image/png/1364389498_1995.PNG" alt=""></p>
+<h4 id="隔离级别的设置原则"><a href="#隔离级别的设置原则" class="headerlink" title="隔离级别的设置原则"></a>隔离级别的设置原则</h4><ul>
+<li>隔离级别越高，越能保证数据的完整性和一致性，但是对并发性能的影响也越大。</li>
+<li>对于多数应用程序，可以优先考虑把数据库系统的隔离级别设为Read Committed，它能够避免脏读，<br>而且具有较好的并发性能。尽管它会导致不可重复读、虚读和第二类丢失更新这些并发问题，<br>在可能出现这类问题的个别场合，可以由应用程序采用<strong>悲观锁</strong>或<strong>乐观锁</strong>来控制。</li>
+</ul>
+<h5 id="在mysql-exe程序中中设置隔离级别："><a href="#在mysql-exe程序中中设置隔离级别：" class="headerlink" title="在mysql.exe程序中中设置隔离级别："></a>在mysql.exe程序中中设置隔离级别：</h5><ul>
+<li><p>每启动一个mysql.exe程序，就会获得一个单独的数据库连接。每个数据库连接都有个全局变量@@tx_isolation，表示当前的事务隔离级别。MySQL默认的隔离级别为Repeatable Read。如果要察看当前的隔离级别，可使用如下SQL命令：<br><code>–mysql&gt; select @@tx_isolation;</code></p>
+</li>
+<li><p>如果要把当前mysql.exe程序的隔离级别改为Read Committed，可使用如下SQL命令：<br><code>–mysql&gt; set transaction isolation level read committed;</code></p>
+</li>
+</ul>
+<h5 id="在Hibernate中设置隔离级别："><a href="#在Hibernate中设置隔离级别：" class="headerlink" title="在Hibernate中设置隔离级别："></a>在Hibernate中设置隔离级别：</h5><ul>
+<li><p>在Hibernate的配置文件中可以显式的设置隔离级别。每一种隔离级别都对应一个整数：<br>–1：Read Uncommitted<br>–2：Read Committed<br>–4：Repeatable Read<br>–8：Serializable</p>
+</li>
+<li><p>例如，以下代码把hibernate.cfg.xml文件中的隔离级别设为Read Committed：<br><code>hibernate.connection.isolation=2</code><br>对于从数据库连接池中获得的每个连接，Hibernate都会把它改为使用Read Committed隔离级别。</p>
+</li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2016/06/15/svn-clean-failed-exception/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2016/06/14/heap-stack/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2016/06/15/database-transaction/" data-title="数据库事务" data-url="http://zhengdehua.github.io/2016/06/15/database-transaction/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2016-06-15 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Technology/">Technology<span>20</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/database/">database<span>1</span></a></li> <li><a href="/tags/transaction/">transaction<span>1</span></a></li> <li><a href="/tags/cite/">cite<span>13</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'zhengdehua' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 zhengdehua
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

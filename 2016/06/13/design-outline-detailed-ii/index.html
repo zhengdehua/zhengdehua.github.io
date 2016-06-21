@@ -1,0 +1,340 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>概要设计、详细设计(二) 设计的内容 | nightwatch</title>
+  <meta name="author" content="zhengdehua">
+  
+  <meta name="description" content="引用 可爱桑树的博客
+
+1. 概要设计的主要内容不同的系统类型其概要设计的内容也不相同，通过概要设计准则我们可以根据实际情况确定概要设计的具体内容，但是一般来说，概要设计的内容可以包含系统构架、模块划分、系统接口、数据设计4个主要方面的内容。
+1. 系统构架系统构架包含系统使用的软硬件技术平台及相关">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="概要设计、详细设计(二) 设计的内容"/>
+  <meta property="og:site_name" content="nightwatch"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">nightwatch</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有的存档">
+			  <i class="fa fa-archive"></i>存档
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories"" title="所有的分类">
+			  <i class="fa fa-folder"></i>分类
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="全部标签">
+			  <i class="fa fa-tags"></i>标签
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="个人信息">
+			  <i class="fa fa-user"></i>关于我
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/focussites" title="收集有价值站点">
+			  <i class="fa fa-external-link-square"></i>关注站点
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 概要设计、详细设计(二) 设计的内容</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <blockquote>
+<p>引用 <a href="http://blog.sina.com.cn/s/blog_5dfa359001016urn.html" target="_blank" rel="external">可爱桑树的博客</a></p>
+</blockquote>
+<h3 id="1-概要设计的主要内容"><a href="#1-概要设计的主要内容" class="headerlink" title="1. 概要设计的主要内容"></a>1. 概要设计的主要内容</h3><p>不同的系统类型其概要设计的内容也不相同，通过概要设计准则我们可以根据实际情况确定概要设计的具体内容，但是一般来说，概要设计的内容可以包含系统构架、模块划分、系统接口、数据设计4个主要方面的内容。<br><img src="/resources/image/jpg/5dfa3590nc6e9122d7b6f&amp;690.jpg" alt=""></p>
+<h4 id="1-系统构架"><a href="#1-系统构架" class="headerlink" title="1. 系统构架"></a>1. 系统构架</h4><p>系统构架包含系统使用的软硬件技术平台及相关技术列表、系统的物理架构、物理器件类型、数据库管理系统类型、服务器类型、子系统划分及部署方式、系统的软件架构、第三方软件平台列表等。</p>
+<p><span class="text-success">例：硬件架构</span><br><img src="/resources/image/jpg/5dfa3590nc6e9136407eb&amp;690.jpg" alt=""></p>
+<p><span class="text-success">例：软件架构：包括层次划分、子系统&amp;模块划分</span><br><img src="/resources/image/jpg/5dfa3590nc6e91588ee83&amp;690.jpg" alt=""></p>
+<p><span class="text-success">例：软件技术平台</span><br><span class="text-muted"><br>    软件技术平台通常定义采用什么样的软件体系来实现具体的功能，比如采用SOA结构实现服务分散部署，用ESB解决数据通讯以及共享，采用MVC结构实现交互、业务分离，采用RIA技术支撑复杂、可视交互等等。<br></span><br><img src="/resources/image/jpg/5dfa3590nc6e91721b681&amp;690.jpg" alt=""></p>
+<p><span class="text-success">例：子系统划分</span><br><img src="/resources/image/jpg/5dfa3590nc6e91bf8f9f4&amp;690.jpg" alt=""></p>
+<h4 id="2-模块划分"><a href="#2-模块划分" class="headerlink" title="2. 模块划分"></a>2. 模块划分</h4><p>模块划分的主要工作是结合业务领域以及系统的要求，通过拆分、合并、分组等方法，将各功能划分到子系统和功能模块中，并细化到各机能组件和功能模块上。模块划分可以通过2步来实现，层次以及模块设计和流程设计。</p>
+<p>第1步层次设计，对于复杂系统需要对系统进行多层的划分，然后一层层的设计。层次划分的方法可以结合业务、部署、运用功能等因素考虑，首先进行分类，然后进行抽象分析，整理共性要素，将功能归纳到模块。制作方法方法可以采用各种表述方法，下例都是按图或表的方式制作的。</p>
+<p><span class="text-success">例 层次、模块划分</span><br><img src="/resources/image/jpg/5dfa3590nc6e91f0cf41c&amp;690.jpg" alt=""></p>
+<p><span class="text-muted"><br>    例中对系统首先进行了平台的划分（省、市、终端）、各平台中的子系统（监控系统、分析系统）进行定义，同时对子系统中的各模块（服务）进行的明确的定义。<br></span></p>
+<p><span class="text-success">例 层次、模块划分</span><br><span class="text-muted"><br>    按业务功能进行划分，同时对一些共性模块进行抽象后归纳。<br></span><br><img src="/resources/image/jpg/5dfa3590nc6e9204e123d&amp;690.jpg" alt=""></p>
+<p>第2步进行流程划分，进行模块间的流程设计。层次、模块划分完成后，需要对整理描述各模块间的关系，这些关系可以包括时序关系、状态关系、数据关系等等。在实际设计中，可以根据情况采用不同的描述方法来制作对应的设计文档，比如以时序为主的系统可以采用时序图。</p>
+<p><span class="text-success">例 模块切分后，切分用例、流程。采用时序图的方式进行的模块间流程设计</span><br><img src="/resources/image/jpg/5dfa3590nc6e9219ec1c4&amp;690.jpg" alt=""></p>
+<h4 id="3-接口设计"><a href="#3-接口设计" class="headerlink" title="3. 接口设计"></a>3. 接口设计</h4><p>软件系统结合业务、功能、部署等等因素将软件系统逐步分解到模块，那么模块与模块间就必须根据各模块的功能定义对应的接口。概要中的接口设计主要用于子系统/模块之间或内部系统与外部系统进行各种交互。接口设计的内容应包含:功能描述、接口的输入输出定义、错误处理等。软件系统接口的种类以及规范很多，可以有API、服务接口、文件、数据库等等，所以设计的方法也有很大的差异。但是总体来说接口设计的内容包含：通讯方法、协议、接口调用方法、功能内容、输入出参数、错误/例外机制等。从成果上来看，接口一览（表）以及详细设计资料是必须的资料。</p>
+<p><span class="text-success">例.  Web Service 调用的XML格式的接口设计</span><br><span class="text-muted">这个接口定义了数据的格式、含义、类型等方面的内容。</span><br><img src="/resources/image/jpg/5dfa3590nc6e926759617&amp;690.jpg" alt=""></p>
+<p><span class="text-success">例.  API调用模式的接口设计</span><br><img src="/resources/image/jpg/5dfa3590nc6e927657106&amp;690.jpg" alt=""></p>
+<h4 id="4-数据设计"><a href="#4-数据设计" class="headerlink" title="4. 数据设计"></a>4. 数据设计</h4><p>现代的软件系统和信息数据紧密的相连，尤其信息系统主要就是处理各类数据。从本质上来说各类系统都是（信息）收集、转换、处理、再转换、传播的过程。难道不是这样吗？从人体这个系统到我们的电视、手机系统，这些本质过程有差异吗？ 软件系统的数据设计，尤其信息系统，主要包含数据库设计或完成核心（库）表的设计，当然除了数据库设计还包括建立在内存、文件中各种关键的数据也是设计内容。</p>
+<ul>
+<li>数据库设计：数据库逻辑设计、物理设计、容量设计、数据字典、数据部署设计等等内容。</li>
+<li>数据设计：配置文件设计、临时文件设计、内存数据设计（共享数据设计、内容数据结构设计）等内容。</li>
+</ul>
+<p><span class="text-success">例 数据库设计（E-R图）</span><br><img src="/resources/image/jpg/5dfa3590nc6e928a33fca&amp;690.jpg" alt=""></p>
+<p><span class="text-success">例 数据字典</span><br><span class="text-danger">补充</span></p>
+<p><span class="text-success">例 内存设计</span><br><span class="text-danger">补充</span></p>
+<p><span class="text-success">例 配置文件设计</span><br><span class="text-danger">补充</span></p>
+<h3 id="2-详细设计的主要内容"><a href="#2-详细设计的主要内容" class="headerlink" title="2. 详细设计的主要内容"></a>2. 详细设计的主要内容</h3><p>详细设计的是概要设计的延续，这个延续体现在设计粒度上。一般来说，详细设计根据业务要求以及概要设计的内容，确定细化个各类组件的功能、逻辑流程、业务要求、组件接口。 从过程上基本遵循设计的4个主要活动，具体操作一般可以概括为模块组件分割、模块组件设计、设计共通功能3个步骤，其中组件分割是比较关键的。一般的信息系统，主要的组件分类可以包括画面、报表、服务、共同组件。</p>
+<p><img src="/resources/image/gif/5dfa3590nc6e9434a998c&amp;690.gif" alt=""></p>
+<h4 id="1-画面设计"><a href="#1-画面设计" class="headerlink" title="1. 画面设计"></a>1. 画面设计</h4><p>画面设计是交互性设计的主要内容之一。常见的设计内容包括画面一览对应的画面迁移关系，详细的画面功能。</p>
+<p><span class="text-success">例， 画面一览</span><br><img src="/resources/image/jpg/5dfa3590nc6e929d6ab8b&amp;690.jpg" alt=""></p>
+<p><span class="text-success">例，画面迁移</span><br><span class="text-muted">画面迁移主要描述画面间的动作关系、定义所有画面的出入口等内容。</span><br><img src="/resources/image/gif/5dfa3590nc6e92af81572&amp;690.gif" alt=""></p>
+<p class="bg-primary">单体画面设计</p>
+
+<p><span class="text-success">例 画面的原型</span><br><img src="/resources/image/jpg/5dfa3590nc6e93c23e117&amp;690.jpg" alt=""></p>
+<p><span class="text-success">例 画面的动作定义</span><br><img src="/resources/image/jpg/5dfa3590nc6e93cf8d1ab&amp;690.jpg" alt=""></p>
+<p><span class="text-success">例 画面要素、处理定义</span><br><img src="/resources/image/jpg/5dfa3590nc6e93e123ffa&amp;690.jpg" alt=""></p>
+<h4 id="2-服务设计"><a href="#2-服务设计" class="headerlink" title="2. 服务设计"></a>2. 服务设计</h4><p>服务组件对应软件系统主要通过软件接口实现功能的模块，详细设计中服务设计主要内容包括对应程序模块（package）设计、Class设计、处理逻辑（时序关系）、内外接口、限制条件等等。</p>
+<p><span class="text-success">例 处理逻辑</span><br><img src="/resources/image/gif/5dfa3590nc6e93f20511e&amp;690.gif" alt=""></p>
+<p><span class="text-success">例 Class设计</span><br><img src="/resources/image/gif/5dfa3590n7a4a8664ac7f&amp;690.gif" alt=""></p>
+<h4 id="3-共同设计"><a href="#3-共同设计" class="headerlink" title="3. 共同设计"></a>3. 共同设计</h4><p>详细设计中关键的步骤就是进行共同设计，共同设计的多少往往极大的影响后续开发的工作量。比如一个系统抽取40%的共同和只抽取10%的共同，开发、测试工作量差异很大。建议具体项目中应尽早以及有效的管理共同设计。共同设计可以大体分为业务共同、技术共同。</p>
+<ul>
+<li>业务共同是同业务相关的，可以根据业务的特征识别并抽象出不同的模型进行设计，不过一些常见共同比较容易识别，比如权限管理、基础(master)数据管理、用户管理、安全管理等等。再如常见的电商系统，包括内容(CMS)管理、推荐引擎、TM、OSS、BI、支付、广告管理等都可以根据情况纳入到共同设计中。</li>
+<li>技术共同一般是和计算机技术相关的，比如线程管理、画面各组件、LOG管理、内存管理、文件处理、文字处理、配置管理、加解密、日志、消息、异常、错误处理等。</li>
+</ul>
+<p><span class="text-success">例 共同设计</span><br><span class="text-danger">补充</span></p>
+<p><span class="text-success">例 目录( 配置) 结构的设计</span><br><img src="/resources/image/jpg/5dfa3590n7a4a867ac740&amp;690.jpg" alt=""></p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2016/06/13/design-outline-detailed-summary/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2016/06/12/essential-git/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2016/06/13/design-outline-detailed-ii/" data-title="概要设计、详细设计(二) 设计的内容" data-url="http://zhengdehua.github.io/2016/06/13/design-outline-detailed-ii/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2016-06-13 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Technology/">Technology<span>20</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/cite/">cite<span>13</span></a></li> <li><a href="/tags/Design/">Design<span>3</span></a></li> <li><a href="/tags/Requirements/">Requirements<span>3</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'zhengdehua' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 zhengdehua
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

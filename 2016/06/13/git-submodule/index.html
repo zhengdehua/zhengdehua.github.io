@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Git submodule 功能 | nightwatch</title>
+  <meta name="author" content="zhengdehua">
+  
+  <meta name="description" content="git submodule 功能
+引用 open-open 网站引用 咖啡兔个人站点
+
+1. 前言项目库在一些情况下需要引用其他版本库的文件，比如一些公用的代码，这些公用的代码需要独立的仓库来维护，可是其他项目引用的时候，如果只是各自拷贝公用的代码到自己的库，会造成代码的冗余，而且还会丢失公共代码库">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Git submodule 功能"/>
+  <meta property="og:site_name" content="nightwatch"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">nightwatch</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有的存档">
+			  <i class="fa fa-archive"></i>存档
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories"" title="所有的分类">
+			  <i class="fa fa-folder"></i>分类
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="全部标签">
+			  <i class="fa fa-tags"></i>标签
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="个人信息">
+			  <i class="fa fa-user"></i>关于我
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/focussites" title="收集有价值站点">
+			  <i class="fa fa-external-link-square"></i>关注站点
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Git submodule 功能</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="git-submodule-功能"><a href="#git-submodule-功能" class="headerlink" title="git submodule 功能"></a>git submodule 功能</h2><blockquote>
+<p>引用 <a href="http://www.open-open.com/lib/view/open1396404725356.html" target="_blank" rel="external">open-open 网站</a><br>引用 <a href="http://www.kafeitu.me/git/2012/03/27/git-submodule.html" target="_blank" rel="external">咖啡兔个人站点</a></p>
+</blockquote>
+<h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><p>项目库在一些情况下需要引用其他版本库的文件，比如一些公用的代码，这些公用的代码需要独立的仓库来维护，可是其他项目引用的时候，如果只是各自拷贝公用的代码到自己的库，会造成代码的冗余，而且还会丢失公共代码库自己的维护历史。在这样的背景下，git submodule 的出现，很好解决了这个问题, git submodule 功能允许将一个仓库当作另一个仓库的子目录，这样保证了可以引用公用代码库，并且不影响自身代码库的提交。</p>
+<h3 id="2-准备工作"><a href="#2-准备工作" class="headerlink" title="2. 准备工作"></a>2. 准备工作</h3><p>首先需要两个版本库例如：</p>
+<p>1) 一个公共的版本库(例如：libA.git)</p>
+<p>git@gitlab.szreach.com:fengyang/liba.git</p>
+<p>2) 一个引用公共版本库的主版本库(例如：super.git)</p>
+<p>git@gitlab.szreach.com:fengyang/super.git</p>
+<h3 id="3-TortoiseGit上git-submodule功能实现"><a href="#3-TortoiseGit上git-submodule功能实现" class="headerlink" title="3. TortoiseGit上git submodule功能实现"></a>3. TortoiseGit上git submodule功能实现</h3><p><strong>1、添加子模组的步骤</strong></p>
+<p>第一步：使用submodule add…添加子模组在需要作添加子模组的Git版本库中右击，选择“TortoiseGit-&gt;Submodule Add…”，在“Repository:”里面输入需要添加子模组的版本库路径，在“Path：”中输入添加子模组存放的目录路径。如下图所示：<br><img src="/resources/image/png/20140402101116_134.png" alt=""></p>
+<p>此时查看需要添加子模组的Git工作区的目录结构。在根目录下多了一个.gitmodules文件，并且公共代码库被克隆到lib/lib_a目录下。<br><img src="/resources/image/png/20140402101116_320.png" alt=""></p>
+<p>第二步：查看.gitmodules的内容 .gitmodules的内容记录着含子模组存放的目录路径及子模组版本库的路径<br><img src="/resources/image/png/20140402101116_721.png" alt=""></p>
+<p class="text-danger"><br>    注：此时工作区尚未提交，完成提交后，子模组才算正式完成在需要作添加子模组的Git版本库中创立。<br>    注：此主版本库(super.git)就变成了一个包含子模组的版本库。<br></p>
+
+<p><strong>2、克隆带子模组的版本库的步骤</strong></p>
+<p>克隆带子模组的git库，并不能自动将子模组的版本库克隆出来，对于只关心项目本身的数据，而不关心项目引用的外部项目数据的用户，这个功能非常好，数据没有冗余而且克隆的速度也很快。</p>
+<p>第一步：克隆super主版本库<br>在工作区中克隆主主版本库后，会发现子模组的版本库并没有克隆，只有将存放子模组版本库的目录克隆下来了。<br><img src="/resources/image/png/20140402101116_467.png" alt=""><br><img src="/resources/image/png/20160613112029.png" alt=""></p>
+<p>第二步：克隆子模组<br>如果需要克隆出子模组形式引用的外部库，首先需要执行Submodule Update操作。<br>在需要作克隆子模组的Git工作区中右击，选择“TortoiseGit-&gt;Submodule Update…”,点击“OK”即可。<br><img src="/resources/image/png/20140402101117_552.png" alt=""></p>
+<p>执行Submodule Update…操作后就会把子模组的版本库克隆下来。<br><img src="/resources/image/png/20140402101117_706.png" alt=""></p>
+<p><strong>3、对主Git库工作区作commit、checkout、revert、pull、push等更改Git工作区内容的操作时，查看Submodule目录下内容的效果</strong></p>
+<p>1) 对主Git库工作区作commit操作<br>当在主Git库工作区中变更到达一个适当状态时，我们需要将这些变更提交到Git库，作版本备份和跟踪。</p>
+<p>方法：<br>在工作区内右击，选择“ Commit-&gt; “当前分支名称” ”，在Commit窗口中，选择需要提交的变更path，填写提交说明，点击“Ok”。<br><img src="/resources/image/png/20140402101117_115.png" alt=""></p>
+<p class="text-info"><br>    结论：在主git工作区作commit操作，只是将主Git工作区的变更历史提交到主Git本地库中，对Submodule没有任何影响。<br></p>
+
+
+<p>2) 对主Git库工作区作checkout操作<br>当在主Git库工作区中想要切换到其他某个分支、某个tag、某个commit历史记录。</p>
+<p>我们这里举个特殊的例子：<br>切换到某个commit历史记录(如在主版本库中提交子版本库的历史记录)</p>
+<p>方法：<br>在Git工作区内的某目录上右击，选择“Swicht/Checkout…”在Swicht/Checkout…Checkout窗口中，在Switch to Commmit中列出需要切换的commit历史记录，在此列表中选择需要切换到的commit历史记录，以后点击“Ok”按钮。<br><img src="/resources/image/png/20140402101118_126.png" alt=""><br><img src="/resources/image/png/20140402101119_32.png" alt=""><br><img src="/resources/image/png/20140402101119_562.png" alt=""></p>
+<p class="text-danger"><br>    注：由于切换到的是在主版本库中提交子版本库的那条历史记录，因此子模组中状态也会改换，也需要在子模组中执行切换。<br></p>
+
+<p>执行Submodule Update操作即可。<br><img src="/resources/image/png/20140402101119_63.png" alt=""></p>
+<p>3) 对主Git库工作区作revert操作<br>当在主Git库工作区中这次变更有错误时，就可以使用revert操作来撤销这次次操作。</p>
+<p>方法：<br>在工作区内右击，选择“Revert”，在Revert窗口中，选择需要撤销的变更path，点击“Ok”。<br><img src="/resources/image/png/20140402101120_416.png" alt=""><br><img src="/resources/image/png/20140402101120_387.png" alt=""></p>
+<p class="text-info"><br>    结论：在主git工作区作revert操作，只是将主Git工作区某次的变更操作给撤销，此次操作之前的commit都会被保留，且对Submodule没有任何影响。<br></p>
+
+
+<p>4) 对主Git库工作区作push操作<br>当在主Git库工作区中将主Git本地库的数据推送到主Git远程库中。</p>
+<p>方法：在工作区的目录上（不要在文件上）右击，选择“Git Sync…”<br>“Local Branch”，”Remote Branch”，“Remote URL”这3栏必须正确才能“推”数据。<br><img src="/resources/image/png/20140402101120_503.png" alt=""></p>
+<p class="text-info"><br>    结论：在主git工作区作push操作，只是将主Git本地库的变更历史推送到到主Git远程库中，对Submodule没有任何影响。<br></p>
+
+
+
+<p>5) 对主Git库工作区作pull操作<br>当在主Git库工作区中将主Git远程库的拉取到主Git本地库中。</p>
+<p>方法：在工作区的目录上（不要在文件上）右击，选择“Git Sync…”<br>“Local Branch”，”Remote Branch”，“Remote URL”这3栏必须正确才能“拉”数据。<br><img src="/resources/image/png/20140402101121_359.png" alt=""></p>
+<p class="text-info"><br>    结论：在主git工作区作pull操作，只是将主Git远程库的变更历史拉取到到主Git本地库中，对Submodule没有任何影响。<br></p>
+
+
+<p><strong>4、对submodule下的内容进行修改后commit、push，对submodule目录作pull</strong></p>
+<p>在执行Submodule Update…操作更新出子模组后，都以某个具体的提交版本进行检出，进入子模组目录，会发现其处于非跟踪状态。<br><img src="/resources/image/png/20140402101121_322.png" alt=""></p>
+<p>显然这种情况下，如果修改lib/lib_a下的文件，提交就会丢失。下面介绍如何在检查的子模组中修改，以及如何更新子模组。<br>在子模组中切换到master分支(或者其他想要修改的分支)后在进行修改。</p>
+<ul>
+<li>切换到master分支，然后在工作区做一些改动。<br><img src="/resources/image/png/20140402101122_701.png" alt=""></li>
+</ul>
+<ul>
+<li>执行commit后，并且推送到子模组库中后。</li>
+</ul>
+<ul>
+<li>回到主版本库中。<br>在主版本库中查看状态，在主版本库中可以看到子模组已修改，包含了更新的提交。</li>
+</ul>
+<ul>
+<li>需要将修改提交在主版本库中进行推送。<br><img src="/resources/image/png/20140402101122_472.png" alt=""></li>
+</ul>
+<p>对submodule目录作pull<br>当子模组版本库中有新的提交历史记录，就需要做pull操作来更新。<br><img src="/resources/image/png/20140402101123_931.png" alt=""></p>
+<p class="text-danger"><br>    注：对子模组库中做了pull操作，同时需要对调用子模组库的主版本库中也要做Pull操作。<br></p>
+
+
+<p>如下图所示：<br><img src="/resources/image/png/20140402101123_45.png" alt=""></p>
+<p></p><p class="text-danger"><br>    注意：进入子模组目录，会发现其处于非跟踪状态。显然这种情况下，如果修改lib/lib_a下的文件，提交就会丢失。提示如下：<br></p><br><img src="/resources/image/png/20140402101124_462.png" alt=""><p></p>
+<p><strong>5、移除Submodule</strong></p>
+<p>第一步：用Delete(keep local) 将目录或文件命令从git的索引库中移除子模块目录<br>方法：</p>
+<p>在工作区内目录或文件上右击，选择“Delete(keep local)”，在Delete窗口中，点击“Remove”。<br>Delete(keep local)把目录lib/从git的索引库中移除,但是对目录lib/本身并不进行任何操作。<br>因此需要彻底删除。</p>
+<p>第二步：删除物理文件<br>第三步：删除.gitmodule文件<br>第四步：删除.git/config的submodule配置源文件</p>
+<p>删除如下图所示红框的部门<br><img src="/resources/image/png/20140402101124_204.png" alt=""></p>
+<p>第五步：删除后，提交更改</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2016/06/14/hibernate-pk-increment/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2016/06/13/design-outline-detailed/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2016/06/13/git-submodule/" data-title="Git submodule 功能" data-url="http://zhengdehua.github.io/2016/06/13/git-submodule/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2016-06-13 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Technology/">Technology<span>20</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/cite/">cite<span>13</span></a></li> <li><a href="/tags/Git/">Git<span>2</span></a></li> <li><a href="/tags/VCS/">VCS<span>2</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'zhengdehua' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 zhengdehua
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
